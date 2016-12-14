@@ -1,9 +1,128 @@
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
+$light: #fff !default;
+$stable: #f8f8f8 !default;
+$positive: #278bcb !default;
+$calm: #11c1f3 !default;
+$balanced: #33cd5f !default;
+$energized: #ffc900 !default;
+$assertive: #ef473a !default;
+$royal: #886aea !default;
+$dark: #444 !default;
+$font-family-sans-serif: "Arial", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+@font-face {
+  font-family: 'Arial';
+  src: url("../fonts/arial.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Arial';
+  src: url("../fonts/arialbd.ttf");
+  font-weight: 700;
+}
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+.bg-login {
+  background: url('../img/bg-login.jpg')no-repeat;
+  background-size: cover;
+}
+
+.sn-lg-width {
+  width: 90px;
+}
+
+.mtop {
+  margin-top: 30%;
+}
+.mtop15 {
+  margin-top: 15%;
+}
+.margin0{
+  margin: 0;
+}
+.lg-form {
+  padding: 21px 30px 0;
+
+  .list {
+    margin-bottom: 15px;
+  }
+
+  .item-input {
+    padding: 2px 0 1px 40px;
+  }
+
+  input[type="password"],
+  input[type="text"] {
+    height: 32px;
+    font-size: 12px;
+    color: $positive;
+    @include placeholder {
+      color: $positive;
+      font-size: 11px;
+    }
+  }
+
+  .item {
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  i {
+    color: #468ac7;
+    position: absolute;
+    z-index: 99;
+    font-size: 21px;
+    left: 7px;
+    border-right: 1px solid;
+    padding-right: 9px;
+    top: 7px;
+  }
+}
+
+.sn-relative {
+  position: relative;
+}
+
+.lg-button {
+  text-align: center;
+  padding-top:30px;
+
+  .button {
+    padding: 2px 40px;
+    border-color: rgb(255, 255, 255) !important;
+  }
+}
+
+.color-white{
+  color:#fff;
+}
+.font-bold{
+  font-weight: 700;
+}
+.tl-point{
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(118, 172, 204, 0.54) 0%, rgba(38, 145, 207, 0.14) 26%, rgba(38, 145, 207, 0.92) 75%, rgba(38, 145, 207, 0.67) 100%);
+  border-radius: 50%;
+  height: 230px;
+  width: 230px;
+  margin: 0 auto;
+  border: 3px solid #9ad8f0;
+  position: relative;
+  h1{
+    font-size: 50px;
+  }
+}
+.point{
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+}
+.pt50{
+  padding-top: 50px;
+}
