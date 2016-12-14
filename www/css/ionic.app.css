@@ -29,6 +29,10 @@ $dark:                            #444 !default;
   background: url("../img/bg-login.jpg") no-repeat;
   background-size: cover; }
 
+.bg-menu {
+  background: url("../img/bg-menu.jpg") no-repeat;
+  background-size: cover; }
+
 .sn-lg-width {
   width: 90px; }
 

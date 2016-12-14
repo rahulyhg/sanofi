@@ -43,6 +43,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'TotalPointCtrl'
 
     })
+  .state('home-menu', {
+      url: '/home-menu',
+      templateUrl: 'templates/home-menu.html',
+      controller: 'HomeMenuCtrl'
+
+    })
   .state('app.search', {
     url: '/search',
     views: {
