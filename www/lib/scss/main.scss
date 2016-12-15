@@ -32,6 +32,7 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   background: url('../img/bg-login.jpg')no-repeat;
   background-size: cover;
 }
+
 .bg-menu {
   background: url('../img/bg-menu.jpg')no-repeat;
   background-size: cover;
@@ -44,12 +45,15 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 .mtop {
   margin-top: 30%;
 }
+
 .mtop15 {
   margin-top: 15%;
 }
-.margin0{
+
+.margin0 {
   margin: 0;
 }
+
 .lg-form {
   padding: 21px 30px 0;
 
@@ -95,7 +99,7 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 
 .lg-button {
   text-align: center;
-  padding-top:30px;
+  padding-top: 30px;
 
   .button {
     padding: 2px 40px;
@@ -103,13 +107,15 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   }
 }
 
-.color-white{
-  color:#fff;
+.color-white {
+  color: #fff;
 }
-.font-bold{
+
+.font-bold {
   font-weight: 700;
 }
-.tl-point{
+
+.tl-point {
   background: -webkit-radial-gradient(center, ellipse cover, rgba(118, 172, 204, 0.54) 0%, rgba(38, 145, 207, 0.14) 26%, rgba(38, 145, 207, 0.92) 75%, rgba(38, 145, 207, 0.67) 100%);
   border-radius: 50%;
   height: 230px;
@@ -117,16 +123,87 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   margin: 0 auto;
   border: 3px solid #9ad8f0;
   position: relative;
-  h1{
+
+  h1 {
     font-size: 50px;
   }
 }
-.point{
+
+.point {
   position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
-.pt50{
+
+.pt50 {
   padding-top: 50px;
+}
+
+.iclass {
+  z-index: 9;
+  position: absolute;
+  width: 64px;
+  left: 41px;
+  top: 5px;
+}
+
+.bar-stable .button.button-clear {
+  color: $positive !important;
+}
+
+.nm-left {
+  position: absolute;
+  z-index: 9;
+  right: 10px;
+  top: 9px;
+  text-align: center;
+
+  span {
+    display: block;
+    font-size: 11px;
+    line-height: 135%;
+  }
+}
+
+.color-grey {
+  color: #6d6e71;
+}
+
+.text-up {
+  text-transform: uppercase;
+}
+
+.kpi-bd {
+  .item-divider {
+      border-width: 0px;
+    font-size: 12px;
+    background-color: #000000;
+    color: #fff;
+  }
+}
+.kpi-bds{
+      padding: 5px 5px 0px 5px;
+  @extend .kpi-bd;
+  .item-divider {
+
+    background-color: #acb317;
+
+  }
+  span{
+        font-size: 15px;
+  }
+}
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
 }

@@ -121,6 +121,59 @@ $dark:                            #444 !default;
 .pt50 {
   padding-top: 50px; }
 
+.iclass {
+  z-index: 9;
+  position: absolute;
+  width: 64px;
+  left: 41px;
+  top: 5px; }
+
+.bar-stable .button.button-clear {
+  color: #278bcb !important; }
+
+.nm-left {
+  position: absolute;
+  z-index: 9;
+  right: 10px;
+  top: 9px;
+  text-align: center; }
+  .nm-left span {
+    display: block;
+    font-size: 11px;
+    line-height: 135%; }
+
+.color-grey {
+  color: #6d6e71; }
+
+.text-up {
+  text-transform: uppercase; }
+
+.kpi-bd .item-divider, .kpi-bds .item-divider {
+  border-width: 0px;
+  font-size: 12px;
+  background-color: #000000;
+  color: #fff; }
+
+.kpi-bds {
+  padding: 5px 5px 0px 5px; }
+  .kpi-bds .item-divider {
+    background-color: #acb317; }
+  .kpi-bds span {
+    font-size: 15px; }
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear; }
+
+.list .item.item-accordion.ng-hide {
+  line-height: 0px; }
+
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

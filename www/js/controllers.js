@@ -4,9 +4,6 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-
-})
 .controller('LoginCtrl', function($scope) {
 
 })
@@ -25,5 +22,16 @@ $scope.menu=[
 ]
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('KpiCtrl', function($scope, $stateParams) {
+  // $scope.groups = [];
+   $scope.toggleGroup = function(group) {
+     if ($scope.isGroupShown(group)) {
+       $scope.shownGroup = null;
+     } else {
+       $scope.shownGroup = group;
+     }
+   };
+   $scope.isGroupShown = function(group) {
+     return $scope.shownGroup === group;
+   };
 });
