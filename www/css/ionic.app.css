@@ -154,6 +154,10 @@ $dark:                            #444 !default;
   background-color: #000000;
   color: #fff; }
 
+.kpi-bd .item-accordion, .kpi-bds .item-accordion {
+  background-color: transparent;
+  border: none; }
+
 .kpi-bds {
   padding: 5px 5px 0px 5px; }
   .kpi-bds .item-divider {
@@ -173,6 +177,48 @@ $dark:                            #444 !default;
 .list .item.item-accordion.ng-hide-add,
 .list .item.item-accordion.ng-hide-remove {
   display: block !important; }
+
+.pnt, .pnt1 {
+  background-color: rgba(53, 162, 217, 0.46);
+  padding: 10px 0;
+  margin: 5px; }
+
+.pnt1 {
+  padding: 0;
+  margin: 0px; }
+
+.acc .item.item-stable {
+  background-color: #fff !important;
+  border-color: #fff  !important; }
+
+.clauses {
+  padding: 0 10px;
+  margin-top: 5px; }
+  .clauses p, .clauses h3 {
+    color: #fff !important; }
+  .clauses p {
+    line-height: 112%; }
+
+.clauses + .clauses {
+  margin-top: 15px; }
+
+.kpi-bdss {
+  margin-top: 5px; }
+  .kpi-bdss .item {
+    padding: 0;
+    background-color: transparent;
+    border: none; }
+  .kpi-bdss .acc .item-stable {
+    background-color: black !important;
+    padding: 10px;
+    color: #fff; }
+  .kpi-bdss .pnt {
+    background-color: #fff;
+    padding: 0; }
+    .kpi-bdss .pnt p {
+      font-size: 10px; }
+    .kpi-bdss .pnt p + p {
+      background-color: #000; }
 
 /*!
   Ionicons, v2.0.1

@@ -74,6 +74,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'KpiCtrl'
       }
     }
+  })
+  
+    .state('app.reward', {
+    url: '/reward',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/reward.html',
+        controller: 'RewardCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
