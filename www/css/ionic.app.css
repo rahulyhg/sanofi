@@ -164,6 +164,10 @@ $dark:                            #444 !default;
     background-color: #acb317; }
   .kpi-bds span {
     font-size: 15px; }
+  .kpi-bds .item-accordion {
+    margin-bottom: 10px; }
+  .kpi-bds .item {
+    padding: 7px; }
 
 .list .item.item-accordion {
   line-height: 38px;
@@ -180,16 +184,25 @@ $dark:                            #444 !default;
 
 .pnt, .pnt1 {
   background-color: rgba(53, 162, 217, 0.46);
-  padding: 10px 0;
+  padding: 15px 0;
   margin: 5px; }
+  .pnt h4, .pnt1 h4 {
+    font-size: 16px !important; }
 
 .pnt1 {
-  padding: 0;
+  padding: 15px  0;
   margin: 0px; }
 
-.acc .item.item-stable {
-  background-color: #fff !important;
-  border-color: #fff  !important; }
+.acc {
+  margin-top: 5px; }
+  .acc .item.item-stable {
+    background-color: #fff !important;
+    border-color: #fff  !important;
+    font-size: 13px;
+    position: relative; }
+    .acc .item.item-stable .icon {
+      position: absolute;
+      right: 50px; }
 
 .clauses {
   padding: 0 10px;

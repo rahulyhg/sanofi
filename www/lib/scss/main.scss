@@ -198,6 +198,12 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   span{
         font-size: 15px;
   }
+  .item-accordion{
+        margin-bottom: 10px;
+  }
+  .item{
+    padding: 7px;
+  }
 }
 .list .item.item-accordion {
   line-height: 38px;
@@ -214,17 +220,27 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 }
 .pnt,.pnt1{
   background-color: rgba(53, 162, 217, 0.46);
-    padding: 10px 0;
+    padding: 15px 0;
     margin: 5px;
+    h4{   
+        font-size: 16px!important;
+    }
 }
 .pnt1{
-    padding:  0;
+    padding: 15px  0;
     margin: 0px;
 }
 .acc{
+  margin-top: 5px;
 .item.item-stable{
   background-color: #fff !important;
   border-color:#fff  !important;
+  font-size: 13px;
+  position: relative;
+  .icon{
+    position: absolute;
+    right: 50px;
+  }
 }
 }
 .clauses{
