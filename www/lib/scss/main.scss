@@ -1,6 +1,6 @@
 $light: #fff !default;
 $stable: #f8f8f8 !default;
-$positive: #278bcb !default;
+$positive: #186a9e !default;
 $calm: #11c1f3 !default;
 $balanced: #33cd5f !default;
 $energized: #ffc900 !default;
@@ -82,7 +82,7 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   }
 
   i {
-    color: #468ac7;
+    color:$positive;
     position: absolute;
     z-index: 99;
     font-size: 21px;
@@ -116,7 +116,8 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 }
 
 .tl-point {
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(118, 172, 204, 0.54) 0%, rgba(38, 145, 207, 0.14) 26%, rgba(38, 145, 207, 0.92) 75%, rgba(38, 145, 207, 0.67) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(118, 172, 204, 0.54) 0%, rgba(38, 145, 207, 0.14) 26%, rgba(22, 121, 179, 0.92) 75%, rgba(38, 145, 207, 0.67) 100%);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(118, 172, 204, 0.54) 0%, rgba(38, 145, 207, 0.14) 26%, rgba(22, 121, 179, 0.92) 75%, rgba(38, 145, 207, 0.67) 100%);
   border-radius: 50%;
   height: 230px;
   width: 230px;
@@ -219,11 +220,11 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   display: block !important;
 }
 .pnt,.pnt1{
-  background-color: rgba(53, 162, 217, 0.46);
+    background-color: rgba(255, 255, 255, 0.16);
     padding: 15px 0;
     margin: 5px;
     h4{
-        font-size: 16px!important;
+        font-size: 15px!important;
     }
 }
 .pnt1{
