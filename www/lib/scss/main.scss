@@ -222,7 +222,7 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   background-color: rgba(53, 162, 217, 0.46);
     padding: 15px 0;
     margin: 5px;
-    h4{   
+    h4{
         font-size: 16px!important;
     }
 }
@@ -239,7 +239,7 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   position: relative;
   .icon{
     position: absolute;
-    right: 50px;
+    right: 15px;
   }
 }
 }
@@ -273,17 +273,18 @@ p{
   .pnt{
     background-color: #fff;
    padding: 15px 0 0;
+       overflow: hidden;
     p{
       font-size: 10px;
     }
   }
- 
+
   .name{
-     background-color: #fff; 
+     background-color: #fff;
      p{
  color: #000;
      }
-    
+
   }
   .points{
      background-color: #000;
@@ -291,13 +292,13 @@ p{
  color: #fff;
  font-weight: 700;
      }
-    
+
   }
   .icon{
     height: 12px;
     width:12px;
     position: absolute;
-    top: 8px;
+    top: 14px;
     right: 66px;
   }
 .ion-chevron-up:before,
@@ -313,7 +314,7 @@ p{
 }
 .box{
   position: relative;
-   padding: 85px;
+   padding: 85px 70px;
     .images{
       position: absolute;
     top: 0;

@@ -202,7 +202,7 @@ $dark:                            #444 !default;
     position: relative; }
     .acc .item.item-stable .icon {
       position: absolute;
-      right: 50px; }
+      right: 15px; }
 
 .clauses {
   padding: 0 10px;
@@ -227,7 +227,8 @@ $dark:                            #444 !default;
     color: #fff; }
   .kpi-bdss .pnt {
     background-color: #fff;
-    padding: 15px 0 0; }
+    padding: 15px 0 0;
+    overflow: hidden; }
     .kpi-bdss .pnt p {
       font-size: 10px; }
   .kpi-bdss .name {
@@ -243,7 +244,7 @@ $dark:                            #444 !default;
     height: 12px;
     width: 12px;
     position: absolute;
-    top: 8px;
+    top: 14px;
     right: 66px; }
   .kpi-bdss .ion-chevron-up:before,
   .kpi-bdss .ion-chevron-down:before {
@@ -256,7 +257,7 @@ $dark:                            #444 !default;
     background: url("../img/xxx.png") no-repeat; }
   .kpi-bdss .box {
     position: relative;
-    padding: 85px; }
+    padding: 85px 70px; }
     .kpi-bdss .box .images {
       position: absolute;
       top: 0;
