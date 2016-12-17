@@ -232,8 +232,13 @@ $dark:                            #444 !default;
       font-size: 10px; }
   .kpi-bdss .name {
     background-color: #fff; }
+    .kpi-bdss .name p {
+      color: #000; }
   .kpi-bdss .points {
     background-color: #000; }
+    .kpi-bdss .points p {
+      color: #fff;
+      font-weight: 700; }
   .kpi-bdss .icon {
     height: 12px;
     width: 12px;

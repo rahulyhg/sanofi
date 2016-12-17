@@ -280,9 +280,18 @@ p{
  
   .name{
      background-color: #fff; 
+     p{
+ color: #000;
+     }
+    
   }
   .points{
      background-color: #000;
+     p{
+ color: #fff;
+ font-weight: 700;
+     }
+    
   }
   .icon{
     height: 12px;
