@@ -6,12 +6,13 @@
       </div>
     </div>
     <div class="lg-form">
-      <form action="">
+      <form name="loginForm" ng-submit="submitLoginForm(loginData)">
         <div class="list">
           <div class="sn-relative">
             <i class="ion-person"></i>
             <label class="item item-input">
-      <input type="text" placeholder="USERNAME">
+      <input type="text" placeholder="USERNAME" name="userName" ng-model="loginData.username">
+      <div class="error-msg" ng-show="loginForm.userName.$error.required && loginForm.userName.$dirty">User Name is required</div>
     </label>
           </div>
         </div>
@@ -19,16 +20,21 @@
           <div class="sn-relatve">
             <i class="ion-ios-locked"></i>
             <label class="item item-input">
-          <input type="password" placeholder="PASSWORD">
+          <input type="password" placeholder="PASSWORD" name="password" ng-model="loginData.password">
+          <div class="error-msg" ng-show="loginForm.password.$error.required && loginForm.password.$dirty">Password is required</div>
           </label>
           </div>
         </div>
-      </form>
+
       <div class="lg-button">
-        <button class="button  button-small button-positive" ui-sref="total-point">
+        <!-- <button class="button  button-small button-positive" ui-sref="total-point">
+Login
+</button> -->
+        <button class="button  button-small button-positive">
 Login
 </button>
       </div>
+      </form>
     </div>
   </ion-content>
 </ion-view>

@@ -1,16 +1,34 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,MyServices,$state) {
 
 })
 
-.controller('LoginCtrl', function($scope) {
-
+.controller('LoginCtrl', function($scope,MyServices,$state) {
+  $scope.loginData = {};
+  $scope.submitLoginForm = function(userdata) {
+    MyServices.login(userdata, function(data) {
+        console.log(data.status);
+        if(data.status == 'Login Success'){
+          $state.go('total-point',{id:data.id});
+        }else{
+          //Error popup
+        }
+    });
+  }
 })
-.controller('TotalPointCtrl', function($scope) {
-
+.controller('TotalPointCtrl', function($scope,$stateParams,MyServices) {
+  $.jStorage.set('id',$stateParams.id);
+  var id ={id:$stateParams.id};
+  MyServices.profile(id, function(data) {
+        console.log(data);
+        $scope.getData = data;
+      
+    });
 })
 .controller('HomeMenuCtrl', function($scope) {
+  $scope.getID = $.jStorage.get('id');
+  
 $scope.menu=[
   'img/f1.png',
   'img/f2.png',
@@ -20,9 +38,10 @@ $scope.menu=[
   'img/f6.png',
   'img/f7.png'
 ]
+
 })
 
-.controller('KpiCtrl', function($scope, $stateParams) {
+.controller('KpiCtrl', function($scope, $stateParams,MyServices) {
   // $scope.groups = [];
    $scope.toggleGroup = function(group) {
      if ($scope.isGroupShown(group)) {
@@ -34,9 +53,14 @@ $scope.menu=[
    $scope.isGroupShown = function(group) {
      return $scope.shownGroup === group;
    };
+     var id ={id:$stateParams.id};
+     MyServices.kpis(id, function(data) {
+        console.log(data);
+        $scope.getData = data;
+    });
 })
 
-.controller('RewardCtrl', function($scope, $stateParams) {
+.controller('RewardCtrl', function($scope, $stateParams,MyServices) {
   // $scope.groups = [];
    $scope.toggleGroup = function(group) {
      if ($scope.isGroupShown(group)) {
@@ -48,4 +72,10 @@ $scope.menu=[
    $scope.isGroupShown = function(group) {
      return $scope.shownGroup === group;
    };
+  var id ={id:$stateParams.id};
+     MyServices.rewardcategory(id, function(data) {
+        console.log(data);
+        $scope.getData = data;
+      
+    });
 });

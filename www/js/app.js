@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,7 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     })
   .state('total-point', {
-      url: '/total-point',
+      url: '/total-point/:id',
       templateUrl: 'templates/total-point.html',
       controller: 'TotalPointCtrl'
 
@@ -67,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
   .state('app.kpi', {
-    url: '/kpi',
+    url: '/kpi/:id',
     views: {
       'menuContent': {
         templateUrl: 'templates/kpi.html',
@@ -75,9 +75,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-  
+
     .state('app.reward', {
-    url: '/reward',
+    url: '/reward/:id',
     views: {
       'menuContent': {
         templateUrl: 'templates/reward.html',
@@ -87,4 +87,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
+})
+.filter('uploadpath', function() {
+    return function(input, width, height, style) {
+      console.log('input',input);
+        var other = "";
+        if (width && width != "") {
+            other += "&width=" + width;
+        }
+        if (height && height != "") {
+            other += "&height=" + height;
+        }
+        if (style && style != "") {
+            other += "&style=" + style;
+        }
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+                return imgpath + "?file=" + input + other;
+            } else {
+                return input;
+            }
+        }
+    };
 });
