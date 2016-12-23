@@ -10,31 +10,31 @@
                reward categories <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
             </ion-item>
             <ion-item class="item-accordion" ng-show="isGroupShown(group)">
-            <div class="row">
-              <div class="col-50">
+            <div class="row" ng-repeat="data1 in getRewardData">
+              <div class="col-50" ng-repeat="data in data1">
                 <div class="pnt text-center">
                   <div class="box">
  <div class="images">
   <img src="img/red.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
  <p>Lenovo Sterio Headphone</p>
                  </div>
                 <div class="points">
-                  <p>Points: 450</p>
+                  <p>Points: {{data.points}}</p>
                   </div>
                   <!--<h4 class="color-white margin0 ">First Month</h4>
                   <h1 class="color-white margin0 font-bold">100</h1>-->
                 </div>
               </div>
-              <div class="col-50">
+              <!-- <div class="col-50">
               <div class="pnt text-center">
                   <div class="box">
  <div class="images">
   <img src="img/blacky.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
@@ -43,18 +43,18 @@
                 <div class="points">
                   <p>Points: 1200</p>
                   </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>-->
+                  <h4 class="color-white margin0 ">First Month</h4>
+                  <h1 class="color-white margin0 font-bold">100</h1>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-50">
                  <div class="pnt text-center">
                   <div class="box">
  <div class="images">
   <img src="img/head.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
@@ -63,8 +63,8 @@
                 <div class="points">
                   <p>Points: 700</p>
                   </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>-->
+                  <h4 class="color-white margin0 ">First Month</h4>
+                  <h1 class="color-white margin0 font-bold">100</h1>
                 </div>
               </div>
               <div class="col-50">
@@ -72,7 +72,7 @@
                   <div class="box">
  <div class="images">
   <img src="img/blue.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
@@ -92,7 +92,7 @@
                   <div class="box">
  <div class="images">
   <img src="img/purple.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
@@ -110,7 +110,7 @@
                   <div class="box">
  <div class="images">
   <img src="img/phillip.jpg" class="img-responsive" alt="">
-                 
+
                   </div>
                   </div>
                  <div class="name">
@@ -123,7 +123,7 @@
                   <h1 class="color-white margin0 font-bold">100</h1>-->
                 </div>
               </div>
-            </div>
+            </div> -->
             </ion-item>
           </div>
         </ion-list>

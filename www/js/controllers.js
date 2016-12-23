@@ -80,11 +80,13 @@ $scope.menu=[
 .controller('RewardCtrl', function($scope, $stateParams,MyServices) {
 
   // $scope.groups = [];
-  var id ={id:$stateParams.id};
-
-  MyServices.rewardcategory(id, function(data) {
+  // var id ={id:$stateParams.id};
+  var profile = $.jStorage.get('profile');
+  var catlougeId = {catalogueId:profile.catalogueId};
+  MyServices.reward(catlougeId, function(data) {
      console.log(data);
-     $scope.getData = data;
+     $scope.getRewardData = data;
+     $scope.getRewardData = _.chunk(data,2);
  });
    $scope.toggleGroup = function(group) {
      if ($scope.isGroupShown(group)) {
@@ -96,10 +98,10 @@ $scope.menu=[
    $scope.isGroupShown = function(group) {
      return $scope.shownGroup === group;
    };
-  var id ={id:$stateParams.id};
-     MyServices.rewardcategory(id, function(data) {
-        console.log(data);
-        $scope.getData = data;
-
-    });
+  // var id ={id:$stateParams.id};
+  //    MyServices.rewardcategory(id, function(data) {
+  //       console.log(data);
+  //       $scope.getData = data;
+  //
+  //   });
 });

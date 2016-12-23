@@ -55,9 +55,9 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        rewardcategory : function (formData, callback) {
+        reward : function (formData, callback) {
                 console.log(formData);
-            $http.post(adminurl + 'rewardcategory', formData, {
+            $http.post(adminurl + 'reward', formData, {
                 headers: {
                     'Content-Type': "application/json"
                 }
