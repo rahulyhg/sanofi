@@ -57,6 +57,10 @@ $scope.menu=[
 ]
 
 })
+.controller('RewardCategoryCtrl', function($scope) {
+
+
+})
 
 .controller('KpiCtrl', function($scope, $stateParams,MyServices) {
   // $scope.groups = [];

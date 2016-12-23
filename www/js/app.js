@@ -43,6 +43,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       controller: 'TotalPointCtrl'
 
     })
+
+    .state('app.reward-category', {
+    url: '/reward-category',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/reward-category.html',
+        controller: 'RewardCategoryCtrl'
+      }
+    }
+  })
   .state('home-menu', {
       url: '/home-menu',
       templateUrl: 'templates/home-menu.html',

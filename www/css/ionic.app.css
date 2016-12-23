@@ -266,6 +266,12 @@ $dark:                            #444 !default;
       right: 0;
       left: 0; }
 
+.font-s {
+  font-size: 20px; }
+
+.min-h {
+  min-height: 50px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
