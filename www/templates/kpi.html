@@ -10,24 +10,24 @@
       <div class="item item-divider text-center text-up color-white">
         Maximum KPI points to earn - <span class="font-bold">11000</span>
       </div>
-      <div class="acc">
+      <div class="acc" ng-repeat="kpi in getData">
         <ion-list>
           <div>
-            <ion-item class="item-stable text-center" ng-click="toggleGroup(1)" ng-class="{active: isGroupShown(1)}">
-               Shubhlabh Wholesale Activation Span <i class="icon" ng-class="isGroupShown(1) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+            <ion-item class="item-stable text-center" ng-click="toggleGroup($index)" ng-class="{active: isGroupShown($index)}">
+               {{kpi.kpiDesc}} <i class="icon" ng-class="isGroupShown($index) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
             </ion-item>
-            <ion-item class="item-accordion" ng-show="isGroupShown(1)">
+            <ion-item class="item-accordion" ng-show="isGroupShown($index)">
             <div class="row">
               <div class="col-50">
                 <div class="pnt text-center">
                   <h4 class="color-white margin0 ">First Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>
+                  <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month1}}</h1>
                 </div>
               </div>
               <div class="col-50">
                 <div class="pnt text-center">
                   <h4 class="color-white margin0 ">Second Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>
+                  <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month2}}</h1>
                 </div>
               </div>
             </div>
@@ -35,13 +35,13 @@
               <div class="col-50">
                 <div class="pnt text-center">
                   <h4 class="color-white margin0 ">Third Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>
+                  <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month3}}</h1>
                 </div>
               </div>
               <div class="col-50">
                 <div class="pnt text-center">
                   <h4 class="color-white margin0 ">Quarter</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>
+                  <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.quarter}}</h1>
                 </div>
               </div>
             </div>
@@ -49,24 +49,26 @@
               <div class="col">
                 <div class="pnt1 text-center">
                   <h4 class="color-white margin0 ">Total</h4>
-                  <h1 class="color-white margin0 font-bold">650</h1>
+                  <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.total}}</h1>
                 </div>
               </div>
             </div>
             <div class="clauses">
               <h3>Clause1:</h3>
-              <p>Quarter C/D>=BU's C/D Objective </p>
-               <p>Quarter Average DRc <=3.0 </p>
+              <p ng-bind-html = "kpi.clause1"> </p>
+               <!-- <p>Quarter Average DRc <=3.0 </p>  -->
             </div>
               <div class="clauses">
               <h3>Clause2:</h3>
-              <p>Quarter Target to be >= 100% to redeem<br>the score incase of target <br>achievement< 100% cannot <br>redeem score can win back <br>by next quarter by achieving YTD target</p>
+              <p ng-bind-html = "kpi.clause2"> </p>
+
+              <!-- <p>Quarter Target to be >= 100% to redeem<br>the score incase of target <br>achievement< 100% cannot <br>redeem score can win back <br>by next quarter by achieving YTD target</p> -->
             </div>
             </ion-item>
           </div>
         </ion-list>
 
-      </div>
+      <!-- </div>
        <div class="acc">
         <ion-list>
           <div>
@@ -295,7 +297,7 @@
         </ion-list>
 
       </div>
-    </div>
+    </div> -->
 
   </ion-content>
 </ion-view>

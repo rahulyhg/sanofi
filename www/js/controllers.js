@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout,MyServices,$state) {
+  $scope.profile = $.jStorage.get('profile');
 
 })
 
@@ -11,8 +12,9 @@ angular.module('starter.controllers', [])
         console.log(data.status);
         if(data.status == 'Login Success'){
           $state.go('total-point',{id:data.id});
+          $.jStorage.set('profile',data);
         }else{
-          //Error popup
+        $scope.showAlert();
         }
     });
   }
@@ -23,13 +25,16 @@ angular.module('starter.controllers', [])
    });
 
    alertPopup.then(function(res) {
-     console.log('Thank you for not eating my delicious ice cream cone');
+
+    //  console.log('Thank you for not eating my delicious ice cream cone');
    });
  };
 })
 .controller('TotalPointCtrl', function($scope,$stateParams,MyServices) {
-  $.jStorage.set('id',$stateParams.id);
+  // $.jStorage.set('id',$stateParams.id);
   var id ={id:$stateParams.id};
+  // var profile = $.jStorage.get('profile');
+
   MyServices.profile(id, function(data) {
         console.log(data);
         $scope.getData = data;
@@ -37,7 +42,9 @@ angular.module('starter.controllers', [])
     });
 })
 .controller('HomeMenuCtrl', function($scope) {
-  $scope.getID = $.jStorage.get('id');
+  var profile = $.jStorage.get('profile');
+
+  $scope.getID = profile.id;
 
 $scope.menu=[
   'img/f1.png',
@@ -71,7 +78,14 @@ $scope.menu=[
 })
 
 .controller('RewardCtrl', function($scope, $stateParams,MyServices) {
+
   // $scope.groups = [];
+  var id ={id:$stateParams.id};
+
+  MyServices.rewardcategory(id, function(data) {
+     console.log(data);
+     $scope.getData = data;
+ });
    $scope.toggleGroup = function(group) {
      if ($scope.isGroupShown(group)) {
        $scope.shownGroup = null;

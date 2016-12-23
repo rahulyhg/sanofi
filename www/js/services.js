@@ -29,7 +29,7 @@ angular.module('starter.services', [])
       },
       // login: function(input, callback) {
       //   console.log(input);
-        
+
       //   return $http({
       //     url: adminurl + 'login',
       //     method: "POST",
@@ -55,7 +55,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-rewardcategory : function (formData, callback) {
+        rewardcategory : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'rewardcategory', formData, {
                 headers: {
