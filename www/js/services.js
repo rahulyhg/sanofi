@@ -55,6 +55,14 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
+        rewardcategory : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'rewardcategory', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
         reward : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'reward', formData, {

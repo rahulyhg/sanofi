@@ -3,33 +3,32 @@
   <ion-content>
     <div class="kpi-bdss">
       <div class="item item-divider text-center text-up color-white">
-             <div class="acc">
-        <ion-list>
-          <div>
-            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-               reward categories <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-            </ion-item>
-            <ion-item class="item-accordion" ng-show="isGroupShown(group)">
-            <div class="row" ng-repeat="data1 in getRewardData">
-              <div class="col-50" ng-repeat="data in data1">
-                <div class="pnt text-center">
-                  <div class="box">
- <div class="images">
-  <img src="img/red.jpg" class="img-responsive" alt="">
-
-                  </div>
-                  </div>
-                 <div class="name">
- <p>Lenovo Sterio Headphone</p>
-                 </div>
-                <div class="points">
-                  <p>Points: {{data.points}}</p>
-                  </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
+        <div class="acc">
+          <ion-list>
+            <div>
+              <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+                reward categories <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+              </ion-item>
+              <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+                <div class="row" ng-if="getRewardData.length>0" ng-repeat="data1 in getRewardData">
+                  <div class="col-50" ng-repeat="data in data1">
+                    <div class="pnt text-center">
+                      <div class="box">
+                        <div class="images">
+                          <img ng-src="{{data.image}}" class="img-responsive" alt="">
+                        </div>
+                      </div>
+                      <div class="name">
+                        <p>{{data.name}}</p>
+                      </div>
+                      <div class="points">
+                        <p>Points: {{data.points}}</p>
+                      </div>
+                      <!--<h4 class="color-white margin0 ">First Month</h4>
                   <h1 class="color-white margin0 font-bold">100</h1>-->
-                </div>
-              </div>
-              <!-- <div class="col-50">
+                    </div>
+                  </div>
+                  <!-- <div class="col-50">
               <div class="pnt text-center">
                   <div class="box">
  <div class="images">
@@ -47,8 +46,9 @@
                   <h1 class="color-white margin0 font-bold">100</h1>
                 </div>
               </div> -->
-            </div>
-            <!-- <div class="row">
+                </div>
+                <div ng-if="getRewardData.length==0">No data Found</div>
+                <!-- <div class="row">
               <div class="col-50">
                  <div class="pnt text-center">
                   <div class="box">
@@ -81,9 +81,9 @@
                 <div class="points">
                   <p>Points: 600</p>
                   </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
+                  <h4 class="color-white margin0 ">First Month</h4>
                   <h1 class="color-white margin0 font-bold">100</h1>-->
-                </div>
+                <!-- </div>
               </div>
             </div>
                     <div class="row">
@@ -101,9 +101,9 @@
                 <div class="points">
                   <p>Points: 450</p>
                   </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
+                  <h4 class="color-white margin0 ">First Month</h4>
                   <h1 class="color-white margin0 font-bold">100</h1>-->
-                </div>
+                <!-- </div>
               </div>
               <div class="col-50">
               <div class="pnt text-center">
@@ -119,16 +119,16 @@
                 <div class="points">
                   <p>Points: 450</p>
                   </div>
-                  <!--<h4 class="color-white margin0 ">First Month</h4>
-                  <h1 class="color-white margin0 font-bold">100</h1>-->
+                  -<h4 class="color-white margin0 ">First Month</h4>
+                  <h1 class="color-white margin0 font-bold">100</h1>
                 </div>
               </div>
-            </div> -->
-            </ion-item>
-          </div>
-        </ion-list>
+            </div>  -->
+              </ion-item>
+            </div>
+          </ion-list>
 
-      </div>
+        </div>
       </div>
     </div>
   </ion-content>

@@ -14,6 +14,7 @@ angular.module('starter.controllers', [])
           $state.go('total-point',{id:data.id});
           $.jStorage.set('profile',data);
         }else{
+          $scope.loginData = {};
         $scope.showAlert();
         }
     });
@@ -21,7 +22,7 @@ angular.module('starter.controllers', [])
   $scope.showAlert = function() {
    var alertPopup = $ionicPopup.alert({
      title: 'Error!',
-     template: 'Your username and password do not match'
+     template: 'Incorrect User name or Password'
    });
 
    alertPopup.then(function(res) {
@@ -57,9 +58,18 @@ $scope.menu=[
 ]
 
 })
-.controller('RewardCategoryCtrl', function($scope) {
+.controller('RewardCategoryCtrl', function($scope,MyServices) {
 
-
+  var profile = $.jStorage.get('profile');
+  $scope.catlougeId0 = profile.catalogueId;
+  console.log('$scope.catlougeId0',$scope.catlougeId0);
+var id ={id:profile.id};
+  MyServices.rewardcategory(id, function(data) {
+     console.log(data);
+     $scope.getRewardCatData = data[0];
+     $scope.getRewardCategoryData = data.slice(1);
+     $scope.getRewardCategoryData = _.chunk($scope.getRewardCategoryData,2);
+ });
 })
 
 .controller('KpiCtrl', function($scope, $stateParams,MyServices) {
@@ -85,9 +95,11 @@ $scope.menu=[
 
   // $scope.groups = [];
   // var id ={id:$stateParams.id};
+  console.log('ffffffffffffffffffffff',$stateParams.catalogueId);
   var profile = $.jStorage.get('profile');
-  var catlougeId = {catalogueId:profile.catalogueId};
-  MyServices.reward(catlougeId, function(data) {
+
+  var dataToSend = {catalogueId:$stateParams.catalogueId,categoryId:$stateParams.categoryId};
+  MyServices.reward(dataToSend, function(data) {
      console.log(data);
      $scope.getRewardData = data;
      $scope.getRewardData = _.chunk(data,2);
@@ -103,9 +115,9 @@ $scope.menu=[
      return $scope.shownGroup === group;
    };
   // var id ={id:$stateParams.id};
-  //    MyServices.rewardcategory(id, function(data) {
-  //       console.log(data);
-  //       $scope.getData = data;
-  //
-  //   });
+    //  MyServices.rewardcategory(dataToSend, function(data) {
+    //     console.log(data);
+    //     $scope.getData = data;
+    //
+    // });
 });

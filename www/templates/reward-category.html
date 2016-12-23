@@ -3,17 +3,31 @@
   <ion-content>
     <div class="row">
       <div class="col-50">
-        <div class="pnt text-center min-h">
+        <div class="pnt text-center min-h" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
           <!-- <h4 class="color-white margin0 ">First Month</h4> -->
           <h1 class="color-white margin0 font-bold font-s">All Product</h1>
         </div>
       </div>
       <div class="col-50">
+        <div class="pnt text-center min-h" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:getRewardCatData.categoryId})">
+
+          <h1 class="color-white margin0 font-bold font-s">{{getRewardCatData.name}}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-repeat="data1 in getRewardCategoryData">
+      <div class="col-50" ng-repeat="data in data1" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:data.categoryId})">
+        <div class="pnt text-center min-h">
+          <!-- <h4 class="color-white margin0 ">First Month</h4> -->
+          <h1 class="color-white margin0 font-bold font-s">{{data.name}}</h1>
+        </div>
+      </div>
+      <!-- <div class="col-50">
         <div class="pnt text-center min-h">
 
           <h1 class="color-white margin0 font-bold font-s">3000</h1>
         </div>
-      </div>
+      </div> -->
     </div>
   </ion-content>
 </ion-view>

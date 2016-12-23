@@ -87,7 +87,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
     .state('app.reward', {
-    url: '/reward/:id',
+    url: '/reward/:catalogueId/:categoryId',
     views: {
       'menuContent': {
         templateUrl: 'templates/reward.html',
