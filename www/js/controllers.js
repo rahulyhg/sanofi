@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LoginCtrl', function($scope,MyServices,$state) {
+.controller('LoginCtrl', function($scope,MyServices,$state, $ionicPopup) {
   $scope.loginData = {};
   $scope.submitLoginForm = function(userdata) {
     MyServices.login(userdata, function(data) {
@@ -16,6 +16,16 @@ angular.module('starter.controllers', [])
         }
     });
   }
+  $scope.showAlert = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Error!',
+     template: 'Your username and password do not match'
+   });
+
+   alertPopup.then(function(res) {
+     console.log('Thank you for not eating my delicious ice cream cone');
+   });
+ };
 })
 .controller('TotalPointCtrl', function($scope,$stateParams,MyServices) {
   $.jStorage.set('id',$stateParams.id);
@@ -23,12 +33,12 @@ angular.module('starter.controllers', [])
   MyServices.profile(id, function(data) {
         console.log(data);
         $scope.getData = data;
-      
+
     });
 })
 .controller('HomeMenuCtrl', function($scope) {
   $scope.getID = $.jStorage.get('id');
-  
+
 $scope.menu=[
   'img/f1.png',
   'img/f2.png',
@@ -76,6 +86,6 @@ $scope.menu=[
      MyServices.rewardcategory(id, function(data) {
         console.log(data);
         $scope.getData = data;
-      
+
     });
 });
