@@ -1,15 +1,16 @@
 <ion-view class="bg-menu">
-
+  <ion-item class="item-stable has-header fixed-tab" >
+    <i class="ion ion-ios-arrow-thin-left"></i>
+    <label for="">REWARD CATEGORIES</label>
+  </ion-item>
   <ion-content>
     <div class="kpi-bdss">
       <div class="item item-divider text-center text-up color-white">
         <div class="acc">
           <ion-list>
             <div>
-              <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-                reward categories <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
-              </ion-item>
-              <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+
+              <ion-item class="item-accordion" >
                 <div class="row" ng-if="getRewardData.length>0" ng-repeat="data1 in getRewardData">
                   <div class="col-50" ng-repeat="data in data1">
                     <div class="pnt text-center">
@@ -132,4 +133,12 @@
       </div>
     </div>
   </ion-content>
+  <div class="bar bar-footer filter"  ng-click="goFilter();">
+  <!-- <div class="bar bar-footer filter"  ui-sref="app.filter-reward({catalogueId:catlougeId0,categoryId:getRewardCatData.categoryId})"> -->
+    <div class="inside">
+      <img src="img/filter.png" alt="">
+      <label for="" >Points Filter</label>
+    </div>
+
+</div>
 </ion-view>

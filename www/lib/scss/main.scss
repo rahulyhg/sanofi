@@ -258,7 +258,10 @@ p{
   margin-top: 15px;
 }
 .kpi-bdss{
-  margin-top: 5px;
+  margin-top: 46px;
+  background: #ebebeb;
+  margin-left: 10px;
+  margin-right: 10px;
   .item{
     padding: 0;
     background-color: transparent;
@@ -336,4 +339,50 @@ p{
  }
  .min-h{
    min-height: 50px;
+ }
+.fixed-tab{
+  color: white!important;
+  background-color: #027bd2!important;
+  height: 45px;
+  text-align: center;
+  border-color: transparent!important;
+  i{
+    font-size: 30px;
+    vertical-align: middle;
+    margin: 0px 10px;
+  }
+  label{
+    font-size: 16px;
+  }
+}
+.filter{
+  background-color: #c1bebe!important;
+  height: 40px!important;
+  border-color: transparent!important;
+  .inside{
+    text-align: center!important;
+    margin: 0 auto;
+    label{
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    img{
+      height: 16px;
+      width: 16px;
+      margin-top: 10px;
+    }
+  }
+
+}
+.filter-tab{
+  text-align: left;
+}
+.filter-header{
+  margin-top: 44px!important;
+}
+ .menu-img{
+   height: 125px;
+   img{
+     height: 100%;
+   }
  }

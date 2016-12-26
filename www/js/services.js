@@ -63,6 +63,14 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
+        filters : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'filters/', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
         reward : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'reward', formData, {

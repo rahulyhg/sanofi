@@ -42,6 +42,18 @@ angular.module('starter.controllers', [])
 
     });
 })
+.controller('FilterRewardCtrl', function($scope,$stateParams,MyServices) {
+    var profile = $.jStorage.get('profile');
+    $scope.catlougeIdFilter = $stateParams.catalogueId;
+    $scope.categoryIdFilter = $stateParams.categoryId;
+  var dataToSend = {catalogueId:$stateParams.catalogueId,categoryId:$stateParams.categoryId };
+
+  MyServices.filters(dataToSend, function(data) {
+     console.log(data);
+     $scope.getfliter = data;
+     $scope.getfliter = _.chunk(data,2);
+ });
+})
 .controller('HomeMenuCtrl', function($scope) {
   var profile = $.jStorage.get('profile');
 
@@ -91,14 +103,14 @@ var id ={id:profile.id};
     });
 })
 
-.controller('RewardCtrl', function($scope, $stateParams,MyServices) {
+.controller('RewardCtrl', function($scope, $stateParams,MyServices,$state) {
 
   // $scope.groups = [];
   // var id ={id:$stateParams.id};
   console.log('ffffffffffffffffffffff',$stateParams.catalogueId);
   var profile = $.jStorage.get('profile');
 
-  var dataToSend = {catalogueId:$stateParams.catalogueId,categoryId:$stateParams.categoryId};
+  var dataToSend = {catalogueId:$stateParams.catalogueId,categoryId:$stateParams.categoryId,filterId:$stateParams.filterId};
   MyServices.reward(dataToSend, function(data) {
      console.log(data);
      $scope.getRewardData = data;
@@ -114,6 +126,9 @@ var id ={id:profile.id};
    $scope.isGroupShown = function(group) {
      return $scope.shownGroup === group;
    };
+   $scope.goFilter = function(){
+     $state.go('app.filter-reward',{catalogueId:$stateParams.catalogueId,categoryId:$stateParams.categoryId});
+   }
   // var id ={id:$stateParams.id};
     //  MyServices.rewardcategory(dataToSend, function(data) {
     //     console.log(data);

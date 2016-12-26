@@ -53,6 +53,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+    .state('app.filter-reward', {
+    url: '/filter-reward/:catalogueId/:categoryId',
+
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/filter-reward.html',
+        controller: 'FilterRewardCtrl'
+      }
+    }
+  })
   .state('home-menu', {
       url: '/home-menu',
       templateUrl: 'templates/home-menu.html',
@@ -87,7 +97,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
     .state('app.reward', {
-    url: '/reward/:catalogueId/:categoryId',
+    url: '/reward/:catalogueId/:categoryId/:filterId',
     views: {
       'menuContent': {
         templateUrl: 'templates/reward.html',
