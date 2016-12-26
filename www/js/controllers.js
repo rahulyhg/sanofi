@@ -85,22 +85,28 @@ var id ={id:profile.id};
 })
 
 .controller('KpiCtrl', function($scope, $stateParams,MyServices) {
-  // $scope.groups = [];
-   $scope.toggleGroup = function(group) {
-     if ($scope.isGroupShown(group)) {
-       $scope.shownGroup = null;
-     } else {
-       $scope.shownGroup = group;
-     }
-   };
-   $scope.isGroupShown = function(group) {
-     return $scope.shownGroup === group;
-   };
-     var id ={id:$stateParams.id};
-     MyServices.kpis(id, function(data) {
-        console.log(data);
-        $scope.getData = data;
-    });
+  $scope.getData = [];
+
+
+  $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
+    var id ={id:$stateParams.id};
+    MyServices.kpis(id, function(data) {
+       console.log(data);
+       $scope.getData = data;
+
+       $scope.shownGroup = $scope.getData[0];
+       console.log($scope.shownGroup);
+   });
+
 })
 
 .controller('RewardCtrl', function($scope, $stateParams,MyServices,$state) {

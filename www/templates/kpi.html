@@ -13,10 +13,10 @@
       <div class="acc" ng-repeat="kpi in getData">
         <ion-list>
           <div>
-            <ion-item class="item-stable text-center" ng-click="toggleGroup($index)" ng-class="{active: isGroupShown($index)}">
-               {{kpi.kpiDesc}} <i class="icon" ng-class="isGroupShown($index) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+            <ion-item class="item-stable text-center" ng-click="toggleGroup(kpi)" ng-class="{active: isGroupShown(kpi)}">
+               {{kpi.kpiDesc}} <i class="icon" ng-class="isGroupShown(kpi) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
             </ion-item>
-            <ion-item class="item-accordion" ng-show="isGroupShown($index)">
+            <ion-item class="item-accordion" ng-show="isGroupShown(kpi)">
             <div class="row">
               <div class="col-50">
                 <div class="pnt text-center">
