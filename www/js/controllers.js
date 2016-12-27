@@ -110,7 +110,13 @@ var id ={id:profile.id};
 })
 
 .controller('RewardCtrl', function($scope, $stateParams,MyServices,$state) {
+  $scope.goBackHandler = function()
+   {
+       window.history.back();                          //This works
+   }
+   $scope.setColor = function (){
 
+   }
   // $scope.groups = [];
   // var id ={id:$stateParams.id};
   console.log('ffffffffffffffffffffff',$stateParams.catalogueId);

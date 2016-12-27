@@ -184,11 +184,16 @@ $dark:                            #444 !default;
   display: block !important; }
 
 .pnt, .pnt1 {
-  background-color: rgba(255, 255, 255, 0.16);
-  padding: 15px 0;
-  margin: 5px; }
+  background-color: #6dcff6;
+  padding: 12px; }
   .pnt h4, .pnt1 h4 {
     font-size: 15px !important; }
+  .pnt h1, .pnt1 h1 {
+    color: black; }
+
+.pad {
+  padding: 0px;
+  border: 1px solid #afa6a6; }
 
 .pnt1 {
   padding: 15px  0;
@@ -217,10 +222,11 @@ $dark:                            #444 !default;
   margin-top: 15px; }
 
 .kpi-bdss {
-  margin-top: 46px;
+  margin-top: 35px;
   background: #ebebeb;
   margin-left: 10px;
-  margin-right: 10px; }
+  margin-right: 10px;
+  margin-bottom: 43px; }
   .kpi-bdss .item {
     padding: 0;
     background-color: transparent;
@@ -231,12 +237,13 @@ $dark:                            #444 !default;
     color: #fff; }
   .kpi-bdss .pnt {
     background-color: #fff;
-    padding: 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    margin: 10px; }
     .kpi-bdss .pnt p {
       font-size: 10px; }
   .kpi-bdss .name {
-    background-color: #fff; }
+    background-color: #fff;
+    padding: 0px 10px; }
     .kpi-bdss .name p {
       color: #000; }
   .kpi-bdss .points {
@@ -254,10 +261,11 @@ $dark:                            #444 !default;
     position: relative;
     padding: 110px 75px; }
     .kpi-bdss .box .images {
-      height: 150px;
-      width: 150px;
+      height: 73px;
+      width: 80%;
       position: absolute;
       top: 0;
+      margin: 10%;
       bottom: 0;
       right: 0;
       left: 0; }
@@ -274,20 +282,22 @@ $dark:                            #444 !default;
 .fixed-tab {
   color: white !important;
   background-color: #027bd2 !important;
-  height: 45px;
+  height: 40px;
+  padding: 7px 7px 7px 20px !important;
   text-align: center;
   border-color: transparent !important; }
-  .fixed-tab i {
+  .fixed-tab .content-div i {
     font-size: 30px;
     vertical-align: middle;
     margin: 0px 10px; }
-  .fixed-tab label {
+  .fixed-tab .content-div label {
     font-size: 16px; }
 
 .filter {
   background-color: #c1bebe !important;
-  height: 40px !important;
-  border-color: transparent !important; }
+  height: 35px !important;
+  border-color: transparent !important;
+  padding: 0px !important; }
   .filter .inside {
     text-align: center !important;
     margin: 0 auto; }
@@ -309,6 +319,43 @@ $dark:                            #444 !default;
   height: 125px; }
   .menu-img img {
     height: 100%; }
+
+.bar .button.back-button, .bar button.back-button {
+  display: none !important; }
+
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+.effect2 {
+  position: relative; }
+
+.effect2:before, .effect2:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 20px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: transparent;
+  box-shadow: 0 15px 9px rgba(119, 119, 119, 0.42);
+  transform: rotate(-7deg); }
+
+.effect2:after {
+  transform: rotate(7deg);
+  right: 10px;
+  left: auto; }
+
+.header-shadow {
+  box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.22); }
+
+.footer-shadow {
+  box-shadow: 0 -11px 41px -1px rgba(0, 0, 0, 0.48); }
+
+.shadow {
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.26);
+  margin: 10px; }
 
 /*!
   Ionicons, v2.0.1

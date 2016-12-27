@@ -1,25 +1,34 @@
 <ion-view class="bg-menu">
 
+  <ion-item class="item-stable has-header fixed-tab filter-tab header-shadow" >
+    <div class="content-div" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
+      <label for="">SELECT CATEGORY</label>
+      <i class="ion ion-ios-arrow-thin-right"></i>
+    </div>
+
+
+  </ion-item>
+
   <ion-content>
-    <div class="row">
-      <div class="col-50">
-        <div class="pnt text-center min-h" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
+    <div class="row filter-header">
+      <div class="col-50 ">
+        <div class="pnt text-center min-h shadow" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
           <!-- <h4 class="color-white margin0 ">First Month</h4> -->
-          <h1 class="color-white margin0 font-bold font-s">All Product</h1>
+          <h1 class="color-white margin0  font-s">All Product</h1>
         </div>
       </div>
-      <div class="col-50">
-        <div class="pnt text-center min-h" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:getRewardCatData.categoryId})">
+      <div class="col-50 ">
+        <div class="pnt text-center min-h shadow" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:getRewardCatData.categoryId})">
 
-          <h1 class="color-white margin0 font-bold font-s">{{getRewardCatData.name}}</h1>
+          <h1 class="color-white margin0  font-s">{{getRewardCatData.name}}</h1>
         </div>
       </div>
     </div>
     <div class="row" ng-repeat="data1 in getRewardCategoryData">
-      <div class="col-50" ng-repeat="data in data1" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:data.categoryId})">
-        <div class="pnt text-center min-h">
+      <div class="col-50 " ng-repeat="data in data1" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:data.categoryId})">
+        <div class="pnt text-center min-h shadow">
           <!-- <h4 class="color-white margin0 ">First Month</h4> -->
-          <h1 class="color-white margin0 font-bold font-s">{{data.name}}</h1>
+          <h1 class="color-white margin0 font-s">{{data.name}}</h1>
         </div>
       </div>
       <!-- <div class="col-50">

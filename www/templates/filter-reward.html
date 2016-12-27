@@ -1,14 +1,15 @@
 <ion-view class="bg-menu">
-  <ion-item class="item-stable has-header fixed-tab filter-tab" >
-    <label for="">SELECT FILTERS</label>
-    <i class="ion ion-ios-arrow-thin-right"></i>
-
+  <ion-item class="item-stable has-header fixed-tab filter-tab header-shadow" >
+    <div class="content-div" ui-sref="app.reward({catalogueId:catlougeIdFilter,categoryId:categoryIdFilter})">
+      <label for="">SELECT FILTERS</label>
+      <i class="ion ion-ios-arrow-thin-right"></i>
+    </div>
   </ion-item>
   <ion-content class="filter-header">
     <div class="row" ng-repeat="filter in getfliter">
 
       <div class="col-50" ng-repeat="filter1 in filter" >
-        <div class="pnt text-center min-h" ui-sref="app.reward({catalogueId:catlougeIdFilter,categoryId:categoryIdFilter,filterId:filter1.filterId})">
+        <div class="pnt text-center min-h shadow" ui-sref="app.reward({catalogueId:catlougeIdFilter,categoryId:categoryIdFilter,filterId:filter1.filterId})">
           <h1 class="color-white margin0 font-bold font-s">{{filter1.name}}</h1>
         </div>
       </div>
