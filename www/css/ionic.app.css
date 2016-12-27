@@ -423,6 +423,38 @@ $dark:                            #444 !default;
   float: right;
   margin: 25px !important; }
 
+.about {
+  color: #087ccf;
+  font-size: 20px !important; }
+  .about span {
+    text-decoration: underline; }
+
+.ulclass {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 40px;
+  background: #efefef;
+  margin: 10px 10px 0px 10px;
+  padding: 22px; }
+  .ulclass h3 {
+    font-style: italic;
+    font-size: 18px;
+    margin-left: -20px;
+    margin-top: -10px !important; }
+  .ulclass li {
+    padding-bottom: 15px;
+    font-size: 16px; }
+
+.border-no {
+  border: none !important; }
+
+.end {
+  margin: 10px 10px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

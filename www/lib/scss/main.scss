@@ -527,3 +527,39 @@ margin: 10px;
   float: right;
   margin: 25px!important;
 }
+
+.about {
+  color: #087ccf;
+  font-size: 20px!important;
+  span {
+    text-decoration: underline;
+  }
+}
+.ulclass {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 40px;
+  background: #efefef;
+  margin: 10px 10px 0px 10px;
+  padding: 22px ;
+  h3 {
+    font-style: italic;
+    font-size: 18px;
+    margin-left: -20px;
+    margin-top: -10px!important;
+  }
+  li {
+    padding-bottom: 15px;
+    font-size: 16px;
+  }
+}
+.border-no{
+  border: none!important;
+}
+.end{
+  margin: 10px 10px;
+}
