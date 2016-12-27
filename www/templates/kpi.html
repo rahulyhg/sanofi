@@ -19,13 +19,13 @@
             <ion-item class="item-accordion" ng-show="isGroupShown(kpi)">
             <div class="row">
               <div class="col-50">
-                <div class="pnt text-center">
+                <div class="pnt text-center kpi-div">
                   <h4 class="color-white margin0 ">First Month</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month1}}</h1>
                 </div>
               </div>
               <div class="col-50">
-                <div class="pnt text-center">
+                <div class="pnt text-center kpi-div">
                   <h4 class="color-white margin0 ">Second Month</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month2}}</h1>
                 </div>
@@ -33,13 +33,13 @@
             </div>
             <div class="row">
               <div class="col-50">
-                <div class="pnt text-center">
+                <div class="pnt text-center kpi-div">
                   <h4 class="color-white margin0 ">Third Month</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.month3}}</h1>
                 </div>
               </div>
               <div class="col-50">
-                <div class="pnt text-center">
+                <div class="pnt text-center kpi-div">
                   <h4 class="color-white margin0 ">Quarter</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.quarter}}</h1>
                 </div>
@@ -47,23 +47,21 @@
             </div>
             <div class="row">
               <div class="col">
-                <div class="pnt1 text-center">
+                <div class="pnt1 text-center kpi-big">
                   <h4 class="color-white margin0 ">Total</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.total}}</h1>
                 </div>
               </div>
             </div>
-            <div class="clauses">
+            <!-- <div class="clauses">
               <h3>Clause1:</h3>
               <p ng-bind-html = "kpi.clause1"> </p>
-               <!-- <p>Quarter Average DRc <=3.0 </p>  -->
             </div>
               <div class="clauses">
               <h3>Clause2:</h3>
               <p ng-bind-html = "kpi.clause2"> </p>
 
-              <!-- <p>Quarter Target to be >= 100% to redeem<br>the score incase of target <br>achievement< 100% cannot <br>redeem score can win back <br>by next quarter by achieving YTD target</p> -->
-            </div>
+            </div> -->
             </ion-item>
           </div>
         </ion-list>

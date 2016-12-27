@@ -357,6 +357,17 @@ $dark:                            #444 !default;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.26);
   margin: 10px; }
 
+.kpi-div {
+  margin: 5px;
+  background: rgba(51, 194, 238, 0.38); }
+  .kpi-div h1 {
+    color: white !important; }
+
+.kpi-big {
+  background: rgba(51, 194, 238, 0.38); }
+  .kpi-big h1 {
+    color: white !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
