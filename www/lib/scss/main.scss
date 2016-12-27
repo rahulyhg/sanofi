@@ -457,10 +457,73 @@ margin: 10px;
 }
 .kpi-div{
   margin: 5px;
-  background: rgba(51, 194, 238, 0.38);
+  background: rgba(252, 253, 253, 0.14);
       h1{
     color: white!important;
   }
 }
-
+.kpi-big{
+  background: rgba(252, 253, 253, 0.14);
+      h1{
+    color: white!important;
+  }
+}
 @import "www/lib/scss/_style";
+.text-bold{
+  font-weight: 600;
+}
+.manager-para{
+  p{
+    margin: 20px 0px;
+  }
+  h3{
+    margin: 20px 0px!important;
+  }
+}
+.card-margin{
+  padding: 10px 7px!important;
+}
+
+.double-qoute {
+    font-size: 25px;
+    margin-left: 15%;
+    .message{
+      font-style: italic;
+      font-size: 18px;
+    }
+    .header-msg{
+      font-size: 18px;
+      font-weight: 600;
+    }
+        &:before {
+        content: '"';
+        color: #bebebe;
+        font-size: 60px;
+        position: absolute;
+        top: 20px;
+        left: 10%;
+    }
+    &:after {
+        content: '"';
+        color: #bebebe;
+        font-size: 60px;
+        position: absolute;
+        top: 37px;
+        right: 13%;
+    }
+}
+.manager-img{
+  width: 100%;
+  img{
+    width: 100%;
+  }
+}
+.send{
+  background-color: #087ccf!important;
+  color: white!important;
+  min-height: 30px!important;
+  line-height: 20px!important;
+  min-width: 100px!important;
+  float: right;
+  margin: 25px!important;
+}

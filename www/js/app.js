@@ -62,6 +62,24 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+    .state('app.contact', {
+    url: '/contact',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/contact.html',
+        controller: 'ContactCtrl'
+      }
+    }
+  })
+    .state('app.management', {
+    url: '/management',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/management.html',
+        controller: 'ManagementCtrl'
+      }
+    }
+  })
     .state('app.filter-reward', {
     url: '/filter-reward/:catalogueId/:categoryId',
 

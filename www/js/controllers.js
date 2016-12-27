@@ -74,6 +74,14 @@ $scope.menu=[
 
 
 })
+.controller('ManagementCtrl', function($scope) {
+
+
+})
+.controller('ContactCtrl', function($scope) {
+
+
+})
 .controller('RewardCategoryCtrl', function($scope,MyServices) {
 
   var profile = $.jStorage.get('profile');
