@@ -70,6 +70,10 @@ $scope.menu=[
 ]
 
 })
+.controller('AboutCtrl', function($scope) {
+
+
+})
 .controller('RewardCategoryCtrl', function($scope,MyServices) {
 
   var profile = $.jStorage.get('profile');

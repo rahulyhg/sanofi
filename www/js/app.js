@@ -53,6 +53,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+    .state('app.about', {
+    url: '/about',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about.html',
+        controller: 'AboutCtrl'
+      }
+    }
+  })
     .state('app.filter-reward', {
     url: '/filter-reward/:catalogueId/:categoryId',
 
