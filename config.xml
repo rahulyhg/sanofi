@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ileadSanofi" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Sanofi</name>
+  <name>I-Lead</name>
   <description/>
   <author email="info@wohlig.com" href="http://wohlig.com/">
       Wohlig Technology
@@ -42,10 +42,8 @@
     <splash src="resources/ios/splash/Default-736h.png" width="1242" height="2208"/>
     <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
     <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-    <splash src="resources/ios/splash/Default-Landscape@~ipadpro.png" width="2732" height="2048"/>
     <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
     <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-    <splash src="resources/ios/splash/Default-Portrait@~ipadpro.png" width="2048" height="2732"/>
     <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
