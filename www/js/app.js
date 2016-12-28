@@ -90,6 +90,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+    .state('app.profile', {
+    url: '/profile',
+
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/profile.html',
+        controller: 'ProfileCtrl'
+      }
+    }
+  })
   .state('home-menu', {
       url: '/home-menu',
       templateUrl: 'templates/home-menu.html',

@@ -443,17 +443,55 @@ $dark:                            #444 !default;
   .ulclass h3 {
     font-style: italic;
     font-size: 18px;
-    margin-left: -20px;
     margin-top: -10px !important; }
   .ulclass li {
     padding-bottom: 15px;
     font-size: 16px; }
+    .ulclass li .inside-li {
+      margin-left: 20px; }
 
 .border-no {
   border: none !important; }
 
 .end {
-  margin: 10px 10px; }
+  margin: 10px 10px;
+  font-style: italic; }
+
+.contact-card {
+  margin: 5px 0px !important; }
+  .contact-card .card-inside {
+    padding: 0px !important; }
+
+.card-content {
+  margin: 10px; }
+  .card-content .card-header {
+    margin: 7px; }
+    .card-content .card-header h3 {
+      margin: 10px 3px; }
+
+.input-height {
+  height: 45px;
+  border-radius: 0px !important; }
+
+.input-border {
+  border: 1px solid #ebebec;
+  margin: 10px; }
+
+.comment {
+  height: 90px; }
+  .comment .input-area {
+    height: 100%; }
+
+.profile-card {
+  padding-top: 50px !important; }
+  .profile-card h3 {
+    color: #256ab6; }
+
+.text-item {
+  border-style: none !important; }
+
+.profile-pic {
+  margin-bottom: -74px; }
 
 /*!
   Ionicons, v2.0.1

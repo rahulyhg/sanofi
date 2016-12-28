@@ -549,12 +549,14 @@ margin: 10px;
   h3 {
     font-style: italic;
     font-size: 18px;
-    margin-left: -20px;
     margin-top: -10px!important;
   }
   li {
     padding-bottom: 15px;
     font-size: 16px;
+    .inside-li{
+      margin-left: 20px;
+    }
   }
 }
 .border-no{
@@ -562,4 +564,47 @@ margin: 10px;
 }
 .end{
   margin: 10px 10px;
+  font-style: italic;
+}
+.contact-card{
+  margin: 5px 0px !important;
+  .card-inside{
+    padding: 0px!important;
+  }
+
+}
+.card-content{
+  margin: 10px;
+  .card-header{
+    margin: 7px;
+    h3{
+      margin: 10px 3px ;
+    }
+  }
+}
+.input-height{
+  height: 45px;
+  border-radius: 0px!important;
+}
+.input-border{
+  border: 1px solid #ebebec;
+  margin:  10px;
+}
+.comment{
+  height: 90px;
+  .input-area{
+    height: 100%;
+  }
+}
+.profile-card{
+  padding-top: 50px!important;
+  h3{
+    color: #256ab6;
+  }
+}
+.text-item{
+border-style: none!important;
+}
+.profile-pic{
+  margin-bottom: -74px;
 }
