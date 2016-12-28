@@ -421,7 +421,8 @@ $dark:                            #444 !default;
   line-height: 20px !important;
   min-width: 100px !important;
   float: right;
-  margin: 25px !important; }
+  margin: 12px !important;
+  border-radius: 0px !important; }
 
 .about {
   color: #087ccf;
@@ -475,7 +476,7 @@ $dark:                            #444 !default;
 
 .input-border {
   border: 1px solid #ebebec;
-  margin: 10px; }
+  margin: 10px !important; }
 
 .comment {
   height: 90px; }
