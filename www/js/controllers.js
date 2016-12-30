@@ -74,6 +74,10 @@ $scope.menu=[
 
 
 })
+.controller('TermsCtrl', function($scope) {
+
+
+})
 .controller('ProfileCtrl', function($scope) {
 
 

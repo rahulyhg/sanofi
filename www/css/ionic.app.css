@@ -494,6 +494,23 @@ $dark:                            #444 !default;
 .profile-pic {
   margin-bottom: -74px; }
 
+.terms {
+  display: block;
+  list-style-type: disc !important;
+  margin: 10px !important; }
+  .terms h3 {
+    font-size: 20px !important;
+    text-decoration: underline;
+    margin: 10px !important; }
+  .terms li {
+    padding-bottom: 15px;
+    font-size: 16px; }
+    .terms li .inside-li {
+      margin-left: 20px; }
+
+.terms.card {
+  padding: 0px 0px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
