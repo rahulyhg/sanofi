@@ -534,6 +534,12 @@ $dark:                            #444 !default;
   .icon-sp img {
     height: 100%; }
 
+input[disabled] {
+  background-color: transparent !important; }
+
+.txt-area {
+  background-color: transparent !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
