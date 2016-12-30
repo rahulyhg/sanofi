@@ -74,6 +74,12 @@ $scope.menu=[
 
 
 })
+.controller('SplashCtrl', function($scope , $ionicSlideBoxDelegate) {
+  $scope.nextSlide = function() {
+     $ionicSlideBoxDelegate.next();
+   }
+
+})
 .controller('TermsCtrl', function($scope) {
 
 

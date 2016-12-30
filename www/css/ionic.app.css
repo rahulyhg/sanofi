@@ -425,38 +425,32 @@ $dark:                            #444 !default;
   border-radius: 0px !important; }
 
 .about {
-  color: #087ccf;
-  font-size: 20px !important; }
+  font-size: 16px !important; }
   .about span {
     text-decoration: underline; }
+
+.text-italic {
+  font-style: italic; }
 
 .ulclass {
   display: block;
   list-style-type: disc;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-  -webkit-padding-start: 40px;
-  background: #efefef;
-  margin: 10px 10px 0px 10px;
-  padding: 22px; }
+  margin-left: 10px;
+  padding: 10px 10px 0px 10px; }
   .ulclass h3 {
     font-style: italic;
-    font-size: 18px;
-    margin-top: -10px !important; }
+    font-size: 18px !important; }
   .ulclass li {
     padding-bottom: 15px;
     font-size: 16px; }
-    .ulclass li .inside-li {
-      margin-left: 20px; }
 
 .border-no {
   border: none !important; }
 
 .end {
-  margin: 10px 10px;
-  font-style: italic; }
+  margin: 0px 10px 10px 10px !important;
+  font-style: italic;
+  font-size: 14px !important; }
 
 .contact-card {
   margin: 5px 0px !important; }
@@ -506,10 +500,39 @@ $dark:                            #444 !default;
     padding-bottom: 15px;
     font-size: 16px; }
     .terms li .inside-li {
-      margin-left: 20px; }
+      margin-left: 25px; }
+      .terms li .inside-li li {
+        list-style-type: circle !important; }
 
 .terms.card {
   padding: 0px 0px; }
+
+.about-card {
+  padding: 0px !important; }
+  .about-card .abt-img {
+    width: 100%; }
+    .about-card .abt-img img {
+      width: 100%; }
+  .about-card .abt-div {
+    margin: 10px; }
+
+.bg-sp {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+  .bg-sp img {
+    height: 100%;
+    width: 100%; }
+
+.icon-sp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: 20%; }
+  .icon-sp img {
+    height: 100%; }
 
 /*!
   Ionicons, v2.0.1

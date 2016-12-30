@@ -43,6 +43,12 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       controller: 'TotalPointCtrl'
 
     })
+  .state('splash', {
+      url: '/splash',
+      templateUrl: 'templates/splash.html',
+      controller: 'SplashCtrl'
+
+    })
 
     .state('app.reward-category', {
     url: '/reward-category',
