@@ -573,6 +573,12 @@ input[disabled] {
 .logout button {
   background-color: #1d88cc !important; }
 
+.disclaim {
+  margin: 15px; }
+  .disclaim p {
+    color: white;
+    font-size: 16px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
