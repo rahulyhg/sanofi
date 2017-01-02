@@ -33,8 +33,9 @@ angular.module('starter.controllers', [])
 })
 .controller('TotalPointCtrl', function($scope,$stateParams,MyServices) {
   // $.jStorage.set('id',$stateParams.id);
-  var id ={id:$stateParams.id};
-  // var profile = $.jStorage.get('profile');
+  // var id ={id:$stateParams.id};
+  var profile = $.jStorage.get('profile');
+  var id = profile.id;
 
   MyServices.profile(id, function(data) {
         console.log(data);
@@ -54,10 +55,19 @@ angular.module('starter.controllers', [])
      $scope.getfliter = _.chunk(data,2);
  });
 })
-.controller('HomeMenuCtrl', function($scope) {
+.controller('HomeMenuCtrl', function($scope,$state) {
   var profile = $.jStorage.get('profile');
 
   $scope.getID = profile.id;
+  $scope.logout =function(){
+    $.jStorage.set('profile',null);
+    $.jStorage.deleteKey('profile');
+    $.jStorage.flush();
+
+    // if($.jStorage.get('profile')=== null){
+      $state.go('login')
+
+  }
 
 $scope.menu=[
   'img/f1.png',
@@ -84,9 +94,14 @@ $scope.menu=[
 
 
 })
-.controller('ProfileCtrl', function($scope) {
+.controller('ProfileCtrl', function($scope,MyServices) {
+  var profile = $.jStorage.get('profile');
 
-
+  $scope.id = profile.id;
+  MyServices.profile($scope.id, function(data) {
+     console.log(data);
+     $scope.data= data;
+ });
 })
 .controller('ManagementCtrl', function($scope) {
 
@@ -112,7 +127,15 @@ var id ={id:profile.id};
 
 .controller('KpiCtrl', function($scope, $stateParams,MyServices) {
   $scope.getData = [];
+  var id = {id:$.jStorage.get("profile").id};
+  console.log(id);
+  MyServices.kpis(id, function(data) {
+     console.log(data);
+     $scope.getData = data;
 
+     $scope.shownGroup = $scope.getData[0];
+     console.log($scope.shownGroup);
+ });
 
   $scope.toggleGroup = function(group) {
       if ($scope.isGroupShown(group)) {
@@ -124,14 +147,8 @@ var id ={id:profile.id};
     $scope.isGroupShown = function(group) {
       return $scope.shownGroup === group;
     };
-    var id ={id:$stateParams.id};
-    MyServices.kpis(id, function(data) {
-       console.log(data);
-       $scope.getData = data;
+    // var id ={id:$stateParams.id};
 
-       $scope.shownGroup = $scope.getData[0];
-       console.log($scope.shownGroup);
-   });
 
 })
 

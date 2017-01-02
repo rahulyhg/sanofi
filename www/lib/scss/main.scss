@@ -104,9 +104,21 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
   .button {
     padding: 2px 40px;
     border-color: rgb(255, 255, 255) !important;
+    font-size: 18px;
+    width: 150px;
   }
 }
+.continue {
+  text-align: center;
+  padding-top: 25px;
 
+  .button {
+    padding: 2px 40px;
+    border-color: rgb(255, 255, 255) !important;
+    font-size: 18px;
+    width: 180px;
+  }
+}
 .color-white {
   color: #fff;
 }
@@ -326,10 +338,11 @@ p{
 // .ion-chevron-down:before{
 //    background: url("../img/xxx.png") no-repeat;
 // }
+
 .box{
   position: relative;
-      padding: 110px 75px;
-    .images{
+    padding: 66% 20%;
+        .images{
       height: 73px;
       width: 80%;
       position: absolute;
@@ -473,6 +486,7 @@ margin: 10px;
   font-weight: 600;
 }
 .manager-para{
+  margin: 0px 8px;
   p{
     margin: 20px 0px;
   }
@@ -530,12 +544,7 @@ margin: 10px;
     }
 
 .about {
-  font-size: 16px!important;
-  span{
-    text-decoration: underline;
-  }
-
-
+  font-size: 18px!important;
 }
 .text-italic{
   font-style: italic;
@@ -552,13 +561,20 @@ margin: 10px;
   li {
     padding-bottom: 15px;
     font-size: 16px;
+    .inside-li{
+      margin-left: 25px;
+      li{
+        list-style-type: circle!important;
+
+      }
+    }
   }
 }
 .border-no{
   border: none!important;
 }
 .end{
-  margin: 0px 10px 10px 10px!important;
+  margin: 0px 10px 15px 10px!important;
   font-style: italic;
   font-size: 14px!important;
 }
@@ -581,15 +597,35 @@ margin: 10px;
 .input-height{
   height: 45px;
   border-radius: 0px!important;
+
+  input{
+    width: 100%;
+  }
 }
 .input-border{
   border: 1px solid #ebebec;
   margin:  10px!important;
 }
+.msg{
+  h2{
+    margin-left: 25%!important;
+  }
+  .manager{
+    font-size: 18px;
+    font-weight: 600;
+  }
+  h3{
+    float: right;
+    margin-right: 20%!important;
+  }
+}
 .comment{
   height: 90px;
+  padding: 12px;
+  width: 100%;
   .input-area{
     height: 100%;
+    width: 100%;
   }
 }
 .profile-card{
@@ -665,4 +701,9 @@ input[disabled]{
 }
 .txt-area{
   background-color: transparent!important;
+}
+.logout{
+  button{
+    background-color: #1d88cc!important;
+  }
 }

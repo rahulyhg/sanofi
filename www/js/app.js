@@ -22,7 +22,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+  $ionicConfigProvider.views.maxCache(2);
   $stateProvider
 
     .state('app', {
@@ -139,7 +140,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     })
 
   .state('app.kpi', {
-    url: '/kpi/:id',
+    url: '/kpi',
     views: {
       'menuContent': {
         templateUrl: 'templates/kpi.html',

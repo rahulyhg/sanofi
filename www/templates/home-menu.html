@@ -8,24 +8,25 @@
 <div class="menu-list">
   <div class="row text-center">
     <div class="col col-50 menu-img" >
+      <img src="img/My_Profile.png" alt="" ui-sref="app.profile">
+    </div>
+    <div class="col col-50 menu-img" >
       <img src="img/Welcome.png" alt="" ui-sref="app.management">
     </div>
+
+  </div>
+  <div class="row text-center">
     <div class="col col-50 menu-img" >
       <img src="img/About.png" alt="" ui-sref="app.about">
     </div>
-  </div>
-  <div class="row text-center">
+    <div class="col col-50 menu-img" >
+      <img src="img/kpi.png" alt="" ui-sref="app.kpi">
+    </div>
 
-    <div class="col col-50 menu-img" >
-      <img src="img/kpi.png" alt="" ui-sref="app.kpi({id:getID})">
-    </div>
-    <div class="col col-50 menu-img" >
-      <img src="img/rewards.png" alt="" ui-sref="app.reward-category">
-    </div>
   </div>
   <div class="row text-center">
     <div class="col col-50 menu-img" >
-      <img src="img/My_Profile.png" alt="" ui-sref="app.profile">
+      <img src="img/myreward.png" alt="" ui-sref="app.reward-category">
     </div>
     <div class="col col-50 menu-img" >
       <img src="img/Terms&Condition.png" alt="" ui-sref="app.terms">
@@ -59,7 +60,10 @@
 
 
   </div>
-
+  <div class="lg-button logout">
+    <button class="button  button-small button-positive  " ng-click ="logout(); ">Log Out
+</button>
+  </div>
 
 </div>
   </ion-content>

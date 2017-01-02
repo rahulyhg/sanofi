@@ -9,10 +9,10 @@
       <div class="tl-point text-center">
         <div class="point">
           <h4 class="color-white margin0 ">TOTAL POINTS</h4>
-          <h1 class="color-white margin0 font-bold">{{getData.points}}</h1>
+          <h1 class="color-white margin0 font-bold" ng-if="getData.points">{{getData.points}}</h1>
         </div>
       </div>
-      <div class="lg-button pt50">
+      <div class=" continue">
         <button class="button  button-small button-positive" ui-sref="home-menu">
 Continue
 </button>

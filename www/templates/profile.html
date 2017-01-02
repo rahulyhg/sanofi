@@ -12,42 +12,52 @@
 
               <div class="item item-input-inset text-item">
                 <label class="item-input-wrapper input-height ">
-                  <input type="text" placeholder="Username" disabled>
+                  <input type="text" placeholder="Employee Code:"  value = "Employee Code: {{data.empcode}}"disabled>
                 </label>
               </div>
               <div class="item item-input-inset text-item">
                 <label class="item-input-wrapper input-height">
-                  <input type="email" placeholder="Email" disabled>
+                  <input type="email" placeholder="Email:" value ="Email : {{data.email}}" disabled>
                 </label>
               </div>
-              <div class="list list-inset input-border" >
-                <label class="item item-input">
-                <input type="text" placeholder="Name:" disabled>
+              <div class="item item-input-inset text-item">
+                <label class="item-input-wrapper input-height ">
+                  <input type="text" placeholder="Name:" value="Name : {{data.name}}" disabled>
                 </label>
               </div>
-              <div class="list list-inset input-border">
-                <label class="item item-input">
-                <input type="text" placeholder="Mobile:"disabled>
+              <div class="item item-input-inset text-item">
+                <label class="item-input-wrapper input-height ">
+                  <input type="text" placeholder="Mobile:" value= "Mobile : {{data.mobile}}" disabled>
                 </label>
               </div>
-              <div class="list list-inset input-border">
+              <div class="item item-input-inset text-item">
+                <label class="item-input-wrapper input-height ">
+                  <input type="text" placeholder="Date of Birth" value="Date of Birth : {{data.dob}}" disabled>
+                </label>
+              </div>
+              <!-- <div class="list list-inset input-border">
                 <label class="item item-input">
                 <input placeholder="Date of Birth:"  type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" disabled>
                 </label>
-              </div>
+              </div> -->
               <!-- <div class="list list-inset input-border">
                 <label class="item item-input">
                 <input  placeholder="Date of Anniversary:"  type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date">
 
                 </label>
               </div> -->
-                <div class="list list-inset input-border">
+              <div class="item item-input-inset text-item">
+                <label class="item-input-wrapper comment ">
+                  <textarea placeholder="Address :" class="input-area txt-area"disabled>Address : {{data.address}}</textarea>
+                </label>
+              </div>
+                <!-- <div class="list list-inset input-border">
                   <label class="item item-input comment">
                     <textarea placeholder="Address :" class="input-area txt-area" disabled></textarea>
                   </label>
-                </div>
-                <button class="button button-stable send">
-                Update</button>
+                </div> -->
+                <!-- <button class="button button-stable send">
+                Update</button> -->
 
 
             </div>

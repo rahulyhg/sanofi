@@ -12,6 +12,10 @@ var foods = [];
 
 angular.module('starter.services', [])
   .factory('MyServices', function($http) {
+    var loginDetail = $.jStorage.get("profile");
+if (!loginDetail) {
+  loginDetail = {};
+}
     return {
       all: function() {
         return chats;
@@ -27,6 +31,15 @@ angular.module('starter.services', [])
         }
         return null;
       },
+      setUser: function (data) {
+  _.assignIn(loginDetail, data);
+  $.jStorage.set("loginDetail", loginDetail);
+  console.log("setuser 656", loginDetail);
+},
+
+getUser: function () {
+  return loginDetail;
+},
       // login: function(input, callback) {
       //   console.log(input);
 
@@ -47,14 +60,27 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-               profile: function (formData, callback) {
-                console.log(formData);
-            $http.post(adminurl + 'profile', formData, {
+               profile : function (id, callback) {
+                console.log(id);
+                var id={id:id};
+            $http.post(adminurl + 'profile', id , {
                 headers: {
                     'Content-Type': "application/json"
                 }
             }).success(callback);
         },
+    //      profile: function (id, callback) {
+    //        var data {
+    //          id : id;
+    //        };
+    //    $http({
+    //      url: adminurl + 'profile',
+    //      method: 'POST',
+    //      withCredentials: true,
+    //      data: data
+    //    }).success(callback);
+    //  },
+
         rewardcategory : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'rewardcategory', formData, {
