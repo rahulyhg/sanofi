@@ -107,7 +107,18 @@ $scope.menu=[
 
 
 })
-.controller('ContactCtrl', function($scope) {
+.controller('ContactCtrl', function($scope,MyServices) {
+  $scope.contactForm = {};
+  var profile = $.jStorage.get('profile');
+  $scope.contactForm.id = profile.id;
+  $scope.contactForm.name = profile.name;
+
+  $scope.contactus =function(contactForm){
+    MyServices.contactus(contactForm, function(data) {
+       console.log(data);
+   });
+
+  };
 
 
 })

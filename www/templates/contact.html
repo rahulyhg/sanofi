@@ -13,31 +13,48 @@
 
               <h3>Send your Feedback</h3>
           </div>
+        <form class="" name="contact" ng-submit="contactus(contactForm)">
+          <div class="item item-input-inset text-item">
+            <label class="item-input-wrapper input-height ">
+              <input type="text" placeholder="Username" disabled ng-model="contactForm.name">
+            </label>
+          </div>
+          <!-- <div class="item item-input-inset text-item">
+            <label class="item-input-wrapper input-height">
+              <input type="email" placeholder="Email">
+            </label>
+          </div> -->
 
-            <div class="item item-input-inset text-item">
-              <label class="item-input-wrapper input-height ">
-                <input type="text" placeholder="Username">
-              </label>
-            </div>
-            <div class="item item-input-inset text-item">
-              <label class="item-input-wrapper input-height">
-                <input type="email" placeholder="Email">
-              </label>
-            </div>
-            <div class="list list-inset input-border">
-              <label class="item item-input">
-                <span class="input-label">Subject:</span>
-                <input type="text">
-              </label>
-            </div>
-              <div class="list list-inset input-border">
-                <label class="item item-input comment">
-                  <textarea placeholder="Comments" class="input-area"></textarea>
-                </label>
-              </div>
-                <button class="button button-stable send">
-                Send</button>
+          <div class="list list-inset input-border">
+            <label class="item item-input">
+              <!-- <span class="input-label">Subject:</span> -->
+              <input type="tel" placeholder="Mobile Number" name="mob" only-Digits maxlength="10" minlength="10"  ng-model="contactForm.mobile" required>
+            </label>
 
+          </div>
+          <p ng-if="contact.mob.$error.required && contact.mob.$touched ">Please Enter Your Mobile Number.</p>
+
+          <div class="list list-inset input-border">
+            <label class="item item-input">
+              <!-- <span class="input-label">Subject:</span> -->
+              <input type="text" placeholder="Subject" name="sub" ng-model="contactForm.subject" required>
+            </label>
+
+          </div>
+          <p ng-if="contact.sub.$error.required && contact.sub.$touched">Please Enter Your Subject.</p>
+
+          <div class="list list-inset input-border">
+            <label class="item item-input comment">
+              <textarea placeholder="Comments" class="input-area" name="comment" ng-model="contactForm.comments" required></textarea>
+            </label>
+
+          </div>
+          <p ng-if="contact.comment.$error.required && contact.comment.$touched">Please Enter Your Comments.</p>
+
+          <button class="button button-stable send" type="submit">
+          Send
+          </button>
+        </form>
       </div>
     </div>
   </ion-content>

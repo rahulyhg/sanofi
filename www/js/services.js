@@ -52,18 +52,27 @@ getUser: function () {
       //     data: input
       //   }).success(callback);
       // },
-              login: function (formData, callback) {
-                console.log(formData);
-            $http.post(adminurl + 'login', formData, {
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            }).success(callback);
+        login: function (formData, callback) {
+          console.log(formData);
+        $http.post(adminurl + 'login', formData, {
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }).success(callback);
         },
                profile : function (id, callback) {
                 console.log(id);
                 var id={id:id};
             $http.post(adminurl + 'profile', id , {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
+               contactus  : function (id, callback) {
+                console.log(id);
+                var id={id:id};
+            $http.post(adminurl + 'contactus', id , {
                 headers: {
                     'Content-Type': "application/json"
                 }

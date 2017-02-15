@@ -25,7 +25,6 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   $ionicConfigProvider.views.maxCache(2);
   $stateProvider
-
     .state('app', {
     url: '/app',
     abstract: true,
@@ -160,6 +159,35 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
+})
+
+.directive('onlyDigits', function () {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function (scope, element, attr, ctrl) {
+      var digits;
+
+      function inputValue(val) {
+        if (val) {
+          if (attr.type == "tel") {
+            digits = val.replace(/[^0-9\+\\]/g, '');
+          } else {
+            digits = val.replace(/[^0-9\-\\]/g, '');
+          }
+
+
+          if (digits !== val) {
+            ctrl.$setViewValue(digits);
+            ctrl.$render();
+          }
+          return parseInt(digits, 10);
+        }
+        return undefined;
+      }
+      ctrl.$parsers.push(inputValue);
+    }
+  };
 })
 .filter('uploadpath', function() {
     return function(input, width, height, style) {
