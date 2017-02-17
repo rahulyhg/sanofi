@@ -52,18 +52,26 @@ getUser: function () {
       //     data: input
       //   }).success(callback);
       // },
-              login: function (formData, callback) {
-                console.log(formData);
-            $http.post(adminurl + 'login', formData, {
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            }).success(callback);
+        login: function (formData, callback) {
+          console.log(formData);
+        $http.post(adminurl + 'login', formData, {
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }).success(callback);
         },
                profile : function (id, callback) {
                 console.log(id);
                 var id={id:id};
             $http.post(adminurl + 'profile', id , {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
+               contactus  : function (data, callback) {
+
+            $http.post(adminurl + 'contactus', data , {
                 headers: {
                     'Content-Type': "application/json"
                 }
@@ -105,13 +113,21 @@ getUser: function () {
                 }
             }).success(callback);
         },
-        kpis : function (formData, callback) {
+        // kpis : function (formData, callback) {
+        //         console.log(formData);
+        //     $http.post(adminurl + 'kpis', formData, {
+        //         headers: {
+        //             'Content-Type': "application/json"
+        //         }
+        //     }).success(callback);
+        // },
+        performance : function (formData, callback) {
                 console.log(formData);
-            $http.post(adminurl + 'kpis', formData, {
+            $http.post(adminurl + 'performance', formData, {
                 headers: {
                     'Content-Type': "application/json"
                 }
             }).success(callback);
-        },
+        }
     };
   });

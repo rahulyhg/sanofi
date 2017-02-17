@@ -7,16 +7,111 @@
       </div>
     </div>
     <div class="kpi-bds">
-      <div class="item item-divider text-center text-up color-white">
+      <!-- <div class="item item-divider text-center text-up color-white">
         Maximum KPI points to earn - <span class="font-bold">11250</span>
+      </div> -->
+      <div class="item item-divider text-center text-up color-white kpi-strip">
+        My Total Score - <span class="font-bold">{{getData.totalScore}}</span>
       </div>
-      <div class="acc" ng-repeat="kpi in getData">
+      <div class="item item-divider text-center text-up color-white kpi-strip">
+        Score Redeem - <span class="font-bold">{{getData.scoreRedeemed}}</span>
+      </div>
+      <div class="item item-divider text-center text-up color-white kpi-strip">
+        Balance Score Available - <span class="font-bold">{{getData.balanceScore}}</span>
+      </div>
+      <div class="acc" ng-repeat="kpis in getData.Quarters track by $index">
         <ion-list>
-          <div>
-            <ion-item class="item-stable text-center" ng-click="toggleGroup(kpi)" ng-class="{active: isGroupShown(kpi)}">
-               {{kpi.kpiDesc}} <i class="icon" ng-class="isGroupShown(kpi) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          <ion-item class="item-stable text-center quarter-h" ng-click="toggleGroup(kpis)" ng-class="{active: isGroupShown(kpis)}">
+            Quarter{{$index+1}} <i class="icon" ng-class="isGroupShown(kpis) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
+          </ion-item>
+          <div ng-show="isGroupShown(kpis)" ng-repeat="kpi in kpis track by $index">
+            <ion-item class="item-stable text-center quarter-in" ng-click="toggleGroupIn(kpi)" ng-class="{active: isGroupShownIn(kpi)}">
+               {{kpi.KpiDesc}} <i class="icon" ng-class="isGroupShownIn(kpi) ? 'ion-chevron-up' : 'ion-chevron-down'"></i>
             </ion-item>
-            <ion-item class="item-accordion" ng-show="isGroupShown(kpi)">
+            <ion-item class="item-accordion" ng-show="isGroupShownIn(kpi)">
+              <div class="tab-custom tab-border" ng-init="tab=1" >
+              <ul class="tabs-util">
+                  <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
+                      Performance
+                  </li>
+
+                  <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                      Score
+                  </li>
+              </ul>
+              <div ng-show="tab == 1" class="tabs-div">
+                  <div class="row">
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">First Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month1!=0">{{kpi.Score.month1}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month1==0">-</h1>
+                      </div>
+                    </div>
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">Second Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month2!=0">{{kpi.Score.month2}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month2==0">-</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">Third Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month3!=0" >{{kpi.Score.month3}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month3==0">-</h1>
+                      </div>
+                    </div>
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 " ng-if="kpi.kpiDesc!='Certification (Annual)' && kpi.kpiDesc!='Online Quiz (Annual)'">Quarter</h4>
+                        <h4 class="color-white margin0 " ng-if="kpi.kpiDesc=='Certification (Annual)' || kpi.kpiDesc=='Online Quiz (Annual)'">Annual</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.quarter!=0">{{kpi.Score.quarter}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.quarter==0">-</h1>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                <div ng-show="tab == 2" class="tabs-div">
+                  <div class="row">
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">First Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month1!=0">{{kpi.Score.month1}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month1==0">-</h1>
+                      </div>
+                    </div>
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">Second Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month2!=0">{{kpi.Score.month2}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month2==0">-</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 ">Third Month</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month3!=0" >{{kpi.Score.month3}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.month3==0">-</h1>
+                      </div>
+                    </div>
+                    <div class="col-50">
+                      <div class="pnt text-center kpi-div">
+                        <h4 class="color-white margin0 " ng-if="kpi.kpiDesc!='Certification (Annual)' && kpi.kpiDesc!='Online Quiz (Annual)'">Quarter</h4>
+                        <h4 class="color-white margin0 " ng-if="kpi.kpiDesc=='Certification (Annual)' || kpi.kpiDesc=='Online Quiz (Annual)'">Annual</h4>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.quarter!=0">{{kpi.Score.quarter}}</h1>
+                        <h1 class="color-white margin0 font-bold" ng-if="kpi.Score.quarter==0">-</h1>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+<!--
             <div class="row">
               <div class="col-50">
                 <div class="pnt text-center kpi-div">
@@ -49,15 +144,15 @@
                   <h1 class="color-white margin0 font-bold" ng-if="kpi.kpiParameters.quarter==0">-</h1>
                 </div>
               </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
               <div class="col">
                 <div class="pnt1 text-center kpi-big">
                   <h4 class="color-white margin0 ">Total</h4>
                   <h1 class="color-white margin0 font-bold">{{kpi.kpiParameters.total}}</h1>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="clauses">
               <h3>Clause1:</h3>
               <p ng-bind-html = "kpi.clause1"> </p>
