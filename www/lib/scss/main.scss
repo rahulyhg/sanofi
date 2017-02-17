@@ -470,7 +470,8 @@ margin: 10px;
 }
 .kpi-div{
   margin: 5px;
-  background: rgba(252, 253, 253, 0.14);
+  // background: rgba(252, 253, 253, 0.14);
+  background: linear-gradient(#0074bd, rgb(122, 170, 195));
       h1{
     color: white!important;
   }
@@ -724,4 +725,35 @@ input[disabled]{
   img{
     width: 100%;
   }
+}
+.error-msg{
+  margin: 10px;
+  color: red!important;
+}
+.quarter-h{
+  margin: 5px!important;
+}
+.quarter-in{
+  margin-bottom: 5px!important;
+}
+.tabs-util {
+  padding: 10px 0 0;
+  display: block;
+  height: 50px;
+  li {
+    display: inline-block;
+    width: 49%;
+    position: relative;
+    background-color: #bcbcbc;
+    color: black;
+    font-weight: 500;
+    height: 100%;
+
+    &.active {
+      background-color: white;
+    }
+  }
+}
+.tabs-div{
+  background: white;
 }

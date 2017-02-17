@@ -107,15 +107,30 @@ $scope.menu=[
 
 
 })
-.controller('ContactCtrl', function($scope,MyServices) {
+.controller('ContactCtrl', function($scope,MyServices,$ionicPopup,$state) {
   $scope.contactForm = {};
   var profile = $.jStorage.get('profile');
   $scope.contactForm.id = profile.id;
-  $scope.contactForm.name = profile.name;
+  $scope.name = profile.name;
 
+  $scope.showAlert = function(title,template) {
+  var alertPopup = $ionicPopup.alert({
+    title: title,
+    template: template
+  });
+  alertPopup.then(function(res) {
+
+  });
+};
   $scope.contactus =function(contactForm){
+    console.log("contactForm",contactForm)
     MyServices.contactus(contactForm, function(data) {
        console.log(data);
+       if(data.status === "SUCCESS"){
+    $scope.showAlert("Feedback Success","Thank you for your Feedback");
+       }else{
+         $scope.showAlert("Feedback Failed","Sorry ! We din\'t recieve your Feedback");
+       }
    });
 
   };
@@ -140,11 +155,12 @@ var id ={id:profile.id};
   $scope.getData = [];
   var id = {id:$.jStorage.get("profile").id};
   console.log(id);
-  MyServices.kpis(id, function(data) {
+  MyServices.performance(id, function(data) {
      console.log(data);
      $scope.getData = data;
 
-     $scope.shownGroup = $scope.getData[0];
+     $scope.shownGroup = $scope.getData.Quarters.Quarter1;
+     $scope.shownGroupIn  = $scope.getData.Quarters.Quarter1[0];
      console.log($scope.shownGroup);
  });
 
@@ -157,6 +173,16 @@ var id ={id:profile.id};
     };
     $scope.isGroupShown = function(group) {
       return $scope.shownGroup === group;
+    };
+  $scope.toggleGroupIn  = function(groupIn ) {
+      if ($scope.isGroupShownIn (groupIn )) {
+        $scope.shownGroupIn  = null;
+      } else {
+        $scope.shownGroupIn  = groupIn;
+      }
+    };
+    $scope.isGroupShownIn  = function(groupIn ) {
+      return $scope.shownGroupIn  === groupIn ;
     };
     // var id ={id:$stateParams.id};
 
