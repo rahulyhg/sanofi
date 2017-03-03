@@ -10,10 +10,9 @@
   </ion-item>
 
   <ion-content>
-    <div class="row filter-header">
+    <!-- <div class="row filter-header">
       <div class="col-50 ">
         <div class="pnt text-center min-h shadow" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
-          <!-- <h4 class="color-white margin0 ">First Month</h4> -->
           <h1 class="color-white margin0  font-s">All Product</h1>
         </div>
       </div>
@@ -27,19 +26,26 @@
     <div class="row" ng-repeat="data1 in getRewardCategoryData">
       <div class="col-50 " ng-repeat="data in data1" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:data.categoryId})">
         <div class="pnt text-center min-h shadow">
-          <!-- <h4 class="color-white margin0 ">First Month</h4> -->
           <h1 class="color-white margin0 font-s">{{data.name}}</h1>
         </div>
       </div>
-      <!-- <div class="col-50">
-        <div class="pnt text-center min-h">
-
-          <h1 class="color-white margin0 font-bold font-s">3000</h1>
+    </div> -->
+    <div class=" filter-header">
+      <div class="">
+        <div class="pnt text-center min-h shadow" ui-sref="app.reward({catalogueId:catlougeId0,categoryId:''})">
+          <h1 class="color-white margin0  font-s">All Product</h1>
         </div>
-      </div> -->
+      </div>
+
+    <div class="" ng-repeat="data in getRewardCatData">
+      <div class=" " ui-sref="app.reward({catalogueId:catlougeId0,categoryId:data.categoryId})">
+        <div class="pnt text-center min-h shadow">
+          <h1 class="color-white margin0 font-s">{{data.name}}</h1>
+        </div>
+      </div>
     </div>
-    <div class="disclaim">
+    <!-- <div class="disclaim">
       <p>*This gifts catalogue is only indicative and for demonstration purpose only. Final catalogue for redemption will be uploaded later.</p>
-    </div>
+    </div> -->
   </ion-content>
 </ion-view>

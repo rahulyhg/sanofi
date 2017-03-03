@@ -370,7 +370,7 @@ $dark:                            #444 !default;
 
 .kpi-div {
   margin: 5px;
-  background: linear-gradient(#0074bd, #7aaac3); }
+  background: rgba(252, 253, 253, 0.14); }
   .kpi-div h1 {
     color: white !important; }
 

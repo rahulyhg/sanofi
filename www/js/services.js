@@ -113,14 +113,14 @@ getUser: function () {
                 }
             }).success(callback);
         },
-        // kpis : function (formData, callback) {
-        //         console.log(formData);
-        //     $http.post(adminurl + 'kpis', formData, {
-        //         headers: {
-        //             'Content-Type': "application/json"
-        //         }
-        //     }).success(callback);
-        // },
+        kpis : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'kpis', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
         performance : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'performance', formData, {

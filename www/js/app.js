@@ -147,6 +147,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       }
     }
   })
+  .state('app.performance', {
+    url: '/performance',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/performance.html',
+        controller: 'PerformanceCtrl'
+      }
+    }
+  })
 
     .state('app.reward', {
     url: '/reward/:catalogueId/:categoryId/:filterId',

@@ -145,13 +145,41 @@ $scope.menu=[
 var id ={id:profile.id};
   MyServices.rewardcategory(id, function(data) {
      console.log(data);
-     $scope.getRewardCatData = data[0];
-     $scope.getRewardCategoryData = data.slice(1);
-     $scope.getRewardCategoryData = _.chunk($scope.getRewardCategoryData,2);
+     $scope.getRewardCatData = data;
+    //  $scope.getRewardCatData = data[0];
+    //  $scope.getRewardCategoryData = data.slice(1);
+    //  $scope.getRewardCategoryData = _.chunk($scope.getRewardCategoryData,2);
  });
 })
 
 .controller('KpiCtrl', function($scope, $stateParams,MyServices) {
+  $scope.getData = [];
+  var id = {id:$.jStorage.get("profile").id};
+  console.log(id);
+  MyServices.kpis(id, function(data) {
+     console.log(data);
+     $scope.getData = data;
+
+      $scope.shownGroup = $scope.getData[0];
+     console.log($scope.shownGroup);
+ });
+
+  $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
+
+    // var id ={id:$stateParams.id};
+
+
+})
+.controller('PerformanceCtrl', function($scope, $stateParams,MyServices) {
   $scope.getData = [];
   var id = {id:$.jStorage.get("profile").id};
   console.log(id);
