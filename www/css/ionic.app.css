@@ -90,11 +90,12 @@ $dark:                            #444 !default;
 
 .lg-button {
   text-align: center;
-  padding-top: 30px; }
+  padding-top: 30px;
+  margin-bottom: 30px; }
   .lg-button .button {
     padding: 2px 40px;
     border-color: white !important;
-    font-size: 18px;
+    font-size: 12px;
     width: 150px; }
 
 .continue {
@@ -195,12 +196,33 @@ $dark:                            #444 !default;
   display: block !important; }
 
 .pnt, .pnt1 {
-  background-color: #6dcff6;
+  background-color: #6dcff6 !important;
   padding: 12px; }
   .pnt h4, .pnt1 h4 {
     font-size: 15px !important; }
   .pnt h1, .pnt1 h1 {
     color: black; }
+
+.pnt-new, .pnt1 {
+  background-color: white !important;
+  padding: 12px;
+  margin: 10px; }
+  .pnt-new h4, .pnt1 h4 {
+    font-size: 15px !important; }
+  .pnt-new h1, .pnt1 h1 {
+    color: black; }
+
+.trans, .pnt1 {
+  background-color: transparent;
+  padding: 12px; }
+  .trans h4, .pnt1 h4 {
+    font-size: 15px !important; }
+  .trans h1, .pnt1 h1 {
+    color: black; }
+
+.white-h {
+  font-size: 18px;
+  padding: 15px 0; }
 
 .pad {
   padding: 0px;

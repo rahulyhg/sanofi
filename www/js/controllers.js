@@ -59,10 +59,12 @@ angular.module('starter.controllers', [])
   var profile = $.jStorage.get('profile');
 
   $scope.getID = profile.id;
+  $scope.designation =profile.designation;
   $scope.logout =function(){
     $.jStorage.set('profile',null);
     $.jStorage.deleteKey('profile');
     $.jStorage.flush();
+    $scope.designation=null;
 
     // if($.jStorage.get('profile')=== null){
       $state.go('login')
@@ -186,7 +188,26 @@ var id ={id:profile.id};
   MyServices.performance(id, function(data) {
      console.log(data);
      $scope.getData = data;
-
+    //  var q1 = $scope.getData.Quarters.Quarter1;
+     var enroll = {
+			"kpiID": 1,
+			"KpiDesc": "Enrollment Bonus",
+			"performance": {
+				"month1": "-",
+				"month2": "-",
+				"month3": "-",
+				"quarter": "0"
+			},
+			"Score": {
+				"month1": 250,
+				"month2": 0,
+				"month3": 0,
+				"quarter": 0
+			}
+		};
+    //for static enroll
+     $scope.getData.Quarters.Quarter1.unshift(enroll);
+    //  console.log(q1);
      $scope.shownGroup = $scope.getData.Quarters.Quarter1;
      $scope.shownGroupIn  = $scope.getData.Quarters.Quarter1[0];
      console.log($scope.shownGroup);

@@ -100,11 +100,12 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 .lg-button {
   text-align: center;
   padding-top: 30px;
+  margin-bottom: 30px;
 
   .button {
     padding: 2px 40px;
     border-color: rgb(255, 255, 255) !important;
-    font-size: 18px;
+    font-size: 12px;
     width: 150px;
   }
 }
@@ -231,8 +232,9 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
 .list .item.item-accordion.ng-hide-remove {
   display: block !important;
 }
+
 .pnt,.pnt1{
-    background-color: #6dcff6;
+    background-color: #6dcff6!important;
     padding: 12px;
     h4{
         font-size: 15px!important;
@@ -241,6 +243,33 @@ $font-family-light-sans-serif: "Arial", "HelveticaNeue-Light", "Roboto-Light", "
       color: black;
 
     }
+}
+.pnt-new,.pnt1{
+    background-color: white!important;
+    padding: 12px;
+    margin: 10px;
+    h4{
+        font-size: 15px!important;
+    }
+    h1{
+      color: black;
+
+    }
+}
+.trans,.pnt1{
+    background-color: transparent;
+    padding: 12px;
+    h4{
+        font-size: 15px!important;
+    }
+    h1{
+      color: black;
+
+    }
+}
+.white-h{
+  font-size: 18px;
+  padding: 15px 0;
 }
 .pad{
   padding: 0px;
