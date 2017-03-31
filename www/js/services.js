@@ -97,6 +97,14 @@ getUser: function () {
                 }
             }).success(callback);
         },
+        UpdateProfilePic : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'UpdateProfilePic', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
         filters : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'filters/', formData, {
@@ -116,6 +124,14 @@ getUser: function () {
         kpis : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'kpis', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
+        updateprofile : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'updateprofile', formData, {
                 headers: {
                     'Content-Type': "application/json"
                 }
