@@ -34,6 +34,12 @@ gulp.task('sass', function (done) {
 gulp.task('watch', function () {
   gulp.watch(paths.sass, ['sass']);
 });
+gulp.task('install', ['git-check'], function () {
+  return bower.commands.install()
+    .on('log', function (data) {
+      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
+    });
+});
 
 gulp.task('build', function () {
   return gulp.src('dist')
@@ -45,17 +51,8 @@ gulp.task('build', function () {
     }))
     .pipe(gulp.dest('apk'));
 });
-
+// ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 platforms/android/build/outputs/apk/android-release.apk app-publish.apk
 // ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 apk/android-release.apk app-publish.apk
-// ~/Library/Android/sdk/build-tools/23.0.1/zipalign -v 4 apk/android-armv7-release.apk app-publish.apk
-
-
-gulp.task('install', ['git-check'], function () {
-  return bower.commands.install()
-    .on('log', function (data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-    });
-});
 
 gulp.task('git-check', function (done) {
   if (!sh.which('git')) {
