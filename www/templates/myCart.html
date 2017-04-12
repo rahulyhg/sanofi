@@ -2,11 +2,13 @@
   <ion-content class="myCartCard">
     <div class="">
       <label class="myCartLabel" for="">Your Shopping Bag</label>
-      <div class="card myCartHeight">
-        <div class="row">
-          <div class="col-66 myCartBorder"><label class="myCartProName" for="">Armani Exchange AX2138 Analog Watch</label>
-            <div> <label class="myCartQty" for="">Qty</label>
-              <select class="dropDown myCartDrop" ng-model="Qty">
+      <div class="">
+        <div class="card ">
+          <div class="row">
+            <div class="col-66 myCartBorder">
+              <label class="myCartProName" for="">Armani Exchange AX2138 Analog Watch</label>
+              <div> <label class="myCartQty" for="">Qty</label>
+                <select class="dropDown myCartDrop" ng-model="Qty">
         <option selected disabled></option>
          <option>  1</option>
          <option>  2</option>
@@ -15,18 +17,19 @@
          <option>  5</option>
          
       </select>
+              </div>
+              <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">9000</span></label></div>
+              <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">9000</span></label>
+                <label class="myCartAction" for="">Action  :</label>
+                <button class="myCartDelete">Delete</button>
+              </div>
+              <div>
+              </div>
             </div>
-            <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">9000</span></label></div>
-            <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">9000</span></label>
-              <label class="myCartAction" for="">Action  :</label>
-              <button class="myCartDelete">Delete</button>
-            </div>
-            <div>
-            </div>
-          </div>
-          <div class="col-33 ">
-            <div class="myCartDiv"> <img src="/img/Layer 2 (1).png" class="img-responsive myCartImg" alt="watch">
-              <label class="myCartModel" for="">ILEADWatch</label>
+            <div class="col-33 ">
+              <div class="myCartImg"> <img src="/img/Layer 2 (1).png" class="img-responsive " alt="watch">
+                <label class="myCartModel" for="">ILEADWatch</label>
+              </div>
             </div>
           </div>
         </div>
@@ -34,10 +37,10 @@
       <button class="button button-block button-positive myCartPtsBtn" disabled>
   Grand Total Points : 9000
 </button>
-      <button class="button button-block button-positive myCartShpBtn">
+      <button class="button button-block button-positive myCartShpBtn" ui-sref="app.reward">
   Continue Shopping
 </button>
-      <button class="button button-block button-positive myCartProceedBtn">
+      <button class="button button-block button-positive myCartProceedBtn" ui-sref="app.shippingdetails">
   Proceed with Shipping Address
 </button>
       <!--<div class="item item-text-wrap card-margin"></div>-->
