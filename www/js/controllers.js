@@ -91,6 +91,10 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   })
+  .controller('ProductDetailCtrl', function ($scope) {
+
+
+  })
   .controller('SplashCtrl', function ($scope, $ionicSlideBoxDelegate) {
     $scope.nextSlide = function () {
       $ionicSlideBoxDelegate.next();

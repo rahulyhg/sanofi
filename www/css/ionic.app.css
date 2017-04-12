@@ -911,6 +911,52 @@ input[disabled] {
     width: 100%;
     border-radius: 50%; }
 
+.pdetail {
+  padding: 0 !important; }
+
+.phead {
+  background: #e5e7e7;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 !important; }
+
+.pimg {
+  height: 200px;
+  width: auto;
+  text-align: center;
+  margin: 15px; }
+  .pimg img {
+    height: 100%; }
+
+.pspecs {
+  font-size: 16px;
+  padding: 7px 15px;
+  margin: 0;
+  border-bottom: 1px solid #e1e1e1;
+  border-top: 1px solid #e1e1e1;
+  color: #686868;
+  font-weight: 600; }
+
+.plist {
+  padding: 10px 15px;
+  color: #686868; }
+  .plist li {
+    color: #686868; }
+
+.pbtn .col {
+  padding: 2px; }
+  .pbtn .col .pts {
+    width: 100%;
+    border-radius: 0;
+    background: #087ccf;
+    color: white; }
+  .pbtn .col .add {
+    width: 100%;
+    border-radius: 0;
+    background: #acb317;
+    color: white; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
