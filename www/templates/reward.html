@@ -15,7 +15,7 @@
               <ion-item class="item-accordion " >
                 <div class="row  " ng-if="getRewardData.length>0" ng-repeat="data1 in getRewardData" >
                   <div class="col-50 effect2 " ng-repeat="data in data1">
-                    <div class="pnt-new text-center pad">
+                    <div class="pnt-new text-center pad" ui-sref="app.product-detail">
                       <div class="box">
                         <div class="images">
                           <img ng-src="{{data.image}}" class="img-responsive" alt="">
