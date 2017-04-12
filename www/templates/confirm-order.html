@@ -1,0 +1,86 @@
+<ion-view class="bg-menu">
+  <ion-content class="shippingCard">
+    <div class="">
+      <h3 class="shippingHead">Confirm Your Order</h3>
+      <div class="confirmCard">
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Product Name:</label>
+          </div>
+          <div class="col-66">
+            <label class="confirmOrderDetails" for="">Armani Exchange AX2138 Analog</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Model:</label>
+          </div>
+          <div class="col-66">
+            <label class="confirmOrderDetails" for="">ILEAD_10017</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Quantity:</label>
+          </div>
+          <div class="col-66">
+            <label class="confirmOrderDetails" for="">1</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Points:</label>
+          </div>
+          <div class="col-66">
+            <label class="confirmOrderDetails" for="">9000</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Total Points:</label>
+          </div>
+          <div class="col-66">
+            <label class="confirmOrderDetails" for="">9000</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-33">
+            <label class="confirmDetails" for="">Action:</label>
+          </div>
+          <div class="col-66">
+            <button class="confirmOrderDetailsButton">Delete</button>
+          </div>
+        </div>
+      </div>
+      <button class="button button-block button-positive myCartPtsBtn" disabled>
+  Grand Total Points : 9000
+</button>
+      <h3 class="shippingHead">Confirm Your Order</h3>
+      <div class="card-content">
+        <!--<div class="item item-input-inset text-item">-->
+        <label class="item-input-wrapper shippingText">
+                  <input  type="text" placeholder="EMPCODE"  value = "{{data.empcode}}"disabled class="shippingPlaceHldr">
+                </label>
+      </div>
+      <div class="item item-input-inset text-item">
+        <label class="item-input-wrapper shippingText">
+                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{data.email}}" disabled>
+                </label>
+      </div>
+      <div class="list list-inset input-border">
+        <label class="item item-input shippingInputHeight">
+                  <input  type="text" placeholder="Mobile">
+                </label>
+      </div>
+      <div>
+        <button class="button button-calm confirmGoBackBtn">
+  Go Back
+</button>
+        <button class="button button-balanced confirmProceed">
+  Proceed with Transaction
+</button>
+      </div>
+      <button class="confirmOTP ">Click here to generate OTP</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,14 +1,14 @@
 angular.module('starter.controllers', ['ngCordova'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, MyServices, $state) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $state) {
   $scope.profile = $.jStorage.get('profile');
 
 })
 
-.controller('LoginCtrl', function($scope, MyServices, $state, $ionicPopup) {
+.controller('LoginCtrl', function ($scope, MyServices, $state, $ionicPopup) {
     $scope.loginData = {};
-    $scope.submitLoginForm = function(userdata) {
-      MyServices.login(userdata, function(data) {
+    $scope.submitLoginForm = function (userdata) {
+      MyServices.login(userdata, function (data) {
         console.log(data.status);
         if (data.status == 'Login Success') {
           $state.go('total-point', {
@@ -21,31 +21,31 @@ angular.module('starter.controllers', ['ngCordova'])
         }
       });
     }
-    $scope.showAlert = function() {
+    $scope.showAlert = function () {
       var alertPopup = $ionicPopup.alert({
         title: 'Error!',
         template: 'Incorrect User name or Password'
       });
 
-      alertPopup.then(function(res) {
+      alertPopup.then(function (res) {
 
         //  console.log('Thank you for not eating my delicious ice cream cone');
       });
     };
   })
-  .controller('TotalPointCtrl', function($scope, $stateParams, MyServices) {
+  .controller('TotalPointCtrl', function ($scope, $stateParams, MyServices) {
     // $.jStorage.set('id',$stateParams.id);
     // var id ={id:$stateParams.id};
     var profile = $.jStorage.get('profile');
     var id = profile.id;
 
-    MyServices.profile(id, function(data) {
+    MyServices.profile(id, function (data) {
       console.log(data);
       $scope.getData = data;
 
     });
   })
-  .controller('FilterRewardCtrl', function($scope, $stateParams, MyServices) {
+  .controller('FilterRewardCtrl', function ($scope, $stateParams, MyServices) {
     var profile = $.jStorage.get('profile');
     $scope.catlougeIdFilter = $stateParams.catalogueId;
     $scope.categoryIdFilter = $stateParams.categoryId;
@@ -54,18 +54,18 @@ angular.module('starter.controllers', ['ngCordova'])
       categoryId: $stateParams.categoryId
     };
 
-    MyServices.filters(dataToSend, function(data) {
+    MyServices.filters(dataToSend, function (data) {
       console.log(data);
       $scope.getfliter = data;
       $scope.getfliter = _.chunk(data, 2);
     });
   })
-  .controller('HomeMenuCtrl', function($scope, $state) {
+  .controller('HomeMenuCtrl', function ($scope, $state) {
     var profile = $.jStorage.get('profile');
 
     $scope.getID = profile.id;
     $scope.designation = profile.designation;
-    $scope.logout = function() {
+    $scope.logout = function () {
       $.jStorage.set('profile', null);
       $.jStorage.deleteKey('profile');
       $.jStorage.flush();
@@ -87,38 +87,38 @@ angular.module('starter.controllers', ['ngCordova'])
     ]
 
   })
-  .controller('AboutCtrl', function($scope) {
+  .controller('AboutCtrl', function ($scope) {
 
 
   })
-  .controller('SplashCtrl', function($scope, $ionicSlideBoxDelegate) {
-    $scope.nextSlide = function() {
+  .controller('SplashCtrl', function ($scope, $ionicSlideBoxDelegate) {
+    $scope.nextSlide = function () {
       $ionicSlideBoxDelegate.next();
     }
 
   })
-  .controller('TermsCtrl', function($scope) {
+  .controller('TermsCtrl', function ($scope) {
 
 
   })
-  .controller('ProfileCtrl', function($scope, $cordovaCamera, $ionicActionSheet,$cordovaFileTransfer,$ionicPopup, MyServices, $cordovaImagePicker) {
+  .controller('ProfileCtrl', function ($scope, $cordovaCamera, $ionicActionSheet, $cordovaFileTransfer, $ionicPopup, MyServices, $cordovaImagePicker) {
     $scope.profilepic = {};
     var profile = $.jStorage.get('profile');
     $scope.id = profile.id;
-    MyServices.profile($scope.id, function(data) {
+    MyServices.profile($scope.id, function (data) {
       console.log(data);
       $scope.data = data;
     });
-    $scope.update = function(formdata) {
+    $scope.update = function (formdata) {
       console.log(formdata);
       $scope.data.id = $scope.id;
       $scope.data = formdata;
-      MyServices.updateprofile($scope.data, function(data) {
+      MyServices.updateprofile($scope.data, function (data) {
         console.log(data);
         $scope.data = data;
-        if(data.status==="Update Success"){
+        if (data.status === "Update Success") {
           $scope.showAlert();
-          MyServices.profile($scope.id, function(data) {
+          MyServices.profile($scope.id, function (data) {
             console.log(data);
             $scope.data = data;
           });
@@ -126,7 +126,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
       });
     }
-    $scope.showActionsheet = function() {
+    $scope.showActionsheet = function () {
       $ionicActionSheet.show({
         //  titleText: 'choose option',
         buttons: [{
@@ -138,10 +138,10 @@ angular.module('starter.controllers', ['ngCordova'])
         }, ],
         //  destructiveText: 'Delete',
         cancelText: 'Cancel',
-        cancel: function() {
+        cancel: function () {
           console.log('CANCELLED');
         },
-        buttonClicked: function(index) {
+        buttonClicked: function (index) {
           console.log('BUTTON CLICKED', index);
           if (index == 0) {
             $scope.remove();
@@ -152,28 +152,28 @@ angular.module('starter.controllers', ['ngCordova'])
           }
           return true;
         },
-        destructiveButtonClicked: function() {
+        destructiveButtonClicked: function () {
           console.log('DESTRUCT');
           return true;
         }
       });
     };
-    $scope.remove = function() {
+    $scope.remove = function () {
       var profile = $.jStorage.get('profile');
       $scope.id = profile.id;
       $scope.data.id = profile.id;
       $scope.data.image = "http://ilead.mypride.co.in/ProfilePics/201703301054044284_ProfileDummy.png";
-      MyServices.updateprofile($scope.data, function(data) {
+      MyServices.updateprofile($scope.data, function (data) {
         $scope.pic = data;
         $scope.id = profile.id;
-        MyServices.profile($scope.id, function(data) {
+        MyServices.profile($scope.id, function (data) {
           console.log(data);
           $scope.data = data;
         });
       });
     };
     //take image from camera --------------------------------------------------------
-    $scope.openCamera = function() {
+    $scope.openCamera = function () {
       var cameraOptions = {
         quality: 90,
         destinationType: Camera.DestinationType.DATA_URL,
@@ -185,17 +185,17 @@ angular.module('starter.controllers', ['ngCordova'])
         saveToPhotoAlbum: true,
         correctOrientation: true
       };
-      $cordovaCamera.getPicture(cameraOptions).then(function(imageData) {
+      $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
         $scope.imageSrc = "data:image/jpeg;base64," + imageData;
         console.log($scope.imageSrc);
         $scope.uploadImage($scope.imageSrc);
-      }, function(err) {
+      }, function (err) {
 
         console.log(err);
       });
     };
     //cordovaImagePicker function------------------------------------------------------
-    $scope.getImageSaveContact = function() {
+    $scope.getImageSaveContact = function () {
       // Image picker will load images according to these settings
       var options = {
         maximumImagesCount: 1, // Max number of selected images
@@ -203,29 +203,29 @@ angular.module('starter.controllers', ['ngCordova'])
         height: 800,
         quality: 80 // Higher is better
       };
-      $cordovaImagePicker.getPictures(options).then(function(results) {
+      $cordovaImagePicker.getPictures(options).then(function (results) {
         console.log(results);
         $scope.uploadImage(results[0]);
-      }, function(error) {
+      }, function (error) {
         console.log('Error: ' + JSON.stringify(error)); // In case of error
       });
     };
 
 
-    $scope.uploadImage = function(imageURI) {
+    $scope.uploadImage = function (imageURI) {
       console.log('imageURI', imageURI);
-      $cordovaFileTransfer.upload(adminurl + 'UpdateProfilePic',imageURI)
-        .then(function(result) {
+      $cordovaFileTransfer.upload(adminurl + 'UpdateProfilePic', imageURI)
+        .then(function (result) {
 
           result.response = JSON.parse(result.response);
-      console.log(result.response.image);
+          console.log(result.response.image);
           var profile = $.jStorage.get('profile');
           $scope.id = profile.id;
           $scope.data.id = profile.id;
           $scope.data.image = result.response.image;
-          MyServices.updateprofile($scope.data, function(data) {
+          MyServices.updateprofile($scope.data, function (data) {
             console.log(data);
-            MyServices.profile($scope.id, function(data) {
+            MyServices.profile($scope.id, function (data) {
               console.log(data);
               $scope.data = data;
 
@@ -233,47 +233,47 @@ angular.module('starter.controllers', ['ngCordova'])
           });
           // result.response = JSON.parse(result.response);
           // console.log(result.response.data[0]);
-        }, function(err) {
+        }, function (err) {
           // Error
-        }, function(progress) {
+        }, function (progress) {
           // constant progress updates
         });
     };
 
-    $scope.showAlert = function() {
+    $scope.showAlert = function () {
       var alertPopup = $ionicPopup.alert({
         title: 'Thank you',
         template: 'Your profile has updated successfully.'
       });
 
-      alertPopup.then(function(res) {
+      alertPopup.then(function (res) {
 
         //  console.log('Thank you for not eating my delicious ice cream cone');
       });
     };
   })
-  .controller('ManagementCtrl', function($scope) {
+  .controller('ManagementCtrl', function ($scope) {
 
 
   })
-  .controller('ContactCtrl', function($scope, MyServices, $ionicPopup, $state) {
+  .controller('ContactCtrl', function ($scope, MyServices, $ionicPopup, $state) {
     $scope.contactForm = {};
     var profile = $.jStorage.get('profile');
     $scope.contactForm.id = profile.id;
     $scope.name = profile.name;
 
-    $scope.showAlert = function(title, template) {
+    $scope.showAlert = function (title, template) {
       var alertPopup = $ionicPopup.alert({
         title: title,
         template: template
       });
-      alertPopup.then(function(res) {
+      alertPopup.then(function (res) {
 
       });
     };
-    $scope.contactus = function(contactForm) {
+    $scope.contactus = function (contactForm) {
       console.log("contactForm", contactForm)
-      MyServices.contactus(contactForm, function(data) {
+      MyServices.contactus(contactForm, function (data) {
         console.log(data);
         if (data.status === "SUCCESS") {
           $scope.showAlert("Feedback Success", "Thank you for your Feedback");
@@ -286,7 +286,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   })
-  .controller('RewardCategoryCtrl', function($scope, MyServices) {
+  .controller('RewardCategoryCtrl', function ($scope, MyServices) {
 
     var profile = $.jStorage.get('profile');
     $scope.catlougeId0 = profile.catalogueId;
@@ -294,7 +294,7 @@ angular.module('starter.controllers', ['ngCordova'])
     var id = {
       id: profile.id
     };
-    MyServices.rewardcategory(id, function(data) {
+    MyServices.rewardcategory(id, function (data) {
       console.log(data);
       $scope.getRewardCatData = data;
       //  $scope.getRewardCatData = data[0];
@@ -303,99 +303,116 @@ angular.module('starter.controllers', ['ngCordova'])
     });
   })
 
-.controller('KpiCtrl', function($scope, $stateParams, MyServices) {
-    $scope.getData = [];
-    var id = {
-      id: $.jStorage.get("profile").id
-    };
-    console.log(id);
-    MyServices.kpis(id, function(data) {
-      console.log(data);
-      $scope.getData = data;
+.controller('KpiCtrl', function ($scope, $stateParams, MyServices) {
+  $scope.getData = [];
+  var id = {
+    id: $.jStorage.get("profile").id
+  };
+  console.log(id);
+  MyServices.kpis(id, function (data) {
+    console.log(data);
+    $scope.getData = data;
 
-      $scope.shownGroup = $scope.getData[0];
-      console.log($scope.shownGroup);
-    });
+    $scope.shownGroup = $scope.getData[0];
+    console.log($scope.shownGroup);
+  });
 
-    $scope.toggleGroup = function(group) {
-      if ($scope.isGroupShown(group)) {
-        $scope.shownGroup = null;
-      } else {
-        $scope.shownGroup = group;
+  $scope.toggleGroup = function (group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function (group) {
+    return $scope.shownGroup === group;
+  };
+
+  // var id ={id:$stateParams.id};
+
+
+})
+
+.controller('MyCartCtrl', function ($scope) {
+
+})
+
+.controller('ShippingDetailsCtrl', function ($scope) {
+
+})
+
+.controller('ConfirmOrderCtrl', function ($scope) {
+
+})
+
+.controller('OtpValidationCtrl', function ($scope) {
+
+})
+
+.controller('PerformanceCtrl', function ($scope, $stateParams, MyServices) {
+  $scope.getData = [];
+  var id = {
+    id: $.jStorage.get("profile").id
+  };
+  console.log(id);
+  MyServices.performance(id, function (data) {
+    console.log(data);
+    $scope.getData = data;
+    //  var q1 = $scope.getData.Quarters.Quarter1;
+    var enroll = {
+      "kpiID": 1,
+      "KpiDesc": "Enrollment Bonus",
+      "performance": {
+        "month1": "-",
+        "month2": "-",
+        "month3": "-",
+        "quarter": "0"
+      },
+      "Score": {
+        "month1": 250,
+        "month2": 0,
+        "month3": 0,
+        "quarter": 0
       }
     };
-    $scope.isGroupShown = function(group) {
-      return $scope.shownGroup === group;
-    };
+    //for static enroll
+    $scope.getData.Quarters.Quarter1.unshift(enroll);
+    //  console.log(q1);
+    $scope.shownGroup = $scope.getData.Quarters.Quarter1;
+    $scope.shownGroupIn = $scope.getData.Quarters.Quarter1[0];
+    console.log($scope.shownGroup);
+  });
 
-    // var id ={id:$stateParams.id};
-
-
-  })
-  .controller('PerformanceCtrl', function($scope, $stateParams, MyServices) {
-    $scope.getData = [];
-    var id = {
-      id: $.jStorage.get("profile").id
-    };
-    console.log(id);
-    MyServices.performance(id, function(data) {
-      console.log(data);
-      $scope.getData = data;
-      //  var q1 = $scope.getData.Quarters.Quarter1;
-      var enroll = {
-        "kpiID": 1,
-        "KpiDesc": "Enrollment Bonus",
-        "performance": {
-          "month1": "-",
-          "month2": "-",
-          "month3": "-",
-          "quarter": "0"
-        },
-        "Score": {
-          "month1": 250,
-          "month2": 0,
-          "month3": 0,
-          "quarter": 0
-        }
-      };
-      //for static enroll
-      $scope.getData.Quarters.Quarter1.unshift(enroll);
-      //  console.log(q1);
-      $scope.shownGroup = $scope.getData.Quarters.Quarter1;
-      $scope.shownGroupIn = $scope.getData.Quarters.Quarter1[0];
-      console.log($scope.shownGroup);
-    });
-
-    $scope.toggleGroup = function(group) {
-      if ($scope.isGroupShown(group)) {
-        $scope.shownGroup = null;
-      } else {
-        $scope.shownGroup = group;
-      }
-    };
-    $scope.isGroupShown = function(group) {
-      return $scope.shownGroup === group;
-    };
-    $scope.toggleGroupIn = function(groupIn) {
-      if ($scope.isGroupShownIn(groupIn)) {
-        $scope.shownGroupIn = null;
-      } else {
-        $scope.shownGroupIn = groupIn;
-      }
-    };
-    $scope.isGroupShownIn = function(groupIn) {
-      return $scope.shownGroupIn === groupIn;
-    };
-    // var id ={id:$stateParams.id};
+  $scope.toggleGroup = function (group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function (group) {
+    return $scope.shownGroup === group;
+  };
+  $scope.toggleGroupIn = function (groupIn) {
+    if ($scope.isGroupShownIn(groupIn)) {
+      $scope.shownGroupIn = null;
+    } else {
+      $scope.shownGroupIn = groupIn;
+    }
+  };
+  $scope.isGroupShownIn = function (groupIn) {
+    return $scope.shownGroupIn === groupIn;
+  };
+  // var id ={id:$stateParams.id};
 
 
-  })
+})
 
-.controller('RewardCtrl', function($scope, $stateParams, MyServices, $state) {
-  $scope.goBackHandler = function() {
+.controller('RewardCtrl', function ($scope, $stateParams, MyServices, $state) {
+  $scope.goBackHandler = function () {
     window.history.back(); //This works
   }
-  $scope.setColor = function() {
+  $scope.setColor = function () {
 
     }
     // $scope.groups = [];
@@ -408,22 +425,22 @@ angular.module('starter.controllers', ['ngCordova'])
     categoryId: $stateParams.categoryId,
     filterId: $stateParams.filterId
   };
-  MyServices.reward(dataToSend, function(data) {
+  MyServices.reward(dataToSend, function (data) {
     console.log(data);
     $scope.getRewardData = data;
     $scope.getRewardData = _.chunk(data, 2);
   });
-  $scope.toggleGroup = function(group) {
+  $scope.toggleGroup = function (group) {
     if ($scope.isGroupShown(group)) {
       $scope.shownGroup = null;
     } else {
       $scope.shownGroup = group;
     }
   };
-  $scope.isGroupShown = function(group) {
+  $scope.isGroupShown = function (group) {
     return $scope.shownGroup === group;
   };
-  $scope.goFilter = function() {
+  $scope.goFilter = function () {
       $state.go('app.filter-reward', {
         catalogueId: $stateParams.catalogueId,
         categoryId: $stateParams.categoryId

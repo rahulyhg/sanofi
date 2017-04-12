@@ -1,0 +1,46 @@
+<ion-view class="bg-menu">
+  <ion-content class="myCartCard">
+    <div class="">
+      <label class="myCartLabel" for="">Your Shopping Bag</label>
+      <div class="card myCartHeight">
+        <div class="row">
+          <div class="col-66 myCartBorder"><label class="myCartProName" for="">Armani Exchange AX2138 Analog Watch</label>
+            <div> <label class="myCartQty" for="">Qty</label>
+              <select class="dropDown myCartDrop" ng-model="Qty">
+        <option selected disabled></option>
+         <option>  1</option>
+         <option>  2</option>
+         <option>  3</option>
+         <option>  4</option>
+         <option>  5</option>
+         <option>  6</option>
+      </select>
+            </div>
+            <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">9000</span></label></div>
+            <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">9000</span></label>
+              <label class="myCartAction" for="">Action  :</label>
+              <button class="myCartDelete">Delete</button>
+            </div>
+            <div>
+            </div>
+          </div>
+          <div class="col-33 ">
+            <div class="myCartDiv"> <img src="/img/Layer 2 (1).png" class="img-responsive myCartImg" alt="watch">
+              <label class="myCartModel" for="">ILEADWatch</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="button button-block button-positive myCartPtsBtn" disabled>
+  Grand Total Points : 9000
+</button>
+      <button class="button button-block button-positive myCartShpBtn">
+  Continue Shopping
+</button>
+      <button class="button button-block button-positive myCartProceedBtn">
+  Proceed with Shipping Address
+</button>
+      <!--<div class="item item-text-wrap card-margin"></div>-->
+    </div>
+  </ion-content>
+</ion-view>

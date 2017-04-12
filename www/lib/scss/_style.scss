@@ -1,6 +1,282 @@
-.kpi-big{
+.kpi-big {
   background: rgba(51, 194, 238, 0.38);
-      h1{
+  h1 {
     color: white!important;
   }
+}
+
+.myCartCard {
+  background: #ebebeb!important;
+  margin: 10px!important;
+}
+
+.myCartLabel {
+  display: block!important;
+  text-align: center!important;
+  margin: 10px auto!important;
+  font-size: 20px!important;
+  color: #256ab6!important;
+}
+
+.myCartHeight {
+  height: 100%;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.myCartProName {
+  display: block;
+  width: 95%;
+  margin-left: 10px;
+}
+
+.myCartQty {
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 15px!important;
+}
+
+.myCartDrop {
+  width: 15%;
+  border: 1px solid gray;
+  height: 7%;
+  display: inline;
+  vertical-align: middle;
+  margin-top: 15px!important;
+}
+
+.myCartPoints {
+  margin-left: 10px!important;
+  margin-top: 15px!important;
+  display: block!important;
+  border-bottom: 1px solid #ebebeb!important;
+  padding-bottom: 10px!important;
+}
+
+.myCartTotPts {
+  margin-left: 10px!important;
+  margin-top: 15px!important;
+  display: block!important;
+}
+
+.myCartDelete {
+  margin-left: -6px;
+  color: #83bde7!important;
+}
+
+.myCartAction {
+  margin-left: 10px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.myCartDiv {
+  height: 100%;
+  width: 100%;
+}
+
+.myCartImg {
+  width: 95%;
+  height: 85%;
+  border: 1px solid #ebebeb;
+  margin-left: 5px;
+}
+
+.myCartModel {
+  text-align: center!important;
+  display: block!important;
+  width: 100%!important;
+  color: #908f8f!important;
+}
+
+.myCartPtsClr {
+  color: #bab9b9!important;
+}
+
+.myCartPtsBtn {
+  margin: 10px auto!important;
+  display: block !important;
+  width: 95% !important;
+  background: #282828 !important;
+  border-radius: 0px !important;
+  opacity: 1!important;
+}
+
+.myCartShpBtn {
+  margin: 10px auto!important;
+  display: block !important;
+  width: 95% !important;
+  background: #087ccf !important;
+  border-radius: 0px !important;
+}
+
+.myCartProceedBtn {
+  margin: 10px auto!important;
+  display: block !important;
+  width: 95% !important;
+  background: #acb317 !important;
+  border-radius: 0px !important;
+}
+
+.shippingCard {
+  background: #ffffff!important;
+  margin: 10px!important;
+}
+
+.shippingHead {
+  width: 100%;
+  font-size: 20px;
+  color: #908f8f;
+  margin: 22px 0px!important;
+  display: block !important;
+  text-align: center !important;
+}
+
+.shippingText {
+  height: 45px!important;
+  border-radius: 0px !important;
+  background: #e1e1e1!important;
+  color: #959494;
+  border: 1px solid #b7b7b7!important;
+}
+
+.shippingPlaceHldr {
+  color: #a4a4a4!important;
+  font-size: 16px;
+}
+
+.shippingAddlbl {
+  height: 150px!important;
+}
+
+.shippingAddHeight {
+  height: 100%!important;
+}
+
+.shippingInputHeight {
+  height: 40px!important;
+  border-radius: 0px !important;
+}
+
+.shippingInputHeight input {
+  width: 100%;
+}
+
+.confirmCard {
+  border: 1px solid;
+  height: 100%;
+  width: 95%;
+  margin-left: 10px;
+  height: 180px!important;
+  display: inline-block;
+  color: #c7c6c6;
+}
+
+.confirmDetails {
+  display: block;
+  vertical-align: middle;
+  color: black;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 10px!important;
+}
+
+.confirmOrderDetails {
+  display: block;
+  vertical-align: middle;
+  color: #908f8f;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 5px!important;
+  margin-bottom: 10px!important;
+}
+
+.confirmOrderDetailsButton {
+  display: block;
+  vertical-align: middle;
+  margin-left: 3px!important;
+  color: #83bde7!important;
+  font-weight: 500;
+  text-align: left;
+  margin-top: -5px!important;
+  margin-bottom: 10px!important;
+}
+
+.confirmGoBackBtn {
+  margin-left: 10px!important;
+  border-radius: 0px!important;
+  background: #087ccf!important;
+}
+
+.confirmProceed {
+  margin-left: -4px!important;
+  border-radius: 0px!important;
+  display: inline-block;
+  width: 69%!important;
+  margin-right: 0px!important;
+  border: none;
+  background: #acb317!important;
+}
+
+.confirmOTP {
+  text-align: center;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 18px;
+  color: #469ddb!important;
+}
+
+.otpCard {
+  padding: 30px 25px!important;
+  background: #ffffff !important;
+  margin: 10px !important;
+}
+
+.otpHead {
+  width: 99%;
+  font-size: 16px;
+  color: #908f8f;
+  display: block !important;
+  text-align: center !important;
+}
+
+.otpText {
+  text-align: center !important;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.otpValidate {
+  min-height: 30px!important;
+  line-height: 20px!important;
+  font-size: 18px;
+  background: #acb317 !important;
+  padding: 0px 19px!important;
+  width: auto;
+  border-radius: 0px !important;
+  margin-top: 5px!important;
+}
+
+.otpValidateDiv {
+  width: 100%;
+  vertical-align: middle;
+  display: block;
+  text-align: center;
+}
+
+.otpGenerateDiv {
+  display: block;
+  text-align: center!important;
+  margin: 15px!important;
+  padding: 0!important;
+}
+
+.otpGenerate {
+  color: #469ddb !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #469ddb !important;
+  font-size: 16px!important;
+  padding: 0!important;
 }
