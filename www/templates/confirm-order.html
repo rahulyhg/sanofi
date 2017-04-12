@@ -69,7 +69,27 @@
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text" placeholder="Mobile">
+                  <input  type="text"   placeholder="Mobile">
+                </label>
+      </div>
+      <div class="itemlist-inset input-border">
+        <label class="item item-input input-height in-edit shippingAddlbl">
+                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="data.address" placeholder="Address" >{{data.address}}</textarea>
+                </label>
+      </div>
+      <div class="list list-inset input-border">
+        <label class="item item-input shippingInputHeight">
+                  <input  type="text"   placeholder="City">
+                </label>
+      </div>
+      <div class="list list-inset input-border">
+        <label class="item item-input shippingInputHeight">
+                  <input  type="text"   placeholder="State">
+                </label>
+      </div>
+      <div class="list list-inset input-border">
+        <label class="item item-input shippingInputHeight">
+                  <input  type="text"   placeholder="Pincode">
                 </label>
       </div>
       <div>
@@ -81,6 +101,23 @@
 </button>
       </div>
       <button class="confirmOTP ">Click here to generate OTP</button>
+    </div>
+    <div class="otpCard">
+      <h3 class="otpHead">Please enter the OTP you have received on your mobile</h3>
+    </div>
+    <div class="item item-input-inset text-item">
+      <label class="item-input-wrapper shippingText otpText">
+                  <input  type="email" placeholder="Please enter your OTP here"  class="otpText" value ="{{data.email}}" disabled>
+                </label>
+    </div>
+    <div class="otpValidateDiv">
+      <button class="button button-balanced otpValidate">
+          Validate OTP
+</button>
+    </div>
+    <div class="otpGenerateDiv">
+      <button class="otpGenerate">Click to Regenerate OTP</button>
+    </div>
     </div>
   </ion-content>
 </ion-view>
