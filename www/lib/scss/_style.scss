@@ -26,47 +26,45 @@
 .myCartProName {
   display: block;
   width: 95%;
-  margin-left: 10px;
+  margin: 5px;
 }
 
 .myCartQty {
-  margin-left: 10px;
+  margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
-  margin-top: 15px!important;
+  margin: 5px!important;
 }
 
 .myCartDrop {
-  width: 15%;
   border: 1px solid gray;
   height: 7%;
   display: inline;
   vertical-align: middle;
-  margin-top: 15px!important;
+  margin: 5px!important;
 }
 
 .myCartPoints {
-  margin: 15px 10px!important;
+  margin: 5px!important;
   display: block!important;
   border-bottom: 1px solid #ebebeb!important;
   padding-bottom: 10px!important;
 }
 
 .myCartTotPts {
-  margin-left: 10px!important;
-  margin-top: 15px!important;
+  margin: 5px!important;
   display: block!important;
 }
 
 .myCartDelete {
-  margin-left: -6px;
   color: #83bde7!important;
+  background: transparent;
+  border: none;
 }
 
 .myCartAction {
-  margin-left: 10px;
+  margin: 5px 0 5px 5px;
   display: inline-block;
-  margin-top: 10px;
 }
 
 .myCartDiv {
@@ -78,7 +76,7 @@
   width: 100%;
   height: 100%;
   img {
-    height: 85%;
+    height: 80%;
     width: 100%;
     border: 1px solid #ebebeb;
   }
@@ -127,9 +125,9 @@
 
 .shippingHead {
   width: 100%;
-  font-size: 20px;
+  font-size: 16px;
   color: #908f8f;
-  margin: 22px 0px!important;
+  margin: 15px 0px!important;
   display: block !important;
   text-align: center !important;
 }
@@ -203,29 +201,25 @@
 }
 
 .confirmGoBackBtn {
-  margin-left: 10px!important;
   border-radius: 0px!important;
   background: #087ccf!important;
+  padding: 0!important;
+  width: 100%;
+
 }
 
 .confirmProceed {
-  margin-left: -4px!important;
   border-radius: 0px!important;
-  display: inline-block;
-  width: 69%!important;
-  margin-right: 0px!important;
   border: none;
   background: #acb317!important;
-  width: 30%;
-  border: none;
-  margin-left: 0px;
-  border-radius: 0px !important;
-  display: inline-block;
-  width: 69% !important;
-  border: none;
-  background: #acb317 !important;
+  // margin-left: 0px;
+  // width: 69% !important;
+  width: 100%;
+  padding: 0!important;
 }
-
+.pad0{
+  padding: 10px!important;
+}
 .cofirmProceedDiv {
   width: 100%;
   vertical-align: middle;
@@ -233,24 +227,23 @@
 }
 
 .confirmOTP {
-  text-align: center;
-  width: 100%;
-  margin-top: 5px;
-  font-size: 18px;
-  color: #469ddb!important;
+  display: block;
+    margin: 5px auto;
+    font-size: 18px;
+    color: #469ddb !important;
+    background: transparent;
+    border: none;
 }
 
 .otpCard {
-  padding: 30px 25px!important;
-  background: #ffffff !important;
-  margin: 10px !important;
+  padding: 20px!important;
+
 }
 
 .otpHead {
-  width: 99%;
-  font-size: 16px;
+  font-size: 14px;
   color: #908f8f;
-  display: block !important;
+  margin: 0 20px;
   text-align: center !important;
 }
 
@@ -261,9 +254,8 @@
 }
 
 .otpValidate {
-  min-height: 30px!important;
-  line-height: 20px!important;
-  font-size: 18px;
+  min-height: 35px!important;
+  line-height: 35px!important;
   background: #acb317 !important;
   padding: 0px 19px!important;
   width: auto;
@@ -272,10 +264,8 @@
 }
 
 .otpValidateDiv {
-  width: 100%;
-  vertical-align: middle;
-  display: block;
-  text-align: center;
+  margin: 0 auto!important;
+  display: block!important;
 }
 
 .otpGenerateDiv {
@@ -292,4 +282,6 @@
   border-bottom: 1px solid #469ddb !important;
   font-size: 16px!important;
   padding: 0!important;
+  display: block;
+margin: 15px auto;
 }

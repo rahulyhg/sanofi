@@ -91,7 +91,19 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   })
-  .controller('ProductDetailCtrl', function ($scope) {
+  .controller('ProductDetailCtrl', function ($scope,$stateParams) {
+    $stateParams.productId=$scope.productId;
+    console.log($scope.productId);
+    var profile = $.jStorage.get('profile');
+    $scope.id = profile.id;
+    $scope.detail={};
+    $scope.detail.productId=$stateParams.productId;
+    $scope.detail.id={};
+
+    MyServices.profile($scope.id, function (data) {
+      console.log(data);
+      $scope.data = data;
+    });
 
 
   })

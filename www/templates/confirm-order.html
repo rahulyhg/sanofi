@@ -56,60 +56,60 @@
       </div>
       <div class="item item-input-inset text-item">
         <label class="item-input-wrapper shippingText">
-                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{data.email}}" disabled>
+                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{data.email}}"  disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Mobile">
+                  <input  type="text"   placeholder="Mobile" disabled>
                 </label>
       </div>
       <div class="itemlist-inset input-border">
         <label class="item item-input input-height in-edit shippingAddlbl">
-                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="data.address" placeholder="Address" >{{data.address}}</textarea>
+                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="data.address" placeholder="Address"  disabled>{{data.address}}</textarea>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="City">
+                  <input  type="text"   placeholder="City" disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="State">
+                  <input  type="text"   placeholder="State" disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Pincode">
+                  <input  type="text"   placeholder="Pincode" disabled>
                 </label>
       </div>
-      <div>
-        <button class="button button-calm confirmGoBackBtn" ui-sref="app.shippingdetails">
-  Go Back
-</button>
-        <button class="button button-balanced confirmProceed">
-  Proceed with Transaction
-</button>
+      <div class="row pad0">
+        <div class="col-33">
+          <button class="button button-calm confirmGoBackBtn" ui-sref="app.shippingdetails">
+            Go Back
+          </button>
+        </div>
+        <div class="col-66">
+          <button class="button button-balanced confirmProceed">
+            Proceed with Transaction
+          </button>
+        </div>
       </div>
       <button class="confirmOTP ">Click here to generate OTP</button>
     </div>
     <div class="otpCard">
       <h3 class="otpHead">Please enter the OTP you have received on your mobile</h3>
-    </div>
+
     <div class="item item-input-inset text-item">
       <label class="item-input-wrapper shippingText otpText">
                   <input  type="email" placeholder="Please enter your OTP here"  class="otpText" value ="{{data.email}}" disabled>
                 </label>
     </div>
-    <div class="otpValidateDiv">
-      <button class="button button-balanced otpValidate">
+      <button class="button button-balanced otpValidate otpValidateDiv">
           Validate OTP
-</button>
-    </div>
-    <div class="otpGenerateDiv">
+      </button>
       <button class="otpGenerate">Click to Regenerate OTP</button>
-    </div>
     </div>
   </ion-content>
 </ion-view>
