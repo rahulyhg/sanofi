@@ -3,38 +3,32 @@
     <div class="">
       <label class="myCartLabel" for="">Your Shopping Bag</label>
       <div class="">
-        <div class="card ">
+        <div class="card " ng-repeat="carts in cart">
           <div class="row">
             <div class="col-66 myCartBorder">
-              <label class="myCartProName" for="">Armani Exchange AX2138 Analog Watch</label>
+              <label class="myCartProName" for="">{{carts.name}}</label>
               <div> <label class="myCartQty" for="">Qty</label>
-                <select class="dropDown myCartDrop" ng-model="Qty">
-         <option>  1</option>
-         <option>  2</option>
-         <option>  3</option>
-         <option>  4</option>
-         <option>  5</option>
-
+                <select class="dropDown myCartDrop" ng-model="carts.quantity" ng-options="q for q in quantity" ng-change="updateqty(carts)">
       </select>
               </div>
-              <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">9000</span></label></div>
-              <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">9000</span></label>
+              <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">{{carts.points}}</span></label></div>
+              <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">{{carts.points*carts.quantity}}</span></label>
                 <label class="myCartAction" for="">Action  :</label>
-                <button class="myCartDelete" >Delete</button>
+                <button class="myCartDelete" ng-click="deletecartitem(carts)">Delete</button>
               </div>
               <div>
               </div>
             </div>
             <div class="col-33 ">
-              <div class="myCartImg"> <img src="/img/Layer 2 (1).png" class="img-responsive " alt="watch">
-                <label class="myCartModel" for="">ILEAD-10017</label>
+              <div class="myCartImg"> <img ng-src="{{carts.image}}" class="img-responsive ">
+                <label class="myCartModel" for="">{{carts.modelno}}</label>
               </div>
             </div>
           </div>
         </div>
       </div>
       <button class="button button-block button-positive myCartPtsBtn" disabled>
-  Grand Total Points : 9000
+  Grand Total Points : {{grandTotal}}
 </button>
       <button class="button button-block button-positive myCartShpBtn" ui-sref="app.reward-category">
   Continue Shopping

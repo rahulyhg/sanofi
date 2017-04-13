@@ -91,18 +91,46 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   })
-  .controller('ProductDetailCtrl', function ($scope,$stateParams,MyServices) {
+  .controller('ProductDetailCtrl', function ($scope, $stateParams, $state, MyServices) {
 
     console.log($scope.productId);
     var profile = $.jStorage.get('profile');
-    $scope.detail={};
-    $scope.detail.productId=$stateParams.productId;
-    $scope.detail.id=profile.id;
+    $scope.detail = {};
+    $scope.detail.productId = $stateParams.productId;
+    $scope.detail.id = profile.id;
+    $scope.detail.sessionId = profile.sessionId;
+
+    $scope.showAlert = function (text, state, title) {
+      var alertPopup = $ionicPopup.alert({
+        title: title,
+        template: text
+      });
+
+      alertPopup.then(function (res) {
+        $state.go(state);
+        //  console.log('Thank you for not eating my delicious ice cream cone');
+      });
+    };
+
 
     MyServices.productdetails($scope.detail, function (data) {
       console.log(data);
       $scope.productdata = data;
     });
+    $scope.addToCart = function () {
+      MyServices.addtocart($scope.detail, function (data) {
+        console.log(data);
+        if (data.status == 'OK') {
+          $state.go('app.mycart');
+        } else if (data.status == 'INVALID DATA') {
+
+          $scope.showAlert(data.status, 'login', 'Error');
+        } else {
+          $scope.showAlert(data.status, 'app.reward-category', 'Error Message');
+        }
+
+      });
+    }
 
 
   })
@@ -348,7 +376,89 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('MyCartCtrl', function ($scope) {
+.controller('MyCartCtrl', function ($scope, MyServices, $state, $ionicPopup) {
+  console.log($scope.productId);
+  var profile = $.jStorage.get('profile');
+  $scope.detail = {};
+  $scope.detail.id = profile.id;
+  $scope.detail.sessionId = profile.sessionId;
+  $scope.quantity = [1, 2, 3, 4, 5];
+
+  $scope.showAlert = function (text, state, title) {
+    var alertPopup = $ionicPopup.alert({
+      title: title,
+      template: text
+    });
+
+    alertPopup.then(function (res) {
+      $state.go(state);
+    });
+  };
+
+
+  MyServices.cart($scope.detail, function (data) {
+    console.log(data);
+    $scope.cart = data;
+    $scope.grandTotal = 0;
+
+    _.forEach($scope.cart, function (value) {
+      $scope.grandTotal = $scope.grandTotal + (value.points * value.quantity);
+
+    });
+  });
+  $scope.updateqty = function (carts) {
+    $scope.update = {};
+    $scope.update.cartId = carts.cartId;
+    $scope.update.qty = carts.quantity;
+    MyServices.updateqty($scope.update, function (data) {
+      console.log(data);
+      if (data.status == 'UPDATE SUCCESS') {
+        MyServices.cart($scope.detail, function (data) {
+          console.log(data);
+          $scope.cart = data;
+          $scope.grandTotal = 0;
+
+          _.forEach($scope.cart, function (value) {
+            $scope.grandTotal = $scope.grandTotal + (value.points * value.quantity);
+
+          });
+
+        });
+      } else if (data.status == ' STOCK EXCEEDED') {
+
+        $scope.showAlert(data.status, '', 'Error');
+      } else {
+        $scope.showAlert(data.status, '', 'Error Message');
+      }
+
+    });
+  }
+  $scope.deletecartitem = function (carts) {
+    var profile = $.jStorage.get('profile');
+    $scope.delete = {};
+    $scope.delete.sessionId = profile.sessionId;
+    $scope.delete.cartId = carts.cartId;
+
+    MyServices.deletecartitem($scope.delete, function (data) {
+      console.log(data);
+      if (data.status == 'OK') {
+        MyServices.cart($scope.detail, function (data) {
+          console.log(data);
+          $scope.cart = data;
+          $scope.grandTotal = 0;
+
+          _.forEach($scope.cart, function (value) {
+            $scope.grandTotal = $scope.grandTotal + (value.points * value.quantity);
+
+          });
+        });
+      } else {
+
+        $scope.showAlert(data.status, 'login', 'Error');
+      }
+
+    });
+  }
 
 })
 
