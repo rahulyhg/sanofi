@@ -1,31 +1,35 @@
 <ion-view class="bg-menu">
   <ion-content>
     <div class="card pdetail">
-      <h4 class="phead">Android Wear Watch</h4>
+      <h4 class="phead">{{productdata.name}}</h4>
       <div class="">
         <div class="pimg">
-          <img src="img/watch.png" alt="">
+          <img ng-src="{{productdata.image}}" alt="">
         </div>
         <div class="">
-          <h4 class="pspecs">Specifications</h4>
-          <ul class="plist">
+          <label class="code" for="">{{productdata.skuCode}}</label>
+        </div>
+        <div class="">
+          <h4 class="pspecs" ng-if="productdata.specifications">Specifications</h4>
+          <div class="plist" ng-bind-html="productdata.specifications"></div>
+          <!-- <ul class="plist">
             <li>● Water Resistant</li>
             <li>● Display Type: Analog</li>
             <li>● Strap: Black</li>
             <li>● Chronograph, Scratch Resistant</li>
             <li>● 2 Years</li>
             <li>● 10 Days Replacement Policy</li>
-          </ul>
+          </ul> -->
         </div>
         <div class="row pbtn">
           <div class="col">
             <button class="button button-small button-positive pts">
-             10500/- Points
+             {{productdata.points}}/- Points
             </button>
           </div>
           <div class="col">
             <button class="button button-small button-positive add" ui-sref="app.mycart">
-              Add to cart 
+              Add to cart
             </button>
           </div>
         </div>

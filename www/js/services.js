@@ -97,6 +97,14 @@ getUser: function () {
                 }
             }).success(callback);
         },
+        productdetails : function (formData, callback) {
+                console.log(formData);
+            $http.post(adminurl + 'productdetails', formData, {
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            }).success(callback);
+        },
         UpdateProfilePic : function (formData, callback) {
                 console.log(formData);
             $http.post(adminurl + 'UpdateProfilePic', formData, {

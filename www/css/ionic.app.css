@@ -959,6 +959,13 @@ input[disabled] {
     color: white;
     font-size: 16px; }
 
+.code {
+  color: grey;
+  text-align: center;
+  display: block;
+  margin: 15px;
+  font-size: 16px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
