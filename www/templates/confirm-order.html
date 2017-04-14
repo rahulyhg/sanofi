@@ -1,14 +1,14 @@
 <ion-view class="bg-menu">
   <ion-content class="shippingCard">
-    <div class="">
+    <div class="" ng-if="otpValidate">
       <h3 class="shippingHead">Confirm Your Order</h3>
-      <div class="confirmCard">
+      <div class="confirmCard" ng-repeat="item in confirm.items">
         <div class="row">
           <div class="col-33">
             <label class="confirmDetails" for="">Product Name:</label>
           </div>
           <div class="col-66">
-            <label class="confirmOrderDetails" for="">Armani Exchange AX2138 Analog</label>
+            <label class="confirmOrderDetails" for="">{{item.name}}</label>
           </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
             <label class="confirmDetails" for="">Model:</label>
           </div>
           <div class="col-66">
-            <label class="confirmOrderDetails" for="">ILEAD_10017</label>
+            <label class="confirmOrderDetails" for="">{{item.modelno}}</label>
           </div>
         </div>
         <div class="row">
@@ -24,7 +24,7 @@
             <label class="confirmDetails" for="">Quantity:</label>
           </div>
           <div class="col-66">
-            <label class="confirmOrderDetails" for="">1</label>
+            <label class="confirmOrderDetails" for="">{{item.quantity}}</label>
           </div>
         </div>
         <div class="row">
@@ -32,7 +32,7 @@
             <label class="confirmDetails" for="">Points:</label>
           </div>
           <div class="col-66">
-            <label class="confirmOrderDetails" for="">9000</label>
+            <label class="confirmOrderDetails" for="">{{item.points}}</label>
           </div>
         </div>
         <div class="row">
@@ -40,48 +40,48 @@
             <label class="confirmDetails" for="">Total Points:</label>
           </div>
           <div class="col-66">
-            <label class="confirmOrderDetails" for="">9000</label>
+            <label class="confirmOrderDetails" for="">{{item.points*item.quantity}}</label>
           </div>
         </div>
       </div>
       <button class="button button-block button-positive myCartPtsBtn" disabled>
-  Grand Total Points : 9000
+  Grand Total Points : {{grandTotal}}
 </button>
       <h3 class="shippingHead">Confirm Your Order</h3>
       <div class="card-content">
         <!--<div class="item item-input-inset text-item">-->
         <label class="item-input-wrapper shippingText">
-                  <input  type="text" placeholder="EMPCODE"  value = "{{data.empcode}}"disabled class="shippingPlaceHldr">
+                  <input  type="text" placeholder="EMPCODE"  value = "{{details.empcode}}"disabled class="shippingPlaceHldr">
                 </label>
       </div>
       <div class="item item-input-inset text-item">
         <label class="item-input-wrapper shippingText">
-                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{data.email}}"  disabled>
+                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{details.email}}"  disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Mobile" disabled>
+                  <input  type="text"   placeholder="Mobile" ng-model="details.mobile" disabled>
                 </label>
       </div>
       <div class="itemlist-inset input-border">
-        <label class="item item-input input-height in-edit shippingAddlbl">
-                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="data.address" placeholder="Address"  disabled>{{data.address}}</textarea>
+        <label class="item item-input input-height in-edit ">
+                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="details.address" placeholder="Address"  disabled>{{data.address}}</textarea>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="City" disabled>
+                  <input  type="text"   placeholder="City" ng-model="details.city" disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="State" disabled>
+                  <input  type="text"   placeholder="State" ng-model="details.state" disabled>
                 </label>
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Pincode" disabled>
+                  <input  type="text"   placeholder="Pincode" ng-model="details.pincode" disabled>
                 </label>
       </div>
       <div class="row pad0">
@@ -91,25 +91,25 @@
           </button>
         </div>
         <div class="col-66">
-          <button class="button button-balanced confirmProceed">
+          <button class="button button-balanced confirmProceed" ng-click="enterOtp=true">
             Proceed with Transaction
           </button>
         </div>
       </div>
-      <button class="confirmOTP ">Click here to generate OTP</button>
+      <button class="confirmOTP " ng-if="enterOtp" ng-click="otpGet()">Click here to generate OTP</button>
     </div>
-    <div class="otpCard">
-      <h3 class="otpHead">Please enter the OTP you have received on your mobile</h3>
+    <div class="otpCard" ng-if="!otpValidate">
+      <h3 class="otpHead" >Please enter the OTP you have received on your mobile</h3>
 
     <div class="item item-input-inset text-item">
       <label class="item-input-wrapper shippingText otpText">
-                  <input  type="email" placeholder="Please enter your OTP here"  class="otpText" value ="{{data.email}}" disabled>
+                  <input  type="text" placeholder="Please enter your OTP here"  class="otpText"  ng-model="userotp" >
                 </label>
     </div>
-      <button class="button button-balanced otpValidate otpValidateDiv">
+      <button class="button button-balanced otpValidate otpValidateDiv" ng-click="validotp(userotp)" ng-disabled="!userotp">
           Validate OTP
       </button>
-      <button class="otpGenerate">Click to Regenerate OTP</button>
+      <button class="otpGenerate" ng-click="otpGet()" >Click to Regenerate OTP</button>
     </div>
   </ion-content>
 </ion-view>

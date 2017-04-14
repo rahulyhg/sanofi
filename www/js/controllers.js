@@ -91,7 +91,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
   })
-  .controller('ProductDetailCtrl', function ($scope, $stateParams, $state, MyServices) {
+  .controller('ProductDetailCtrl', function ($scope, $stateParams, $state, MyServices,$ionicPopup) {
 
     console.log($scope.productId);
     var profile = $.jStorage.get('profile');
@@ -392,6 +392,16 @@ angular.module('starter.controllers', ['ngCordova'])
 
     alertPopup.then(function (res) {
       $state.go(state);
+      MyServices.cart($scope.detail, function (data) {
+        console.log(data);
+        $scope.cart = data;
+        $scope.grandTotal = 0;
+
+        _.forEach($scope.cart, function (value) {
+          $scope.grandTotal = $scope.grandTotal + (value.points * value.quantity);
+
+        });
+      });
     });
   };
 
@@ -426,9 +436,9 @@ angular.module('starter.controllers', ['ngCordova'])
         });
       } else if (data.status == ' STOCK EXCEEDED') {
 
-        $scope.showAlert(data.status, '', 'Error');
+        $scope.showAlert(data.status, 'app.mycart', 'Error');
       } else {
-        $scope.showAlert(data.status, '', 'Error Message');
+        $scope.showAlert(data.status, 'app.mycart', 'Error Message');
       }
 
     });
@@ -462,12 +472,110 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('ShippingDetailsCtrl', function ($scope) {
+.controller('ShippingDetailsCtrl', function ($scope,MyServices,$state,$ionicPopup) {
+  var profile = $.jStorage.get('profile');
+  $scope.shipping={};
+  $scope.shipping.id=profile.id;
+  $scope.shipping.sessionId = profile.sessionId;
+
+  $scope.showAlert = function (text, state, title) {
+    var alertPopup = $ionicPopup.alert({
+      title: title,
+      template: text
+    });
+
+    alertPopup.then(function (res) {
+      $state.go(state);
+    });
+  };
+  MyServices.shippingdetails($scope.shipping, function (data) {
+    console.log(data);
+    $scope.shipping = data;
+    $scope.shipping.sessionId = profile.sessionId;
+  });
+  $scope.addshipping=function(){
+    MyServices.addshipping($scope.shipping, function (data) {
+      console.log(data);
+      $scope.shipping = data;
+      if(data.status=="OK"){
+        $state.go('app.confirmorder');
+      }else{
+$scope.showAlert(data.status,'login','Error Message');
+      }
+    });
+  }
 
 })
 
-.controller('ConfirmOrderCtrl', function ($scope) {
+.controller('ConfirmOrderCtrl', function ($scope,MyServices,$ionicPopup,$state) {
+  var profile = $.jStorage.get('profile');
+  $scope.confirm={};
+  $scope.confirm.id=profile.id;
+  $scope.confirm.sessionId = profile.sessionId;
+  $scope.userotp="";
+  $scope.otpValidate=true;
 
+  $scope.showAlert = function (text, state, title) {
+    var alertPopup = $ionicPopup.alert({
+      title: title,
+      template: text
+    });
+
+    alertPopup.then(function (res) {
+      $state.go(state);
+    });
+  };
+  MyServices.summary($scope.confirm, function (data) {
+    console.log(data);
+    $scope.confirm = data;
+    $scope.details=data.shipping;
+    $scope.confirm.sessionId = profile.sessionId;
+    $scope.grandTotal=0;
+    _.forEach($scope.confirm.items, function (value) {
+      $scope.grandTotal = $scope.grandTotal + (value.points * value.quantity);
+
+    });
+  });
+  $scope.otpGet=function(){
+    $scope.otp={};
+    $scope.otp.id=profile.id;
+    MyServices.otp($scope.otp, function (data) {
+      $scope.otpDetail=data;
+      console.log(data,$scope.otpDetail);
+
+      if (data.status=="SUCCESS") {
+        $scope.otpValidate=false;
+      }
+      else{
+  $scope.otpValidate=true;
+      }
+    });
+  }
+  $scope.validotp=function(userotp){
+    console.log(userotp,$scope.otpDetail.otp);
+    $scope.userotp=userotp;
+    if (_.isEqual($scope.otpDetail.otp,userotp)) {
+    // if ($scope.otpDetail.otp===userotp) {
+      $scope.place={};
+      $scope.place.grandtotal=$scope.grandTotal;
+      $scope.place.id=profile.id;
+      $scope.place.sessionId = profile.sessionId;
+      MyServices.placeorder($scope.place, function (data) {
+        console.log(data);
+        if (data.status == 'ORDER SUCCESS') {
+          $scope.showAlert(data.status, 'app.reward-category', 'SUCCESS');
+        } else if (data.status == 'ORDER FAILURE') {
+
+          $scope.showAlert(data.status, 'app.mycart', 'Error FAILURE');
+        } else if (data.status == 'INSUFFICIENT BALANCE') {
+          $scope.showAlert(data.status, 'app.reward-category', 'Error Message');
+        }
+      });
+    }
+    else{
+        $scope.showAlert('You have entered wrong otp','app.confirmorder','Wrong otp');
+    }
+  }
 })
 
 .controller('OtpValidationCtrl', function ($scope) {

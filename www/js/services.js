@@ -142,6 +142,46 @@ angular.module('starter.services', [])
           }
         }).success(callback);
       },
+      shippingdetails: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'shippingdetails', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+      addshipping: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'addshipping', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+      summary: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'summary', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+      otp: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'otp', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+      placeorder: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'placeorder', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
 
 
       UpdateProfilePic: function (formData, callback) {

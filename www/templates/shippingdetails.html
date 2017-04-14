@@ -7,46 +7,60 @@
   <ion-content class="shippingCard">
     <div class="">
       <h3 class="shippingHead">Please enter your Shipping Address</h3>
+      <form ng-submit="addshipping()" name="userForm">
       <div class="card-content">
         <!--<div class="item item-input-inset text-item">-->
         <label class="item-input-wrapper shippingText">
-                  <input  type="text" placeholder="EMPCODE"  value = "{{data.empcode}}"disabled class="shippingPlaceHldr">
+                  <input  type="text" placeholder="EMPCODE"  value = "{{shipping.empcode}}"disabled class="shippingPlaceHldr">
                 </label>
       </div>
       <div class="item item-input-inset text-item">
         <label class="item-input-wrapper shippingText">
-                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{data.email}}" disabled>
+                  <input  type="email" placeholder="ilead@gmail.com"  class="shippingPlaceHldr" value ="{{shipping.email}}" disabled>
                 </label>
+
       </div>
+
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Mobile">
-                </label>
+          <input  type="text" placeholder="Mobile" ng-model="shipping.mobile" name="mobile" required only-Digits maxlength="10" minlength="10">
+        </label>
+        <p class="error-msg" ng-show="userForm.mobile.$error.required && userForm.mobile.$touched">Please Enter Your Mobile number.</p>
+
       </div>
       <div class="itemlist-inset input-border">
         <label class="item item-input input-height in-edit shippingAddlbl">
-                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="data.address" placeholder="Address" >{{data.address}}</textarea>
-                </label>
+                  <textarea  class="input-area txt-area shippingAddHeight" name="address" ng-model="shipping.address" placeholder="Address"  required>{{shipping.address}}</textarea>
+        </label>
+        <p class="error-msg" ng-show="userForm.address.$error.required && userForm.address.$touched">Please Enter Your Address.</p>
+
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="City">
-                </label>
+                  <input  type="text"   placeholder="City" name="city" ng-model="shipping.city" required>
+        </label>
+      <p class="error-msg" ng-show="userForm.city.$error.required && userForm.city.$touched">Please Enter Your City.</p>
+
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="State">
-                </label>
+                  <input  type="text"   placeholder="State" ng-model="shipping.state" name="state" required>
+        </label>
+        <p class="error-msg" ng-show="userForm.state.$error.required && userForm.state.$touched">Please Enter Your State.</p>
+
       </div>
       <div class="list list-inset input-border">
         <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Pincode">
-                </label>
+                  <input  type="text"   placeholder="Pincode" ng-model="shipping.pincode" name="pincode" required only-Digits maxlength="6" minlength="6">
+        </label>
+        <p class="error-msg" ng-show="userForm.pincode.$error.required && userForm.pincode.$touched">Please Enter Your Password.</p>
+
       </div>
       </button>
-      <button class="button button-block button-positive myCartProceedBtn" ui-sref="app.confirmorder">
+      <button class="button button-block button-positive myCartProceedBtn" type="submit">
   Proceed to CheckOut
 </button>
+</form>
     </div>
   </ion-content>
 </ion-view>
