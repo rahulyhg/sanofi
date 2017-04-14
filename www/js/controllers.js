@@ -123,10 +123,12 @@ angular.module('starter.controllers', ['ngCordova'])
         if (data.status == 'OK') {
           $state.go('app.mycart');
         } else if (data.status == 'INVALID DATA') {
-
+          $.jStorage.set('profile', null);
+          $.jStorage.deleteKey('profile');
+          $.jStorage.flush();
           $scope.showAlert(data.status, 'login', 'Error');
         } else {
-          $scope.showAlert(data.status, 'app.reward-category', 'Error Message');
+          $scope.showAlert(data.status, 'app.mycart', 'Error Message');
         }
 
       });
@@ -463,7 +465,9 @@ angular.module('starter.controllers', ['ngCordova'])
           });
         });
       } else {
-
+        $.jStorage.set('profile', null);
+        $.jStorage.deleteKey('profile');
+        $.jStorage.flush();
         $scope.showAlert(data.status, 'login', 'Error');
       }
 
@@ -496,11 +500,13 @@ angular.module('starter.controllers', ['ngCordova'])
   $scope.addshipping=function(){
     MyServices.addshipping($scope.shipping, function (data) {
       console.log(data);
-      $scope.shipping = data;
       if(data.status=="OK"){
         $state.go('app.confirmorder');
       }else{
-$scope.showAlert(data.status,'login','Error Message');
+        $.jStorage.set('profile', null);
+        $.jStorage.deleteKey('profile');
+        $.jStorage.flush();
+        $scope.showAlert(data.status,'login','Error Message');
       }
     });
   }
@@ -568,7 +574,7 @@ $scope.showAlert(data.status,'login','Error Message');
 
           $scope.showAlert(data.status, 'app.mycart', 'Error FAILURE');
         } else if (data.status == 'INSUFFICIENT BALANCE') {
-          $scope.showAlert(data.status, 'app.reward-category', 'Error Message');
+          $scope.showAlert(data.status, 'app.mycart', 'Error Message');
         }
       });
     }
