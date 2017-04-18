@@ -1,4 +1,22 @@
 <ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
   <ion-content class="shippingCard">
     <div class="" ng-if="otpValidate">
       <h3 class="shippingHead">Confirm Your Order</h3>
@@ -47,7 +65,7 @@
       <button class="button button-block button-positive myCartPtsBtn" disabled>
   Grand Total Points : {{grandTotal}}
 </button>
-      <h3 class="shippingHead">Confirm Your Order</h3>
+      <h3 class="shippingHead">Confirm Your Shipping Address</h3>
       <div class="card-content">
         <!--<div class="item item-input-inset text-item">-->
         <label class="item-input-wrapper shippingText">
@@ -60,28 +78,28 @@
                 </label>
       </div>
       <div class="list list-inset input-border">
-        <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Mobile" ng-model="details.mobile" disabled>
+        <label class="item item-input shippingInputHeight  shippingText">
+                  <input  type="text"   placeholder="Mobile" ng-model="details.mobile" class="shippingPlaceHldr" disabled>
                 </label>
       </div>
       <div class="itemlist-inset input-border">
-        <label class="item item-input input-height in-edit ">
-                  <textarea  class="input-area txt-area shippingAddHeight" ng-model="details.address" placeholder="Address"  disabled>{{data.address}}</textarea>
+        <label class="item item-input input-height in-edit  shippingText">
+                  <textarea  class="input-area txt-area shippingAddHeight shippingPlaceHldr" ng-model="details.address" placeholder="Address"  disabled>{{data.address}}</textarea>
                 </label>
       </div>
       <div class="list list-inset input-border">
-        <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="City" ng-model="details.city" disabled>
+        <label class="item item-input shippingInputHeight shippingText">
+                  <input  type="text"   placeholder="City" ng-model="details.city" disabled class="shippingPlaceHldr">
                 </label>
       </div>
       <div class="list list-inset input-border">
-        <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="State" ng-model="details.state" disabled>
+        <label class="item item-input shippingInputHeight shippingText ">
+                  <input  type="text"   placeholder="State" ng-model="details.state" disabled class="shippingPlaceHldr">
                 </label>
       </div>
       <div class="list list-inset input-border">
-        <label class="item item-input shippingInputHeight">
-                  <input  type="text"   placeholder="Pincode" ng-model="details.pincode" disabled>
+        <label class="item item-input shippingInputHeight shippingText">
+                  <input  type="text"   placeholder="Pincode" ng-model="details.pincode" disabled class="shippingPlaceHldr">
                 </label>
       </div>
       <div class="row pad0">
@@ -91,12 +109,13 @@
           </button>
         </div>
         <div class="col-66">
-          <button class="button button-balanced confirmProceed" ng-click="enterOtp=true">
+          <!-- <button class="button button-balanced confirmProceed" ng-click="enterOtp=true"> -->
+          <button class="button button-balanced confirmProceed" ng-click="transaction()">
             Proceed with Transaction
           </button>
         </div>
       </div>
-      <button class="confirmOTP " ng-if="enterOtp" ng-click="otpGet()">Click here to generate OTP</button>
+      <!-- <button class="confirmOTP " ng-if="enterOtp" ng-click="otpGet()">Click here to generate OTP</button> -->
     </div>
     <div class="otpCard" ng-if="!otpValidate">
       <h3 class="otpHead" >Please enter the OTP you have received on your mobile</h3>
@@ -109,7 +128,7 @@
       <button class="button button-balanced otpValidate otpValidateDiv" ng-click="validotp(userotp)" ng-disabled="!userotp">
           Validate OTP
       </button>
-      <button class="otpGenerate" ng-click="otpGet()" >Click to Regenerate OTP</button>
+      <button class="otpGenerate" ng-click="otpGet();userotp=''" >Click to Regenerate OTP</button>
     </div>
   </ion-content>
 </ion-view>

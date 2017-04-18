@@ -1,5 +1,6 @@
 .kpi-big {
   background: rgba(51, 194, 238, 0.38);
+
   h1 {
     color: white!important;
   }
@@ -7,7 +8,7 @@
 
 .myCartCard {
   background: #ebebeb!important;
-  margin: 10px!important;
+  margin: 10px !important;
 }
 
 .myCartDiv {
@@ -18,7 +19,7 @@
 .myCartLabel {
   display: block!important;
   text-align: center!important;
-  margin: 10px auto!important;
+  margin: 10px auto !important;
   font-size: 20px!important;
   color: #256ab6!important;
 }
@@ -33,7 +34,7 @@
   margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
-  margin: 5px!important;
+  margin: 5px !important;
 }
 
 .myCartDrop {
@@ -41,18 +42,18 @@
   height: 7%;
   display: inline;
   vertical-align: middle;
-  margin: 5px!important;
+  margin: 5px !important;
 }
 
 .myCartPoints {
-  margin: 5px!important;
+  margin: 5px !important;
   display: block!important;
   border-bottom: 1px solid #ebebeb!important;
-  padding-bottom: 10px!important;
+  padding-bottom: 10px !important;
 }
 
 .myCartTotPts {
-  margin: 5px!important;
+  margin: 5px !important;
   display: block!important;
 }
 
@@ -75,6 +76,7 @@
 .myCartImg {
   width: 100%;
   height: 100%;
+
   img {
     height: 80%;
     width: 100%;
@@ -94,49 +96,49 @@
 }
 
 .myCartPtsBtn {
-  margin: 10px auto!important;
+  margin: 10px auto !important;
   display: block !important;
   width: 95% !important;
   background: #282828 !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   opacity: 1!important;
 }
 
 .myCartShpBtn {
-  margin: 10px auto!important;
+  margin: 10px auto !important;
   display: block !important;
   width: 95% !important;
   background: #087ccf !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .myCartProceedBtn {
-  margin: 10px auto!important;
+  margin: 10px auto !important;
   display: block !important;
   width: 95% !important;
   background: #acb317 !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .shippingCard {
   background: #ffffff!important;
-  margin: 10px!important;
+  margin: 10px !important;
 }
 
 .shippingHead {
   width: 100%;
   font-size: 16px;
   color: #908f8f;
-  margin: 15px 0px!important;
+  margin: 15px 0 !important;
   display: block !important;
   text-align: center !important;
 }
 
 .shippingText {
   height: 45px!important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   background: #e1e1e1!important;
-  color: #959494;
+  color: #959494!important;
   border: 1px solid #b7b7b7!important;
 }
 
@@ -155,7 +157,7 @@
 
 .shippingInputHeight {
   height: 40px!important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .shippingInputHeight input {
@@ -176,7 +178,7 @@
   color: black;
   font-weight: 500;
   text-align: right;
-  margin-bottom: 10px!important;
+  margin-bottom: 10px !important;
 }
 
 .confirmOrderDetails {
@@ -185,27 +187,26 @@
   color: #908f8f;
   font-weight: 500;
   text-align: left;
-  margin-left: 5px!important;
-  margin-bottom: 10px!important;
+  margin-left: 5px !important;
+  margin-bottom: 10px !important;
 }
 
 .confirmOrderDetailsButton {
   display: block;
   vertical-align: middle;
-  margin-left: 3px!important;
+  margin-left: 3px !important;
   color: #83bde7!important;
   font-weight: 500;
   text-align: left;
-  margin-top: -5px!important;
-  margin-bottom: 10px!important;
+  margin-top: -5px !important;
+  margin-bottom: 10px !important;
 }
 
 .confirmGoBackBtn {
   border-radius: 0px!important;
   background: #087ccf!important;
-  padding: 0!important;
+  padding: 0 !important;
   width: 100%;
-
 }
 
 .confirmProceed {
@@ -215,29 +216,36 @@
   // margin-left: 0px;
   // width: 69% !important;
   width: 100%;
-  padding: 0!important;
+  padding: 0 !important;
 }
-.pad0{
-  padding: 10px!important;
+
+.pad0 {
+  padding: 10px !important;
 }
+
 .cofirmProceedDiv {
   width: 100%;
   vertical-align: middle;
   display: block;
 }
 
-.confirmOTP {
-  display: block;
+
+
+.confirmOTP {.popup {
+  .popup-buttons button {
+    display: block;
     margin: 5px auto;
-    font-size: 18px;
+    font-size: 16px;
     color: #469ddb !important;
     background: transparent;
     border: none;
+    color: blue;
+  }
+  }
 }
 
 .otpCard {
-  padding: 20px!important;
-
+  padding: 20px !important;
 }
 
 .otpHead {
@@ -257,22 +265,22 @@
   min-height: 35px!important;
   line-height: 35px!important;
   background: #acb317 !important;
-  padding: 0px 19px!important;
+  padding: 0 19px !important;
   width: auto;
-  border-radius: 0px !important;
-  margin-top: 5px!important;
+  border-radius: 0 !important;
+  margin-top: 5px !important;
 }
 
 .otpValidateDiv {
-  margin: 0 auto!important;
+  margin: 0 auto !important;
   display: block!important;
 }
 
 .otpGenerateDiv {
   display: block;
   text-align: center!important;
-  margin: 15px!important;
-  padding: 0!important;
+  margin: 15px !important;
+  padding: 0 !important;
 }
 
 .otpGenerate {
@@ -281,7 +289,7 @@
   border: none !important;
   border-bottom: 1px solid #469ddb !important;
   font-size: 16px!important;
-  padding: 0!important;
+  padding: 0 !important;
   display: block;
-margin: 15px auto;
+  margin: 15px auto;
 }

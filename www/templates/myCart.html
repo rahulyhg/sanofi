@@ -1,4 +1,22 @@
 <ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
   <ion-content class="myCartCard">
     <div class="">
       <label class="myCartLabel" for="">Your Shopping Bag</label>
@@ -9,7 +27,7 @@
               <label class="myCartProName" for="">{{carts.name}}</label>
               <div> <label class="myCartQty" for="">Qty</label>
                 <select class="dropDown myCartDrop" ng-model="carts.quantity" ng-options="q for q in quantity" ng-change="updateqty(carts)">
-      </select>
+              </select>
               </div>
               <div><label class="myCartPoints" for="">Points: <span class="myCartPtsClr">{{carts.points}}</span></label></div>
               <div><label class="myCartTotPts" for="">Total Points: <span class="myCartPtsClr">{{carts.points*carts.quantity}}</span></label>

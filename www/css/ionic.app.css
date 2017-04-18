@@ -496,7 +496,7 @@ $dark:                            #444 !default;
   display: block !important;
   width: 95% !important;
   background: #282828 !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   opacity: 1 !important; }
 
 .myCartShpBtn {
@@ -504,14 +504,14 @@ $dark:                            #444 !default;
   display: block !important;
   width: 95% !important;
   background: #087ccf !important;
-  border-radius: 0px !important; }
+  border-radius: 0 !important; }
 
 .myCartProceedBtn {
   margin: 10px auto !important;
   display: block !important;
   width: 95% !important;
   background: #acb317 !important;
-  border-radius: 0px !important; }
+  border-radius: 0 !important; }
 
 .shippingCard {
   background: #ffffff !important;
@@ -521,15 +521,15 @@ $dark:                            #444 !default;
   width: 100%;
   font-size: 16px;
   color: #908f8f;
-  margin: 15px 0px !important;
+  margin: 15px 0 !important;
   display: block !important;
   text-align: center !important; }
 
 .shippingText {
   height: 45px !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   background: #e1e1e1 !important;
-  color: #959494;
+  color: #959494 !important;
   border: 1px solid #b7b7b7 !important; }
 
 .shippingPlaceHldr {
@@ -544,7 +544,7 @@ $dark:                            #444 !default;
 
 .shippingInputHeight {
   height: 40px !important;
-  border-radius: 0px !important; }
+  border-radius: 0 !important; }
 
 .shippingInputHeight input {
   width: 100%; }
@@ -604,13 +604,14 @@ $dark:                            #444 !default;
   vertical-align: middle;
   display: block; }
 
-.confirmOTP {
+.confirmOTP .popup .popup-buttons button {
   display: block;
   margin: 5px auto;
-  font-size: 18px;
+  font-size: 16px;
   color: #469ddb !important;
   background: transparent;
-  border: none; }
+  border: none;
+  color: blue; }
 
 .otpCard {
   padding: 20px !important; }
@@ -630,9 +631,9 @@ $dark:                            #444 !default;
   min-height: 35px !important;
   line-height: 35px !important;
   background: #acb317 !important;
-  padding: 0px 19px !important;
+  padding: 0 19px !important;
   width: auto;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   margin-top: 5px !important; }
 
 .otpValidateDiv {

@@ -1,4 +1,22 @@
 <ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
   <ion-item class="item-stable has-header fixed-tab filter-tab header-shadow" >
     <div class="content-div" ui-sref="app.reward({catalogueId:catlougeIdFilter,categoryId:categoryIdFilter})">
       <label for="">SELECT FILTERS</label>
