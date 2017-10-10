@@ -68,6 +68,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
+.state('app.performers', {
+      url: '/performers',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/performers.html',
+          controller: 'PerformersCtrl'
+        }
+      }
+    })
+
+    .state('app.feedback', {
+      url: '/feedback',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/feedback.html',
+          controller: 'FeedbackCtrl'
+        }
+      }
+    })
+
     .state('app.contact', {
       url: '/contact',
       views: {

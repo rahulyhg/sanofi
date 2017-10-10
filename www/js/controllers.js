@@ -34,10 +34,11 @@ angular.module('starter.controllers', ['ngCordova'])
       });
     };
   })
-  .controller('TotalPointCtrl', function($scope, $stateParams, MyServices) {
+  .controller('TotalPointCtrl', function($scope, $stateParams, MyServices, $state) {
     // $.jStorage.set('id',$stateParams.id);
     // var id ={id:$stateParams.id};
     var profile = $.jStorage.get('profile');
+   console.log("pendingshow",  profile.pending_feedbacks.length)
     var id = profile.id;
     $scope.profile = $.jStorage.get('profile');
     MyServices.profile(id, function(data) {
@@ -45,6 +46,14 @@ angular.module('starter.controllers', ['ngCordova'])
       $scope.getData = data;
 
     });
+    $scope.pendingFeedbacks= function(){
+      if (profile.pending_feedbacks.length == 0){
+        $state.go('home-menu')
+
+      }else{
+        $state.go('app.feedback')
+      }
+    }
   })
   .controller('FilterRewardCtrl', function($scope, $stateParams, MyServices) {
     $scope.profile = $.jStorage.get('profile');
@@ -146,6 +155,98 @@ angular.module('starter.controllers', ['ngCordova'])
     }
 
   })
+
+    .controller('PerformersCtrl', function($scope, $ionicSlideBoxDelegate, MyServices, $timeout) {
+      $scope.profile = $.jStorage.get('profile');
+
+
+
+
+    $scope.closePopup = function () {
+      $scope.show.close();
+    };
+    $scope.lockSlide = function () {
+      $ionicSlideBoxDelegate.enableSlide(false);
+    };
+    $scope.myActiveSlide = 0;
+
+    $scope.slidePrevious = function (text) {
+
+      $ionicSlideBoxDelegate.$getByHandle(text).previous();
+    };
+
+    $scope.slideNext = function (text) {
+
+      $ionicSlideBoxDelegate.$getByHandle(text).next();
+     
+    };
+
+$scope.slideHasChanged = function(index) {
+      $ionicSlideBoxDelegate.cssClass = 'fade-in'
+    $scope.slideIndex = index;
+    if ( ($ionicSlideBoxDelegate.count() -1 ) == index ) {
+        $timeout(function(){
+            $ionicSlideBoxDelegate.slide(0);
+
+        },$scope.interval);
+    }
+};
+$scope.interval = 2000;
+
+$scope.homeSlider = {};
+    $scope.homeSlider.data = [];
+    $scope.homeSlider.currentPage = 0;
+  $scope.setupSlider = function () {
+
+      //some options to pass to our slider
+      $scope.homeSlider.sliderOptions = {
+        initialSlide: 0,
+        direction: 'horizontal', //or vertical
+        speed: 300,
+        
+        autoplay:"5000",
+        effect: 'fade',
+        
+      };
+
+
+      //create delegate reference to link with slider
+      $scope.homeSlider.sliderDelegate = null;
+
+      //watch our sliderDelegate reference, and use it when it becomes available
+      $scope.$watch('homeSlider.sliderDelegate', function (newVal, oldVal) {
+        if (newVal != null) {
+          $scope.homeSlider.sliderDelegate.on('slideChangeEnd', function () {
+            $scope.homeSlider.currentPage = $scope.homeSlider.sliderDelegate.activeIndex;
+            //use $scope.$apply() to refresh any content external to the slider
+            $scope.$apply();
+          });
+        }
+      });
+    };
+
+    $scope.setupSlider();
+
+    
+
+  //detect when sliderDelegate has been defined, and attatch some event listeners
+  $scope.$watch('sliderDelegate', function(newVal, oldVal){
+    if(newVal != null){ 
+      $scope.sliderDelegate.on('slideChangeEnd', function(){
+        console.log('updated slide to ' + $scope.sliderDelegate.activeIndex);
+        $scope.$apply();
+      });
+    }
+  });
+
+    MyServices.TopPerformer({},function(data) {
+            console.log(data);
+            $scope.performer = data;
+            console.log("hello",$scope.performer.ff);
+            $ionicSlideBoxDelegate.update();
+          });
+  })
+
   .controller('TermsCtrl', function($scope) {
 
     $scope.profile = $.jStorage.get('profile');
@@ -678,6 +779,61 @@ angular.module('starter.controllers', ['ngCordova'])
   // var id ={id:$stateParams.id};
 
 
+})
+
+
+.controller('FeedbackCtrl', function($scope, $ionicSlideBoxDelegate, MyServices) {
+  var profile = $.jStorage.get('profile')
+  $scope.pendingfeedback ={}
+  $scope.pendingfeedback.id = profile.id;
+  $scope.pendingfeedback.orderid = profile.pending_feedbacks[0];
+  console.log("pendingobject", $scope.pendingfeedback)
+  MyServices.getpendingclaims($scope.pendingfeedback, function(data) {
+    console.log(data);
+    $scope.getpendingDetails = data;
+    
+  });
+ $scope.feedback = {
+    "orderid": "112,113",
+    "id": 12345,
+    "items": [
+        {
+            "orderid": 112,
+            "productId": 565,
+            "question": "How did you find the quality of the reward Iphone7s item delivered?",
+            "answer": null,
+            "comments": null
+        },
+        {
+            "orderid": 113,
+            "productId": 565,
+            "question": "How did you find the quality of the reward Samsung Galaxy J7 item delivered?",
+            "answer": null,
+            "comments": null
+        }
+ 
+    ],
+    "qa2": {
+        "question": "How many days did the redemption process take? (Time taken from the day you booked the reward item to the day the reward item was delivered)",
+        "answer": null
+    },
+    "qa3": {
+        "question": "How would you rate the overall Redemption Process?",
+        "answer": null
+    },
+    "qa4": {
+        "question": "How would you rate the overall Reward Program (i-Lead)?",
+        "answer": null
+    },
+    "status": "OK"
+}
+
+$scope.option={
+  "excellent": "Excellent",
+  "good": "Good",
+  "satisfactory": "satisfactory",
+  "unsatisfactory": "unsatisfactory"
+}
 })
 
 .controller('RewardCtrl', function($scope, $stateParams, MyServices, $state) {

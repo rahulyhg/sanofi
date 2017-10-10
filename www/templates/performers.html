@@ -1,0 +1,327 @@
+<ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
+
+  <ion-content class="performers-bgcolor">
+    <div class="performers-head">
+      TOP PERFORMERS
+    </div>
+    <div class="rel" ng-if="performer.am.length!=0">
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('am')"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('am')"></button>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="am" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="am" does-continue="true" >
+       
+        <ion-slide ng-repeat="am in performer.am">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{am.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{am.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{am.team}}</label>
+            <label class="empID" for="">{{(am.empcode)}}</label>
+            
+            <div class="emp-name">{{am.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div>
+    <div class="rel" >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('ff')"ng-if="performer.ff.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('ff')" ng-if="performer.ff.length!=0"></button>
+      <ion-slide-box options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate" on-slide-changed="slideHasChanged($index)" delegate-handle="ff" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="ff" does-continue="true"  
+        auto-play="true"
+        loop="true"
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)" >
+       
+        <ion-slide ng-repeat="ff in performer.ff" [options]="{pager:true}">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{ff.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{ff.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{ff.team}}</label>
+            <label class="empID" for="">{{(ff.empcode)}}</label>
+            
+            <div class="emp-name">{{ff.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div> 
+ <div class="rel" >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('otccse')" ng-if="performer.otccse.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('otccse')" ng-if="performer.otccse.length!=0"></button>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="otccse" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="otccse" does-continue="true" 
+        auto-play="true"
+        loop="true"
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)">
+       
+        <ion-slide ng-repeat="otccse in performer.otccse">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{otccse.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{otccse.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{otccse.team}}</label>
+            <label class="empID" for="">{{(otccse.empcode)}}</label>
+            
+            <div class="emp-name">{{otccse.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div>
+       <div class="rel" >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('otccsm')" ng-if="performer.otccsm.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('otccsm')" ng-if="performer.otccsm.length!=0"></button>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="otccsm" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="otccsm" does-continue="true" auto-play="true"
+        loop="true"
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)">
+       
+        <ion-slide ng-repeat="otccsm in performer.otccsm">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{otccsm.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{otccsm.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{otccsm.team}}</label>
+            <label class="empID" for="">{{(otccsm.empcode)}}</label>
+            
+            <div class="emp-name">{{otccsm.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div> 
+     <div class="rel"  >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('otcrbm')" ng-if="performer.otcrbm.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('otcrbm')" ng-if="performer.otcrbm.length!=0"></button>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="otcrbm" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="otcrbm"  does-continue="true"  
+        auto-play="true"
+        loop="true"
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)"
+         >
+       
+        <ion-slide ng-repeat="otcrbm in performer.otcrbm">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{otcrbm.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{otcrbm.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{otcrbm.team}}</label>
+            <label class="empID" for="">{{(otcrbm.empcode)}}</label>
+            
+            <div class="emp-name">{{otcrbm.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div>
+     <div class="rel" >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('rbm')" ng-if="performer.rbm.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('rbm')" ng-if="performer.rbm.length!=0"></button>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="rbm" class="pageslider hidepager" ng-init="fghfgh"
+        active-slide="rbm" does-continue="true" does-continue="true"  
+        auto-play="true"
+        loop="true"
+        slide-interval="{{interval}}"
+        show-pager="true"
+        pager-click="changeSlide(index)">
+       
+        <ion-slide ng-repeat="rbm in performer.rbm">
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">{{rbm.topPerformerIn}}</div>
+              <!--<div class="performer-bgimage">
+                <img src="img/bg.png" alt="">
+              </div>-->
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img ng-src="{{rbm.image}}" alt="">
+            </div>
+            <label class="field-label" for="">{{rbm.team}}</label>
+            <label class="empID" for="">{{(rbm.empcode)}}</label>
+            
+            <div class="emp-name">{{rbm.name}}</div>
+          </div>
+        </ion-slide>
+        <!--<ion-slide>
+          <div class="rel">
+            <div class="performer-bgimage">
+              <div class="performer-force">Field Force</div>
+            </div>
+            <div class="profile-image">
+              <img class="img-responsive  outerimg" src="img/mirror.png" alt="">
+
+            </div>
+            <div class="inner-image">
+              <img src="img/Layer 32.jpg" alt="">
+            </div>
+            <label class="field-label" for="">BIO SURGERY</label>
+            <label class="empID" for="">(EMP0072)</label>
+            <div class="emp-name">VINOD RAJ</div>
+          </div>
+        </ion-slide>-->
+      </ion-slide-box>
+    </div>
+  </ion-content>
+</ion-view>

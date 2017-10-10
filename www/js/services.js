@@ -208,6 +208,16 @@ angular.module('starter.services', [])
           }
         }).success(callback);
       },
+
+      getpendingclaims: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'form', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+
       kpis: function (formData, callback) {
         console.log(formData);
         $http.post(adminurl + 'kpis', formData, {
@@ -227,6 +237,13 @@ angular.module('starter.services', [])
       performance: function (formData, callback) {
         console.log(formData);
         $http.post(adminurl + 'performance', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+          TopPerformer: function ({}, callback) {
+        $http.post(adminurl + 'TopPerformer', {}, {
           headers: {
             'Content-Type': "application/json"
           }

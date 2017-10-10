@@ -1,0 +1,254 @@
+<ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
+  <ion-item class="item-stable has-header fixed-tab header-shadow">
+    <div class="content-div" ui-sref="app.reward-category">
+
+      <label for="">REWARD CATEGORIES</label>
+    </div>
+
+  </ion-item>
+  <ion-content class="">
+    <div class="card contact-card mar-30-10">
+      <div class="item item-text-wrap card-inside">
+
+
+        <div class="card-content">
+
+          <form class="" name="contact" ng-submit="contactus(contactForm)">
+            <div class="row pad-0" ng-repeat="pendingitems in getpendingDetails.items">
+              <div class=" ">
+                <div class="pnt-new text-center pad">
+                  <div class="text-left">
+                    <label for="" ng-model="pendingitems.question">{{pendingitems.question}}</label>
+
+                  </div>
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" style="margin-left:0px" ng-model="pendingitems.answer">
+                                  Excellent
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="pendingitems.answer">
+                                  Good
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="pendingitems.answer">
+                                  Satisfactory
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="pendingitems.answer">
+                                  Unsatisfactory
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="row pad-0">
+              <div class="">
+                <div class="pnt-new text-center pad">
+                  <div class="text-left">
+                    <label for=""> {{getpendingDetails.qa2.question}}</label>
+
+                  </div>
+
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" style="margin-left:0px" ng-model="getpendingDetails.qa2.answer">
+                                  Less than 1 week
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                                  Less than 15 days
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                                  3 weeks
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                                  One month
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+                  <label class="item item-icon-left text-left item-radio" style="border: none">
+                                <input type="radio" name="group">
+                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                                  Over one month
+                                </div>
+                                <i class="radio-icon ion-checkmark"></i>
+                              </label>
+
+
+                </div>
+              </div>
+
+            </div>
+            <div class="row pad-0">
+              <div class="">
+                <div class="pnt-new text-center pad">
+                  <div class="text-left">
+                    <label for="">{{getpendingDetails.qa3.question}}</label>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row pad-0">
+              <div class=" effect2 ">
+                <div class="pnt-new text-center pad">
+                  <div class="text-left">
+                    <label for="">{{getpendingDetails.qa4.question}}</label>
+
+                  </div>
+
+
+
+
+                  <div class="name">
+                    <p>{{data.name}}</p>
+                  </div>
+                  <div class="points">
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <button class="button button-stable send" type="submit">
+            Submit
+            </button>
+          </form>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>
+
+<!-- <ion-view class="bg-menu">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-nav-view name="menuContent">
+    <img src="img/Ilead_Logo.png" alt="" class="iclass">
+    <div class="nm-left">
+      <div class="pull-right">
+        <span class="color-grey">Welcome: {{profile.name}}</span>
+        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
+      </div>
+    </div>
+  </ion-nav-view>
+  <ion-item class="item-stable has-header fixed-tab header-shadow">
+    <div class="content-div" ui-sref="app.reward-category">
+
+      <label for="">REWARD CATEGORIES</label>
+    </div>
+
+  </ion-item>
+  <ion-content>
+    <div class="kpi-bdss feedbackformcolor">
+      <div class="">
+
+        <div class="acc ">
+
+          <ion-list class="">
+            <div class="">
+
+
+
+              
+            
+             
+              <div ng-if="getRewardData.length==0">No data Found</div>
+              
+             
+
+
+            </div>
+
+          </ion-list>
+
+        </div>
+
+      </div>
+      <div class="row pad-0 text-right">
+        <div class=" effect2 text-right">
+          <div class="text-right">
+            <div class="text-right">
+              <button class="button button-stable send text-right" type="submit">
+                      Submit
+                      </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="disclaim">
+      <p>*This gifts catalogue is only indicative and for demonstration purpose only. Final catalogue for redemption will be uploaded later.</p>
+    </div>
+
+  </ion-content>
+
+</ion-view> -->
