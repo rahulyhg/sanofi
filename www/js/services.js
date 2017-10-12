@@ -218,6 +218,15 @@ angular.module('starter.services', [])
         }).success(callback);
       },
 
+      getpendingresponse: function (formData, callback) {
+        console.log(formData);
+        $http.post(adminurl + 'feedback', formData, {
+          headers: {
+            'Content-Type': "application/json"
+          }
+        }).success(callback);
+      },
+
       kpis: function (formData, callback) {
         console.log(formData);
         $http.post(adminurl + 'kpis', formData, {

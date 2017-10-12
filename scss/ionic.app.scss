@@ -75,3 +75,119 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .mar-30-10{
     margin: 30px 10px!important
 }
+
+.width100{
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #afa6a6;
+    padding: 5px!important;
+}
+
+.pad-10{
+margin: 10px;
+}
+
+body {
+    cursor: url('https://ionicframework.com/img/finger.png'), auto;
+  }
+  
+  .ionic_ratings .icon {
+    font-size:50px;
+  }
+  
+  .ionic_ratings .read_only {
+    pointer-events:none;
+  }
+
+  .mar-10-auto{
+    margin: 10px auto!important
+}
+
+.radiobtn{
+    i{
+        padding: 5px 0px!important;
+        font-size: 15px!important;
+    }
+    
+}
+
+.radiolabel{
+  div{
+    padding: 5px 20px!important;
+    font-size: 15px!important;
+    font-weight: 600;
+  }
+  
+}
+
+.Qcolor{
+    color: #087ccf;
+    font-weight: 600;
+}
+
+.ionic_ratings .icon {
+    font-size: 30px!important;
+}
+
+.starLeft{
+    div{
+        text-align: left!important;
+    }
+   
+}
+
+.removedpopup {
+    h3 {
+      img {
+        max-width: 35px;
+        max-height: 35px;
+      }
+    }
+    .popup {
+      border-radius: 5px;
+    }
+    .popup-body {
+      background: white;
+      color: #223c4d;
+      text-align: center;
+      font-weight: 600;
+      padding-bottom: 30px;
+      font-size: 14px;
+      h4 {
+        margin: 0;
+        font-size: 20px;
+        color: #223c4d;
+        font-weight: 600;
+      }
+      label {
+        font-size: 12px;
+      }
+    }
+    .popup-head {
+      padding-top: 30px;
+      padding-bottom: 0;
+      border-bottom: none!important;
+      text-align: center;
+      background: white;
+      border-radius: 5px;
+    }
+    .popup-buttons {
+      padding: 0;
+      min-height: 40px;
+      background: white;
+      border: none;
+      button {
+        border: none;
+        min-height: 35px;
+      }
+    }
+  }
+
+  .error-msg {
+    margin: 10px;
+    color: red !important;
+  }
+
+  .pad-5{
+    padding: 5px!important;
+  }

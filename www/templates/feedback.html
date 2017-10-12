@@ -3,10 +3,10 @@
     <ion-nav-back-button>
     </ion-nav-back-button>
 
-    <ion-nav-buttons side="left">
+    <!-- <ion-nav-buttons side="left">
       <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
         </button>
-    </ion-nav-buttons>
+    </ion-nav-buttons> -->
   </ion-nav-bar>
   <ion-nav-view name="menuContent">
     <img src="img/Ilead_Logo.png" alt="" class="iclass">
@@ -20,7 +20,7 @@
   <ion-item class="item-stable has-header fixed-tab header-shadow">
     <div class="content-div" ui-sref="app.reward-category">
 
-      <label for="">REWARD CATEGORIES</label>
+      <label for="">FEEDBACK FORM</label>
     </div>
 
   </ion-item>
@@ -29,102 +29,105 @@
       <div class="item item-text-wrap card-inside">
 
 
-        <div class="card-content">
+        <div class="card-content" name="pendingFeedback">
 
-          <form class="" name="contact" ng-submit="contactus(contactForm)">
-            <div class="row pad-0" ng-repeat="pendingitems in getpendingDetails.items">
-              <div class=" ">
-                <div class="pnt-new text-center pad">
+            <div class="row pad-0 pad mar-10-auto" ng-repeat="pendingitems in getpendingDetails.items">
+              
+                <div class="pnt-new text-center pad-0">
                   <div class="text-left">
-                    <label for="" ng-model="pendingitems.question">{{pendingitems.question}}</label>
+                    <label for="" class="Qcolor" ng-model="pendingitems.question">{{pendingitems.question}}</label>
 
                   </div>
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" style="margin-left:0px" ng-model="pendingitems.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group{{$index}}" ng-click="sendReview($index,'Excellent','orderid')" >
+                                <div class=" " style="margin-left:0px" >
                                   Excellent
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark radiobtn"></i>
                               </label>
 
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="pendingitems.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group{{$index}}" ng-click="sendReview($index,'Good','orderid')">
+                                <div class=""  >
                                   Good
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon radiobtn ion-checkmark"></i>
                               </label>
 
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="pendingitems.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group{{$index}}" ng-click="sendReview($index,'Satisfactory','orderid')">
+                                <div   >
                                   Satisfactory
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon radiobtn ion-checkmark"></i>
                               </label>
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="pendingitems.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel"  style="border: none">
+                                <input type="radio" name="group{{$index}}"  ng-click="sendReview($index,'Unsatisfactory','orderid')"> 
+                                <div class="">
                                   Unsatisfactory
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon radiobtn ion-checkmark"></i>
                               </label>
+                              <div ng-if="answers.items[$index].answer=='Unsatisfactory'">
+                                <textarea ng-model='answers.items[$index].comments' class="width100" placeholder="Please write your feedback...."></textarea>
+                              </div>
+                              
                 </div>
-              </div>
+             
 
             </div>
 
 
-            <div class="row pad-0">
+            <div class="row pad-0 pad mar-10-auto">
               <div class="">
-                <div class="pnt-new text-center pad">
+                <div class="pnt-new text-center pad-0">
                   <div class="text-left">
-                    <label for=""> {{getpendingDetails.qa2.question}}</label>
+                    <label class="Qcolor" for=""> {{getpendingDetails.qa2.question}}</label>
 
                   </div>
 
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" style="margin-left:0px" ng-model="getpendingDetails.qa2.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel"  style="border: none">
+                                <input type="radio" name="group" ng-click="sendReview(2,'Less than 1 week','qa2')">
+                                <div class="" style="margin-left:0px" ng-model="getpendingDetails.qa2.answer" ng-click="sendReview(2,'Less than 1 week','qa2')">
                                   Less than 1 week
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark radiobtn"></i>
                               </label>
 
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group" ng-click="sendReview('2','Less than 15 days','qa2')">
+                                <div class="" ng-model="getpendingDetails.qa2.answer">
                                   Less than 15 days
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark radiobtn"></i>
                               </label>
 
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group" ng-click="sendReview(2,'3 weeks','qa2')">
+                                <div class="" ng-model="getpendingDetails.qa2.answer">
                                   3 weeks
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark radiobtn"></i>
                               </label>
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group" ng-click="sendReview(2,'One month','qa2')">
+                                <div class="" ng-model="getpendingDetails.qa2.answer">
                                   One month
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark radiobtn"></i>
                               </label>
 
-                  <label class="item item-icon-left text-left item-radio" style="border: none">
-                                <input type="radio" name="group">
-                                <div class="item-content" ng-model="getpendingDetails.qa2.answer">
+                  <label class="item item-icon-left text-left item-radio radiobtn radiolabel" style="border: none">
+                                <input type="radio" name="group" ng-click="sendReview(2,'Over one month','qa2')">
+                                <div class="" ng-model="getpendingDetails.qa2.answer">
                                   Over one month
                                 </div>
-                                <i class="radio-icon ion-checkmark"></i>
+                                <i class="radio-icon ion-checkmark "></i>
                               </label>
 
 
@@ -132,12 +135,14 @@
               </div>
 
             </div>
-            <div class="row pad-0">
+            <div class="row pad-0 pad mar-10-auto">
               <div class="">
-                <div class="pnt-new text-center pad">
-                  <div class="text-left">
-                    <label for="">{{getpendingDetails.qa3.question}}</label>
-
+                <div class="pnt-new text-center pad-0">
+                  <div class="text-left starLeft">
+                    <label class="Qcolor" for="">{{getpendingDetails.qa3.question}}</label>
+                    <div ng-repeat="i in [1]">
+                      <ionic-ratings ratingsobj='ratingsObject' index='$index' ng-click="sendReview(3,'rating','qa3')"></ionic-ratings>
+                    </div>
                   </div>
 
                 </div>
@@ -145,22 +150,14 @@
 
             </div>
 
-            <div class="row pad-0">
-              <div class=" effect2 ">
-                <div class="pnt-new text-center pad">
+            <div class="row pad-0 mar-10-auto pad">
+              <div class=>
+                <div class="pnt-new text-center pad-0">
                   <div class="text-left">
-                    <label for="">{{getpendingDetails.qa4.question}}</label>
-
-                  </div>
-
-
-
-
-                  <div class="name">
-                    <p>{{data.name}}</p>
-                  </div>
-                  <div class="points">
-
+                    <label class="Qcolor" for="">{{getpendingDetails.qa4.question}}</label>
+                    <div class="text-left starLeft"ng-repeat="i in [1]">
+                      <ionic-ratings class="star"  ratingsobj='ratingsObject1' index='$index'></ionic-ratings>
+                    </div>
                   </div>
 
                 </div>
@@ -168,87 +165,14 @@
 
             </div>
 
-            <button class="button button-stable send" type="submit">
+            <button class="button button-stable send" type="submit" ng-disabled="!answers.qa4.answer || !answers.qa3.answer || !answers.qa2.answer || !answers.items[0].answer  || (!answers.items[1].answer && !answers.item[1] && !answers.item[1]==null) " ng-click="checkFormStatus(answers)">
             Submit
             </button>
-          </form>
+          
         </div>
+      </div>
       </div>
   </ion-content>
 </ion-view>
 
-<!-- <ion-view class="bg-menu">
-  <ion-nav-bar class="bar-stable">
-    <ion-nav-back-button>
-    </ion-nav-back-button>
 
-    <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-navicon" ui-sref="home-menu">
-      </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
-  <ion-nav-view name="menuContent">
-    <img src="img/Ilead_Logo.png" alt="" class="iclass">
-    <div class="nm-left">
-      <div class="pull-right">
-        <span class="color-grey">Welcome: {{profile.name}}</span>
-        <span class="color-grey font-bold">Total Ponts: {{profile.points}}</span>
-      </div>
-    </div>
-  </ion-nav-view>
-  <ion-item class="item-stable has-header fixed-tab header-shadow">
-    <div class="content-div" ui-sref="app.reward-category">
-
-      <label for="">REWARD CATEGORIES</label>
-    </div>
-
-  </ion-item>
-  <ion-content>
-    <div class="kpi-bdss feedbackformcolor">
-      <div class="">
-
-        <div class="acc ">
-
-          <ion-list class="">
-            <div class="">
-
-
-
-              
-            
-             
-              <div ng-if="getRewardData.length==0">No data Found</div>
-              
-             
-
-
-            </div>
-
-          </ion-list>
-
-        </div>
-
-      </div>
-      <div class="row pad-0 text-right">
-        <div class=" effect2 text-right">
-          <div class="text-right">
-            <div class="text-right">
-              <button class="button button-stable send text-right" type="submit">
-                      Submit
-                      </button>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
-    <div class="disclaim">
-      <p>*This gifts catalogue is only indicative and for demonstration purpose only. Final catalogue for redemption will be uploaded later.</p>
-    </div>
-
-  </ion-content>
-
-</ion-view> -->

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', ['ngCordova','ionic', 'ionic-ratings'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, MyServices, $state) {
   // $scope.profile = $.jStorage.get('profile');
@@ -71,7 +71,15 @@ angular.module('starter.controllers', ['ngCordova'])
       $scope.getfliter = _.chunk(data, 2);
     });
   })
-  .controller('HomeMenuCtrl', function($scope, $state) {
+  .controller('HomeMenuCtrl', function($scope, $state, $ionicPlatform) {
+
+    $ionicPlatform.registerBackButtonAction(function (e) {
+      if ($state.current.name == 'home-menu') {
+        ionic.Platform.exitApp();
+      } else {
+        event.preventDefault();
+      }
+    }, 401);
     var profile = $.jStorage.get('profile');
     $scope.profile = $.jStorage.get('profile');
     $scope.getID = profile.id;
@@ -81,7 +89,6 @@ angular.module('starter.controllers', ['ngCordova'])
       $.jStorage.deleteKey('profile');
       $.jStorage.flush();
       $scope.designation = null;
-
       // if($.jStorage.get('profile')=== null){
       $state.go('login')
 
@@ -782,57 +789,208 @@ $scope.homeSlider = {};
 })
 
 
-.controller('FeedbackCtrl', function($scope, $ionicSlideBoxDelegate, MyServices) {
-  var profile = $.jStorage.get('profile')
-  $scope.pendingfeedback ={}
-  $scope.pendingfeedback.id = profile.id;
-  $scope.pendingfeedback.orderid = profile.pending_feedbacks[0];
+.controller('FeedbackCtrl', function($scope, $ionicSlideBoxDelegate, MyServices, $ionicPopup, $state) {
+  $scope.myTitle = 'IONIC RATINGS DEMO';
+  // $scope.profile.pending_feedbacks = ['2567'];
+    $scope.ratingsObject = {
+      iconOn: 'ion-ios-star', //Optional
+      iconOff: 'ion-ios-star-outline', //Optional
+      iconOnColor: 'rgb(000, 000, 000)', //Optional
+      iconOffColor: 'rgb(000, 000, 000)', //Optional
+      rating: 0, //Optional
+      minRating: 0, //Optional
+      readOnly: false, //Optional
+      callback: function(rating, index) { //Mandatory    
+        $scope.ratingsCallback(rating, index);
+       
+      }
+      
+    };
+    $scope.ratingsCallback = function(rating, index) {
+      console.log('Selected rating is : ', rating, ' and index is ', index);
+      $scope.answers.qa3.answer = rating
+      console.log("hello0", $scope.answers)
+    };
+
+    $scope.ratingsObject1 = {
+      iconOn: 'ion-ios-star', //Optional
+      iconOff: 'ion-ios-star-outline', //Optional
+      iconOnColor: 'rgb(000, 000, 000)', //Optional
+      iconOffColor: 'rgb(000, 000, 000)', //Optional
+      rating: 0, //Optional
+      minRating: 0, //Optional
+      readOnly: false, //Optional
+      callback: function(rating, index) { //Mandatory    
+        $scope.ratingsCallback1(rating, index);
+       
+      }
+      
+    };
+  
+    $scope.ratingsCallback1 = function(rating, index) {
+      console.log('Selected rating is : ', rating, ' and index is ', index);
+      $scope.answers.qa4.answer = rating
+      console.log("hello1", $scope.answers)
+    };
+  
+  
+  $scope.profile = $.jStorage.get('profile')
+  //  $scope.profile.pending_feedbacks = ['2168'];
+  console.log('fedup',$scope.profile)
+  $scope.pendingfeedback = {}
+  $scope.pendingfeedback.id = $scope.profile.id;
+  $scope.pendingfeedback.orderid = $scope.profile.pending_feedbacks[0];
   console.log("pendingobject", $scope.pendingfeedback)
   MyServices.getpendingclaims($scope.pendingfeedback, function(data) {
     console.log(data);
     $scope.getpendingDetails = data;
-    
+    $scope.answers = data;
   });
- $scope.feedback = {
-    "orderid": "112,113",
-    "id": 12345,
-    "items": [
-        {
-            "orderid": 112,
-            "productId": 565,
-            "question": "How did you find the quality of the reward Iphone7s item delivered?",
-            "answer": null,
-            "comments": null
-        },
-        {
-            "orderid": 113,
-            "productId": 565,
-            "question": "How did you find the quality of the reward Samsung Galaxy J7 item delivered?",
-            "answer": null,
-            "comments": null
-        }
- 
-    ],
-    "qa2": {
-        "question": "How many days did the redemption process take? (Time taken from the day you booked the reward item to the day the reward item was delivered)",
-        "answer": null
-    },
-    "qa3": {
-        "question": "How would you rate the overall Redemption Process?",
-        "answer": null
-    },
-    "qa4": {
-        "question": "How would you rate the overall Reward Program (i-Lead)?",
-        "answer": null
-    },
-    "status": "OK"
-}
 
-$scope.option={
-  "excellent": "Excellent",
-  "good": "Good",
-  "satisfactory": "satisfactory",
-  "unsatisfactory": "unsatisfactory"
+  $scope.textare=function(){
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+  }
+//  $scope.feedback = {
+//     "orderid": "112,113",
+//     "id": 12345,
+//     "items": [
+//         {
+//             "orderid": 112,
+//             "productId": 565,
+//             "question": "How did you find the quality of the reward Iphone7s item delivered?",
+//             "answer": null,
+//             "comments": null
+//         },
+//         {
+//             "orderid": 113,
+//             "productId": 565,
+//             "question": "How did you find the quality of the reward Samsung Galaxy J7 item delivered?",
+//             "answer": null,
+//             "comments": null
+//         }
+ 
+//     ],
+//     "qa2": {
+//         "question": "How many days did the redemption process take? (Time taken from the day you booked the reward item to the day the reward item was delivered)",
+//         "answer": null
+//     },
+//     "qa3": {
+//         "question": "How would you rate the overall Redemption Process?",
+//         "answer": null
+//     },
+//     "qa4": {
+//         "question": "How would you rate the overall Reward Program (i-Lead)?",
+//         "answer": null
+//     },
+//     "status": "OK"
+// }
+
+// $scope.option={
+//   "excellent": "Excellent",
+//   "good": "Good",
+//   "satisfactory": "satisfactory",
+//   "unsatisfactory": "unsatisfactory"
+// }
+
+
+$scope.sendReview= function(index,answer,type) {
+  console.log("sendreview",answer)
+  console.log("sendreview",type)
+if(type=='orderid'){
+  $scope.answers.items[index].answer = answer
+}else if(type=='qa2'){
+  $scope.answers.qa2.answer = answer
+}else{
+  console.log('error')
+}
+  
+$scope.checkFormStatus= function(formobject){
+  // console.log("helloanswer",formobject)
+  var checkMe=false;
+  for(i=0;i<formobject.items.length;i++){
+    console.log("helloanswer",formobject.items[i])
+  if(formobject.items[i].answer == 'Unsatisfactory'  && formobject.items[i].comments == null  ){
+    checkMe=false
+  }else{
+    checkMe=true
+}
+  }
+  if(checkMe==true){
+    MyServices.getpendingresponse(formobject, function(data) {
+      console.log("unsatisfactory",formobject)
+      if(data.status=='OK'){
+        $scope.pendingfeedbackpop = data;
+        // $.jStorage.get('profile').pending_feedbacks= null
+        // console.log("kemcho",$.jStorage.get('profile'))
+        // var userProfiw
+        // $.jStorage.set('profile').pending_feedbacks = [];
+        // console.log("kemcho",$.jStorage.get('profile'))
+        $scope.profile.pending_feedbacks = $scope.pendingfeedbackpop.pending_feedbacks;
+        $.jStorage.set('profile', $scope.profile);
+        // $.jStorage.set('profile').pending_feedbacks.push($scope.pendingfeedbackpop.pending_feedbacks);
+        console.log('showme',$scope.profile)
+        if (data.pending_feedbacks.length!=0){
+        var alertPopup = $ionicPopup.alert({
+          
+          cssClass: 'removedpopup',
+          title: 'You have successfully sent your feedback.',
+      
+        });
+      
+        alertPopup.then(function (res) {
+          console.log("notworking")
+            window.location.reload(); 
+            
+        });
+      }else{
+        var alertPopup = $ionicPopup.alert({
+          
+          cssClass: 'removedpopup',
+          title: 'You have successfully sent your feedback.',
+      
+        });
+        alertPopup.then(function (res) {
+          console.log("notworking")
+            $state.go('home-menu')
+            
+        });
+      }
+      }else{
+        var alertPopup = $ionicPopup.alert({
+          
+          cssClass: 'removedpopup',
+          title: 'Sorry, internal error occurred. Please try again after sometime.',
+      
+        });
+      
+        alertPopup.then(function (res) {
+          
+          window.location.reload();
+        });
+      }
+      console.log('showme',$scope.profile)
+      console.log(data);
+      // $scope.getpendingDetails = data;
+      // $scope.answers = data;
+    });
+  }
+  else{
+    var alertPopup = $ionicPopup.alert({
+      cssClass: 'removedpopup',
+      title: 'Please Enter The Feedback',
+    });
+  
+    alertPopup.then(function (res) {
+      console.log("notworking")
+    });
+  }
+}
+  console.log("response", $scope.answers)
 }
 })
 

@@ -22,11 +22,16 @@
     <div class="performers-head">
       TOP PERFORMERS
     </div>
-    <div class="rel" ng-if="performer.am.length!=0">
-      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('am')"></button>
-      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('am')"></button>
+    <div class="rel" >
+      <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('am')" ng-if="performer.am.length!=0"></button>
+      <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('am')" ng-if="performer.am.length!=0"></button>
       <ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="am" class="pageslider hidepager" ng-init="fghfgh"
-        active-slide="am" does-continue="true" >
+      active-slide="am" does-continue="true" 
+      auto-play="true"
+      loop="true"
+      slide-interval="{{interval}}"
+      show-pager="true"
+      pager-click="changeSlide(index)" >
        
         <ion-slide ng-repeat="am in performer.am">
           <div class="rel">
@@ -71,15 +76,15 @@
     <div class="rel" >
       <button class="button button-icon icon ion-ios-arrow-left arrowbtn left-arrow" ng-click="slidePrevious('ff')"ng-if="performer.ff.length!=0"></button>
       <button class="button button-icon icon ion-ios-arrow-right rightarr right-arrow" ng-click="slideNext('ff')" ng-if="performer.ff.length!=0"></button>
-      <ion-slide-box options="homeSlider.sliderOptions" slider="homeSlider.sliderDelegate" on-slide-changed="slideHasChanged($index)" delegate-handle="ff" class="pageslider hidepager" ng-init="fghfgh"
-        active-slide="ff" does-continue="true"  
-        auto-play="true"
-        loop="true"
-        slide-interval="{{interval}}"
-        show-pager="true"
-        pager-click="changeSlide(index)" >
+      <ion-slide-box  on-slide-changed="slideHasChanged($index)" delegate-handle="ff" class="pageslider hidepager" ng-init="fghfgh"
+      active-slide="ff" does-continue="true" 
+      auto-play="true"
+      loop="true"
+      slide-interval="{{interval}}"
+      show-pager="true"
+      pager-click="changeSlide(index)" >
        
-        <ion-slide ng-repeat="ff in performer.ff" [options]="{pager:true}">
+        <ion-slide ng-repeat="ff in performer.ff" >
           <div class="rel">
             <div class="performer-bgimage">
               <div class="performer-force">{{ff.topPerformerIn}}</div>
